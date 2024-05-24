@@ -95,7 +95,7 @@ const Banner = () => {
               Contact Information
             </p>
 
-            <p className=" text-lg pt-1 text-center mt-3">
+            <p className=" text-lg pt-1 text-center mt-3 break-words">
               <span className="font-bold">Connect on LinkedIn - </span>{" "}
               <a
                 href="https://www.linkedin.com/in/pritam-bag-6008b6282"

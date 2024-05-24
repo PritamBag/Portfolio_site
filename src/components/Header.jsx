@@ -115,7 +115,7 @@ const Header = () => {
             <p className="text-2xl mb-4 font-bold text-center text-slate-700">
               Contact Information
             </p>
-            <p className=" text-lg pt-1">
+            <p className=" text-lg pt-1 break-words">
               <span className="font-bold">Connect on LinkedIn - </span>{" "}
               <a
                 href="https://www.linkedin.com/in/pritam-bag-6008b6282"
@@ -151,7 +151,7 @@ const Header = () => {
               to create something amazing. Contact me to discuss how I can
               contribute to your team.
             </p>
-            <p className=" text-lg pt-1 text-center mt-3">
+            <p className=" text-lg pt-1 text-center mt-3 break-words">
               <span className="font-bold">Connect on LinkedIn - </span>{" "}
               <a
                 href="https://www.linkedin.com/in/pritam-bag-6008b6282"

@@ -9,7 +9,7 @@ const About = () => {
     desc2: `My curiosity for emerging technologies and industry trends keeps me motivated to evolve continually. With each project, I seek to push boundaries, embrace challenges, and deliver innovative solutions. As a software designer and developer, I am committed to leveraging my skills and knowledge to contribute meaningfully to the ever-evolving tech landscape. My goal is to create impactful software solutions that address real-world challenges and leave a lasting positive impact on users and communities.`,
     actionButton: {
       title: "Read More..",
-      link: "/readmore",
+      link: "#about",
     },
   });
 

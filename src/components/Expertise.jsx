@@ -72,12 +72,17 @@ const Expertise = () => {
       {/* Hire Me Modal */}
       {isHireModalOpen && (
         <div className="fixed top-0 left-0 right-0 bottom-0 flex justify-center items-center bg-black bg-opacity-50">
-          <div className="bg-gray-100 px-5 py-6 rounded-lg w-2/3 md:w-auto ">
+          <div className="bg-gray-100 px-5 py-6 rounded-lg w-2/3 md:w-2/3">
             <p className="text-2xl mb-4 font-bold text-center text-slate-700">
-              Contact Information
+              Hire Me
             </p>
-
-            <p className=" text-lg pt-1 text-center mt-3">
+            <p className="px-5 text-lg text-center">
+              I'm excited to bring my skills and passion for software
+              development to new and challenging projects. Let's work together
+              to create something amazing. Contact me to discuss how I can
+              contribute to your team.
+            </p>
+            <p className=" text-lg pt-1 text-center mt-3 break-words">
               <span className="font-bold">Connect on LinkedIn - </span>{" "}
               <a
                 href="https://www.linkedin.com/in/pritam-bag-6008b6282"
