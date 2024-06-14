@@ -118,12 +118,12 @@ const Header = () => {
             <p className=" text-lg pt-1 break-words">
               <span className="font-bold">Connect on LinkedIn - </span>{" "}
               <a
-                href="https://www.linkedin.com/in/pritam-bag-6008b6282"
+                href="https://www.linkedin.com/in/pritam-bag"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="hover:underline hover:text-purple-700"
               >
-                https://www.linkedin.com/in/pritam-bag-6008b6282
+                https://www.linkedin.com/in/pritam-bag
               </a>
             </p>
             <div className="flex justify-center">
@@ -154,12 +154,12 @@ const Header = () => {
             <p className=" text-lg pt-1 text-center mt-3 break-words">
               <span className="font-bold">Connect on LinkedIn - </span>{" "}
               <a
-                href="https://www.linkedin.com/in/pritam-bag-6008b6282"
+                href="https://www.linkedin.com/in/pritam-bag"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="hover:underline hover:text-purple-700"
               >
-                https://www.linkedin.com/in/pritam-bag-6008b6282
+                https://www.linkedin.com/in/pritam-bag
               </a>
             </p>
             <div className="flex justify-center">
