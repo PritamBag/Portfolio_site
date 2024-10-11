@@ -37,7 +37,7 @@ const Banner = () => {
         backgroundImage: `url(${bannerBackground})`,
         backgroundSize: "cover",
       }}
-      className="main-container flex flex-col md:flex-row items-center py-10 px-4 md:px-16"
+      className="main-container flex flex-col md:flex-row items-center py-10 md:py-20 px-4 md:px-16"
     >
       <div className="w-full md:w-1/2 flex flex-col justify-center text-white mb-8 md:mb-0">
         <div className="space-y-4 md:space-y-5">
@@ -47,7 +47,7 @@ const Banner = () => {
             I am a <span className="underline" ref={el}></span>
           </h2>
           <p className="text-sm md:text-base ">
-            As a seasoned software developer, I'm adept in various programming
+            As a seasoned software developer, I&apos;m adept in various programming
             languages and methodologies. Demonstrating strong problem-solving
             abilities, I excel as a collaborative team player. Committed to
             continuous learning, I strive to stay abreast of industry trends and

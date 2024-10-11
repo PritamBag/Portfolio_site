@@ -4,17 +4,17 @@ import projectImage3 from '../assets/PIC-background.png';
 import projectImage4 from "../assets/Queriverse-Logo.png";
 import { useState } from 'react';
 const Projects = () => {
-    const [data, setData] = useState([
-        {
-            id:"",
-            title:"",
-            description:"",
-            actionButton:{
-                title:"",
-                link:"",
-            },
-        },
-    ]);
+    // const [data, setData] = useState([
+    //     {
+    //         id:"",
+    //         title:"",
+    //         description:"",
+    //         actionButton:{
+    //             title:"",
+    //             link:"",
+    //         },
+    //     },
+    // ]);
 
     const [isDownloadModalOpen, setIsDownloadModalOpen] = useState(false);
 
@@ -44,7 +44,7 @@ const Projects = () => {
     return (
       <div className="main-container py-10" id="projects">
         <h1 className="text-3xl pb-5  underline text-center font-bold">
-          My Projects
+          Projects
         </h1>
         <div className="projects-container flex flex-col md:flex-row mt-12 space-y-5 md:space-y-0 md:space-x-5 px-10">
           <div

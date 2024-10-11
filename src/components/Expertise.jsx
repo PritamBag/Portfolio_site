@@ -9,10 +9,7 @@ const Expertise = () => {
   };
 
   return (
-    <div className="main-container py-10" id="skill">
-      <h1 className="text-3xl pb-5 underline text-center font-bold">
-        My Expertise
-      </h1>
+    <div className="main-container py-10 md:py-20" id="skill">
       {/* Box section */}
       <div
         style={{
@@ -26,7 +23,7 @@ const Expertise = () => {
           <div className="w-full md:w-2/3 text-center md:text-left space-y-3">
             <h1 className="text-2xl font-bold">I love these technologies</h1>
             <p>
-              Driven by a passion for innovation and problem-solving, I'm drawn
+              Driven by a passion for innovation and problem-solving, I&apos;m drawn
               to the boundless possibilities of technology, fueling my
               creativity and drive for excellence.
             </p>
@@ -50,6 +47,7 @@ const Expertise = () => {
               "Tailwind CSS",
               "JavaScript",
               "ReactJs",
+              "Wrappid",
               "NodeJs",
               "Android",
               "MySQL",
@@ -77,8 +75,8 @@ const Expertise = () => {
               Hire Me
             </p>
             <p className="px-5 text-lg text-center">
-              I'm excited to bring my skills and passion for software
-              development to new and challenging projects. Let's work together
+              I&apos;m excited to bring my skills and passion for software
+              development to new and challenging projects. Let&apos;s work together
               to create something amazing. Contact me to discuss how I can
               contribute to your team.
             </p>

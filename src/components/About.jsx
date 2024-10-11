@@ -2,11 +2,12 @@ import { useState } from "react";
 import bannerImage from "../assets/PIC-3.png";
 
 const About = () => {
+  // eslint-disable-next-line no-unused-vars
   const [data, setData] = useState({
     image: bannerImage,
     title: "Software Designer & Developer",
-    desc1: `As a Mathematics graduate and pursuing MCA, my journey into software development began with a passion for problem-solving. Starting with foundational languages like HTML, CSS, and JS, I've expanded my expertise across diverse technologies. Despite this journey, my hunger for learning remains insatiable. I'm driven by a relentless dedication to crafting high-quality software solutions. `,
-    desc2: `My curiosity for emerging technologies and industry trends keeps me motivated to evolve continually. With each project, I seek to push boundaries, embrace challenges, and deliver innovative solutions. As a software designer and developer, I am committed to leveraging my skills and knowledge to contribute meaningfully to the ever-evolving tech landscape. My goal is to create impactful software solutions that address real-world challenges and leave a lasting positive impact on users and communities.`,
+    desc1: `As a Mathematics graduate and having completed my MCA, my journey into software development has been fueled by a deep passion for problem-solving and continuous learning. Starting with foundational technologies like HTML, CSS, and JavaScript, I have since expanded my expertise into frameworks and tools such as React, content management system like WordPress, Java, and Android development. This journey has instilled in me a relentless drive to deliver high-quality, scalable software solutions while embracing new challenges along the way.`,
+    desc2: `My curiosity for emerging technologies, such as open-source frameworks like Wrappid, motivates me to evolve continually. With each project, I strive to push the boundaries of what’s possible, deliver innovative solutions, and enhance user experiences. As a software designer and developer, I aim to leverage my growing skill set to make meaningful contributions to the tech industry. My ultimate goal is to create impactful software that solves real-world problems and leaves a positive, lasting impact on users and communities.`,
     actionButton: {
       title: "Read More..",
       link: "#about",
@@ -14,7 +15,7 @@ const About = () => {
   });
 
   return (
-    <div className="main-container py-10 bg-gray-100" id="about">
+    <div className="main-container py-10 md:py-20 bg-gray-100" id="about">
       <h1 className="text-3xl pb-5 underline text-center font-bold">
         About Me
       </h1>

@@ -21,9 +21,10 @@ const Header = () => {
   const menuLinks = [
     { title: "Home", link: "#home", id: 1 },
     { title: "About", link: "#about", id: 2 },
-    { title: "Projects", link: "#projects", id: 3 },
-    { title: "Skill", link: "#skill", id: 4 },
-    { title: "Contact", onClick: toggleContactModal, id: 5 },
+    { title: "Experience", link: "#experience", id: 3 },
+    { title: "Skill", link: "#skill", id: 5 },
+    { title: "Projects", link: "#projects", id: 4 },
+    { title: "Contact", onClick: toggleContactModal, id: 6 },
   ];
 
   const hireButton = {
@@ -146,8 +147,8 @@ const Header = () => {
               Hire Me
             </p>
             <p className="px-5 text-lg text-center">
-              I'm excited to bring my skills and passion for software
-              development to new and challenging projects. Let's work together
+              I&apos;m excited to bring my skills and passion for software
+              development to new and challenging projects. Let&apos;s work together
               to create something amazing. Contact me to discuss how I can
               contribute to your team.
             </p>
