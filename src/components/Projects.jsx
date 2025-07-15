@@ -1,6 +1,6 @@
 import projectImage1 from '../assets/TriviaNuts Logo.png';
-import projectImage2 from '../assets/Logo1.png';
-import projectImage3 from '../assets/PIC-background.png';
+import projectImage2 from '../assets/poqolo.png';
+import projectImage3 from '../assets/nomad-journey.png';
 import projectImage4 from "../assets/Queriverse-Logo.png";
 import { useState } from 'react';
 const Projects = () => {
@@ -50,7 +50,7 @@ const Projects = () => {
           <div
             className="project1 hover:bg-gray-300 shadow-lg rounded-xl space-y-3 bg-slate-100 p-5 flex flex-col items-center justify-center  text-center"
             onClick={() =>
-              window.open("https://trivianuts.bytelure.in", "_blank")
+              window.open("https://github.com/saikatdutta713/TriviaNuts", "_blank")
             }
             style={{ cursor: "pointer" }}
           >
@@ -95,20 +95,16 @@ const Projects = () => {
 
           <div
             className="project2 hover:bg-gray-300 shadow-lg rounded-xl space-y-3 bg-slate-100 p-5 flex flex-col items-center justify-center text-center"
-            onClick={() => window.open("https://bytelure.in", "_blank")}
+            onClick={() => window.open("https://poqolo.com", "_blank")}
             style={{ cursor: "pointer" }}
           >
             <img
               className=" rounded-full shadow-lg w-32 h-32 border border-slate-400"
               src={projectImage2}
             ></img>
-            <h1 className="text-2xl">Bytelure - Blogging Website</h1>
+            <h1 className="text-2xl">Poqolo - Ecom Website</h1>
             <p>
-              ByteLure is a website for tech blogs developed using WordPress.
-              Showcased content creation, and community engagement skills.
-              Produced impactful technical content and optimized SEO.
-              Demonstrates a passion for tech trends and effective
-              communication.
+              Poqolo is an eCommerce website built with WordPress, featuring responsive design, custom themes, and plugin integration. It enables smooth product browsing, secure checkout, and showcases strong skills in web development and user-centered design.
             </p>
             <button className="px-3 py-1 bg-orange-500 text-md rounded-full shadow-lg cursor-pointer text-white">
               Check
@@ -117,21 +113,16 @@ const Projects = () => {
 
           <div
             className="project3 hover:bg-gray-300 shadow-lg rounded-xl space-y-3 bg-slate-100 p-5 flex flex-col items-center justify-center  text-center"
-            onClick={() => {
-              window.location.href = "#";
-            }}
+            onClick={() => window.open("https://nomadjourney.in", "_blank")}
             style={{ cursor: "pointer" }}
           >
             <img
               className=" rounded-full shadow-lg w-32 h-32 border border-slate-400"
               src={projectImage3}
             ></img>
-            <h1 className="text-2xl">Portfolio Website</h1>
+            <h1 className="text-2xl">Nomad Journey - Blog</h1>
             <p>
-              My portfolio website, built with ReactJS, showcases my skills and
-              projects. Also, where I talked about myself, it highlights my
-              front-end development and design expertise, featuring interactive
-              elements and a responsive layout to engage visitors.
+              Nomad Journey is a collaborative blog built to explore culture, ideas, and design. It highlights our storytelling and creative approach, featuring original content, thoughtful layout, and a responsive design to connect with curious, modern readers.
             </p>
             <button className="px-3 py-1 bg-orange-500 text-md rounded-full shadow-lg text-white">
               Check

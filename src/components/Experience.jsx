@@ -21,7 +21,7 @@ const Experience = () => {
             src={projectImage1}
             alt="Rxefy Tech Logo"
           />
-          <h1 className="text-2xl">Software Developer Engineer (Intern)</h1>
+          <h1 className="text-2xl">Software Developer Engineer</h1>
           <p>
             Since July 2024, I’ve been part of the Rxefy team, actively contributing to a wide range of development projects focused on designing, building, and refining user-centric platforms. I work closely with cross-functional teams to deliver innovative features and enhance the overall user experience.
           </p>

@@ -41,10 +41,12 @@ const Expertise = () => {
             {[
               "Java",
               "Python",
+              "Laravel",
               "HTML",
               "CSS",
               "SCSS",
               "Tailwind CSS",
+              "Bootstrap",
               "JavaScript",
               "ReactJs",
               "Wrappid",
@@ -53,7 +55,9 @@ const Expertise = () => {
               "MySQL",
               "MongoDB",
               "Git",
+              "cPanel",
               "Wordpress",
+              "Shopify",
               "SEO",
             ].map((skill) => (
               <p
