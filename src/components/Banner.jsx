@@ -55,7 +55,7 @@ const Banner = () => {
           </p>
           <div className="icons-container flex space-x-4 pt-2 pb-3">
             <a
-              href="https://www.linkedin.com/in/pritam-bag-6008b6282"
+              href="https://www.linkedin.com/in/pritam-bag/"
               target="_blank"
               rel="noopener noreferrer"
               className="cursor-pointer border hover:bg-orange-500 w-9 h-9 rounded-full flex justify-center items-center bg-gray-800"
