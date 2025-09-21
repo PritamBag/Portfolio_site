@@ -30,7 +30,7 @@ const Expertise = () => {
     // Try to get reCAPTCHA token with multiple attempts
     if (window.grecaptcha && window.grecaptcha.execute) {
       try {
-        token = await window.grecaptcha.execute("6LfCOtArAAAAAKXCqJBOVGM9DjCmrl89hthCgFqa", {
+        token = await window.grecaptcha.execute("6Lf6ZNArAAAAALH2x5eIgW2RtN0omdVrt9X5vNxG", {
           action: 'hire_me_form'
         });
       } catch (recaptchaError) {
@@ -42,7 +42,7 @@ const Expertise = () => {
     if (!token && window.grecaptcha && window.grecaptcha.execute) {
       await new Promise(resolve => setTimeout(resolve, 1000));
       try {
-        token = await window.grecaptcha.execute("6LfCOtArAAAAAKXCqJBOVGM9DjCmrl89hthCgFqa", {
+        token = await window.grecaptcha.execute("6Lf6ZNArAAAAALH2x5eIgW2RtN0omdVrt9X5vNxG", {
           action: 'hire_me_form'
         });
       } catch (retryError) {
