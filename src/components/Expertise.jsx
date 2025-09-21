@@ -1,11 +1,72 @@
 import { useState } from "react";
 import bannerBackground from "../assets/banner_wallpaper.svg";
+import { HireMeModal } from "./Header"; // Adjust the import path as needed
 
 const Expertise = () => {
   const [isHireModalOpen, setIsHireModalOpen] = useState(false);
 
   const toggleHireModal = () => {
     setIsHireModalOpen(!isHireModalOpen);
+  };
+
+  const handleFormSubmit = async (formData) => {
+    // This function will be passed to the HireMeModal component
+    // You can reuse the same logic from your Header component
+    // or create a separate utility function for form submission
+    
+    let token = '';
+    
+    // Wait a bit more for reCAPTCHA to be ready
+    if (window.grecaptcha) {
+      await new Promise(resolve => {
+        if (window.grecaptcha.ready) {
+          window.grecaptcha.ready(() => resolve());
+        } else {
+          setTimeout(() => resolve(), 1000);
+        }
+      });
+    }
+
+    // Try to get reCAPTCHA token with multiple attempts
+    if (window.grecaptcha && window.grecaptcha.execute) {
+      try {
+        token = await window.grecaptcha.execute("6LfCOtArAAAAAKXCqJBOVGM9DjCmrl89hthCgFqa", {
+          action: 'hire_me_form'
+        });
+      } catch (recaptchaError) {
+        console.error('reCAPTCHA execution error:', recaptchaError);
+      }
+    }
+
+    // If we still don't have a token, try one more time after a delay
+    if (!token && window.grecaptcha && window.grecaptcha.execute) {
+      await new Promise(resolve => setTimeout(resolve, 1000));
+      try {
+        token = await window.grecaptcha.execute("6LfCOtArAAAAAKXCqJBOVGM9DjCmrl89hthCgFqa", {
+          action: 'hire_me_form'
+        });
+      } catch (retryError) {
+        console.error('reCAPTCHA retry error:', retryError);
+      }
+    }
+
+    if (!token) {
+      throw new Error('Unable to get reCAPTCHA token');
+    }
+
+    // Submit the form using fetch API
+    const formDataToSend = new FormData();
+    formDataToSend.append('name', formData.name);
+    formDataToSend.append('email', formData.email);
+    formDataToSend.append('message', formData.message);
+    formDataToSend.append('g-recaptcha-response', token);
+
+    // Submit the form
+    await fetch('https://script.google.com/macros/s/AKfycbxv6hS86om73k3Jd8Fp2HqOZQqCsP7IDJpqB7MEk8yS3AVUcAZG2555UI3f7x2u4E0b/exec', {
+      method: 'POST',
+      body: formDataToSend,
+      mode: 'no-cors'
+    });
   };
 
   return (
@@ -71,41 +132,12 @@ const Expertise = () => {
         </div>
       </div>
 
-      {/* Hire Me Modal */}
-      {isHireModalOpen && (
-        <div className="fixed top-0 left-0 right-0 bottom-0 flex justify-center items-center bg-black bg-opacity-50">
-          <div className="bg-gray-100 px-5 py-6 rounded-lg w-2/3 md:w-2/3">
-            <p className="text-2xl mb-4 font-bold text-center text-slate-700">
-              Hire Me
-            </p>
-            <p className="px-5 text-lg text-center">
-              I&apos;m excited to bring my skills and passion for software
-              development to new and challenging projects. Let&apos;s work together
-              to create something amazing. Contact me to discuss how I can
-              contribute to your team.
-            </p>
-            <p className=" text-lg pt-1 text-center mt-3 break-words">
-              <span className="font-bold">Connect on LinkedIn - </span>{" "}
-              <a
-                href="https://www.linkedin.com/in/pritam-bag"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="hover:underline hover:text-purple-700"
-              >
-                https://www.linkedin.com/in/pritam-bag
-              </a>
-            </p>
-            <div className="flex justify-center">
-              <button
-                onClick={toggleHireModal}
-                className="px-4 py-2 bg-orange-500 text-white rounded-full mt-6 "
-              >
-                Close
-              </button>
-            </div>
-          </div>
-        </div>
-      )}
+      {/* Use the HireMeModal component */}
+      <HireMeModal 
+        isOpen={isHireModalOpen} 
+        onClose={toggleHireModal} 
+        onSubmit={handleFormSubmit}
+      />
     </div>
   );
 };
