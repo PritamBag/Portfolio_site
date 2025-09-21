@@ -32,6 +32,39 @@ const Header = () => {
     onClick: toggleHireMe,
   };
 
+  const handleHireMeSubmit = async (e) => {
+    e.preventDefault();
+    const form = e.target;
+
+    const formData = {
+      name: form.name.value,
+      email: form.email.value,
+      message: form.message.value,
+      "g-recaptcha-response": form.querySelector(
+        '[name="g-recaptcha-response"]'
+      )?.value,
+    };
+
+    try {
+      const response = await fetch("https://script.google.com/macros/s/AKfycbwq_jqsA2QOxiLJJbx0STjexV2CfI0imY9dm-IdvTsn2yrxgmgK33nqn3bnRHdiNOeG/exec", {
+        method: "POST",
+        body: JSON.stringify(formData),
+        headers: { "Content-Type": "application/json" },
+      });
+
+      if (response.ok) {
+        alert("✅ Thank you! Your message has been sent.");
+        form.reset();
+        toggleHireMe();
+      } else {
+        alert("❌ Oops! Something went wrong.");
+      }
+    } catch (error) {
+      console.error("Error:", error);
+      alert("❌ Network error.");
+    }
+  };
+
   return (
     <div
       className="main h-20 border flex justify-between items-center px-4 md:px-16 bg-gray-100"
@@ -142,31 +175,56 @@ const Header = () => {
       {/* Hire Me Modal */}
       {isHireMeOpen && (
         <div className="fixed top-0 left-0 right-0 bottom-0 flex justify-center items-center bg-black bg-opacity-50">
-          <div className="bg-gray-100 px-5 py-6 rounded-lg w-2/3 md:w-2/3">
+          <div className="bg-gray-100 px-5 py-6 rounded-lg w-11/12 md:w-2/3">
             <p className="text-2xl mb-4 font-bold text-center text-slate-700">
               Hire Me
             </p>
-            <p className="px-5 text-lg text-center">
-              I&apos;m excited to bring my skills and passion for software
-              development to new and challenging projects. Let&apos;s work together
-              to create something amazing. Contact me to discuss how I can
-              contribute to your team.
-            </p>
-            <p className=" text-lg pt-1 text-center mt-3 break-words">
-              <span className="font-bold">Connect on LinkedIn - </span>{" "}
-              <a
-                href="https://www.linkedin.com/in/pritam-bag"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="hover:underline hover:text-purple-700"
+
+            {/* Form */}
+            <form
+              id="hireMeForm"
+              className="flex flex-col space-y-4"
+              onSubmit={handleHireMeSubmit}
+            >
+              <input
+                type="text"
+                name="name"
+                placeholder="Your Name"
+                required
+                className="px-4 py-2 border rounded"
+              />
+              <input
+                type="email"
+                name="email"
+                placeholder="Your Email"
+                required
+                className="px-4 py-2 border rounded"
+              />
+              <textarea
+                name="message"
+                placeholder="Your Message"
+                required
+                className="px-4 py-2 border rounded"
+              ></textarea>
+
+              {/* reCAPTCHA */}
+              <div
+                className="g-recaptcha"
+                data-sitekey="6LfCOtArAAAAAKXCqJBOVGM9DjCmrl89hthCgFqa"
+              ></div>
+
+              <button
+                type="submit"
+                className="px-4 py-2 bg-orange-500 text-white rounded-full mt-2"
               >
-                https://www.linkedin.com/in/pritam-bag
-              </a>
-            </p>
+                Send
+              </button>
+            </form>
+
             <div className="flex justify-center">
               <button
                 onClick={toggleHireMe}
-                className="px-4 py-2 bg-orange-500 text-white rounded-full mt-6"
+                className="px-4 py-2 bg-gray-500 text-white rounded-full mt-6"
               >
                 Close
               </button>
