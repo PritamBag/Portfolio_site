@@ -62,7 +62,7 @@ const Expertise = () => {
     formDataToSend.append('g-recaptcha-response', token);
 
     // Submit the form
-    await fetch('https://script.google.com/macros/s/AKfycbxv6hS86om73k3Jd8Fp2HqOZQqCsP7IDJpqB7MEk8yS3AVUcAZG2555UI3f7x2u4E0b/exec', {
+    await fetch('https://script.google.com/macros/s/AKfycbyBsjNLAE9lWS7xTru3Ooyi_DzZqbXS5p2bUU08hgcW7TG9kMX35_Gp13uw3-hivtbz/exec', {
       method: 'POST',
       body: formDataToSend,
       mode: 'no-cors'
