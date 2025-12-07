@@ -3,32 +3,22 @@ name: Build and Deploy
 on:
   push:
     branches:
-      - main  # Trigger workflow on push to main branch
+      - main
 
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
 
     steps:
-      # Step 1: Checkout the repo
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      # Step 2: Install dependencies
       - name: Install dependencies
         run: npm install
 
-      # Step 3: Build the site
       - name: Build site
         run: npm run build
 
-      # Step 4: Copy static files that should survive the build
-      - name: Copy CNAME and robots.txt
-        run: |
-          cp public/CNAME docs/CNAME
-          cp public/robots.txt docs/robots.txt
-
-      # Step 5: Generate sitemap
       - name: Generate sitemap
         uses: cicirello/generate-sitemap@v1
         with:
@@ -37,9 +27,14 @@ jobs:
           include-html: true
           sitemap-format: "xml"
 
-      # Step 6: Commit sitemap and CNAME/robots.txt
-      - name: Commit changes
+      - name: Commit sitemap
         uses: stefanzweifel/git-auto-commit-action@v4
         with:
-          commit_message: "Update sitemap, CNAME, and robots.txt"
-          file_pattern: "docs/sitemap.xml,docs/CNAME,docs/robots.txt"
+          commit_message: "Update sitemap"
+          file_pattern: "docs/sitemap.xml"
+          author_name: "GitHub Actions"
+          author_email: "actions@github.com"
+          commit_user_email: "actions@github.com"
+          commit_user_name: "GitHub Actions"
+          # Prevent workflow loop:
+          skip_ci: true
