@@ -32,7 +32,6 @@ jobs:
       - name: Generate sitemap
         uses: cicirello/generate-sitemap@v1
         with:
-          entryPoint: "docs/index.html"
           path-to-root: "docs"
           base-url-path: "/"
           include-html: true
