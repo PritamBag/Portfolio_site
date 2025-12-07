@@ -5,8 +5,19 @@ on:
     branches:
       - main
 
+# Only needs read permissions
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Allow only one concurrent deployment
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
 jobs:
-  build-and-deploy:
+  build:
     runs-on: ubuntu-latest
 
     steps:
@@ -23,18 +34,22 @@ jobs:
         uses: cicirello/generate-sitemap@v1
         with:
           path-to-root: "docs"
-          base-url-path: "/"
+          base-url-path: "https://pritambag.github.io/Portfolio_site/"
           include-html: true
           sitemap-format: "xml"
 
-      - name: Commit sitemap
-        uses: stefanzweifel/git-auto-commit-action@v4
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
         with:
-          commit_message: "Update sitemap"
-          file_pattern: "docs/sitemap.xml"
-          author_name: "GitHub Actions"
-          author_email: "actions@github.com"
-          commit_user_email: "actions@github.com"
-          commit_user_name: "GitHub Actions"
-          # Prevent workflow loop:
-          skip_ci: true
+          path: './docs'
+
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
