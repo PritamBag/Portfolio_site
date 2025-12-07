@@ -7,17 +7,25 @@ on:
 jobs:
   sitemap:
     runs-on: ubuntu-latest
-    
+
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
 
+      - name: Install dependencies
+        run: npm install
+
+      - name: Build the site
+        run: npm run build
+
       - name: Generate sitemap
         uses: cicirello/generate-sitemap@v1
         with:
-          domain: "https://pritambag.in"
-          output: "docs/sitemap.xml"
-          include_html: true
+          entryPoint: "docs/index.html"    # Path to your built index.html
+          path-to-root: "docs"             # Root folder for pages
+          base-url-path: "/"                # Base URL path
+          include-html: true                # Include HTML pages in sitemap
+          sitemap-format: "xml"             # Output format XML
 
       - name: Commit sitemap
         uses: stefanzweifel/git-auto-commit-action@v4
