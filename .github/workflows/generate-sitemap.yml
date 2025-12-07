@@ -1,34 +1,29 @@
-name: Generate Sitemap
-
-on:
-  push:
-    branches: [ main ]
-
 jobs:
-  sitemap:
+  build-and-deploy:
     runs-on: ubuntu-latest
-
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
       - name: Install dependencies
         run: npm install
 
-      - name: Build the site
+      - name: Copy CNAME and static files
+        run: cp public/CNAME docs/CNAME
+
+      - name: Build site
         run: npm run build
 
       - name: Generate sitemap
         uses: cicirello/generate-sitemap@v1
         with:
-          entryPoint: "docs/index.html"    # Path to your built index.html
-          path-to-root: "docs"             # Root folder for pages
-          base-url-path: "/"                # Base URL path
-          include-html: true                # Include HTML pages in sitemap
-          sitemap-format: "xml"             # Output format XML
+          entryPoint: "docs/index.html"
+          path-to-root: "docs"
+          base-url-path: "/"
+          include-html: true
+          sitemap-format: "xml"
 
-      - name: Commit sitemap
+      - name: Commit sitemap and CNAME
         uses: stefanzweifel/git-auto-commit-action@v4
         with:
-          commit_message: "update sitemap"
-          file_pattern: "docs/sitemap.xml"
+          commit_message: "Update sitemap and ensure CNAME"
+          file_pattern: "docs/sitemap.xml,docs/CNAME"
