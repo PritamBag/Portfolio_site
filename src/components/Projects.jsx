@@ -1,161 +1,129 @@
-import projectImage1 from '../assets/TriviaNuts Logo.png';
-import projectImage2 from '../assets/poqolo.png';
-import projectImage3 from '../assets/nomad-journey.png';
-import projectImage4 from "../assets/Queriverse-Logo.png";
-import { useState } from 'react';
-const Projects = () => {
-    // const [data, setData] = useState([
-    //     {
-    //         id:"",
-    //         title:"",
-    //         description:"",
-    //         actionButton:{
-    //             title:"",
-    //             link:"",
-    //         },
-    //     },
-    // ]);
+import PropTypes from "prop-types";
+import { projectGroups } from "../data/portfolioData";
+import ImagePlaceholder from "./ImagePlaceholder";
 
-    const [isDownloadModalOpen, setIsDownloadModalOpen] = useState(false);
+const Projects = ({ limit = null, showIntro = true }) => {
+  const groups = projectGroups.map((group) => ({
+    ...group,
+    projects: limit ? group.projects.slice(0, limit) : group.projects,
+  }));
 
-    const toggleDownloadModal = () => {
-      setIsDownloadModalOpen(!isDownloadModalOpen);
-
-    };
-
-    const handleDownloadAPK = () => {
-      const downloadUrl = "Queriverse.apk"; // Adjust path as needed
-      const downloadLink = document.createElement("a");
-      downloadLink.href = downloadUrl;
-      downloadLink.download = "Queriverse.apk";
-      downloadLink.style.display = "none";
-      document.body.appendChild(downloadLink);
-      downloadLink.click();
-      document.body.removeChild(downloadLink);
-      setIsDownloadModalOpen(false); // Close modal after initiating download
-    };
-
-
-
-
-
-
-
-    return (
-      <div className="main-container py-10" id="projects">
-        <h1 className="text-3xl pb-5  underline text-center font-bold">
-          Projects
-        </h1>
-        <div className="projects-container flex flex-col md:flex-row mt-12 space-y-5 md:space-y-0 md:space-x-5 px-10">
-          <div
-            className="project1 hover:bg-gray-300 shadow-lg rounded-xl space-y-3 bg-slate-100 p-5 flex flex-col items-center justify-center  text-center"
-            onClick={() =>
-              window.open("https://github.com/saikatdutta713/TriviaNuts", "_blank")
-            }
-            style={{ cursor: "pointer" }}
-          >
-            <img
-              className=" rounded-full shadow-lg w-32 h-32 border border-slate-400"
-              src={projectImage1}
-            ></img>
-            <h1 className="text-2xl">Trivianuts - Quiz Application</h1>
-            <p>
-              TriviaNuts is an educational quiz platform developed in Laravel
-              that enables users to enhance their knowledge and skills in
-              various subjects. My responsibilities included development,
-              database design, frontend design, and version control using
-              GitHub.
-            </p>
-
-            <button className="px-3 py-1 bg-orange-500 text-md rounded-full shadow-lg cursor-pointer text-white">
-              Check
-            </button>
-          </div>
-
-          <div
-            className="project4 hover:bg-gray-300 shadow-lg rounded-xl space-y-3 bg-slate-100 p-5 flex flex-col items-center justify-center text-center"
-            onClick={toggleDownloadModal}
-            style={{ cursor: "pointer" }}
-          >
-            <img
-              className=" rounded-full shadow-lg w-32 h-32 border border-slate-400"
-              src={projectImage4}
-            ></img>
-            <h1 className="text-2xl">Queriverse - An android app</h1>
-            <p>
-              Queriverse is an Android application for social interaction
-              through Q&A, image sharing, and quizzes, with a backend powered by
-              an API developed in Laravel and a MySQL database, ensuring
-              seamless knowledge sharing and lively community engagement.
-            </p>
-            <button className="px-3 py-1 bg-orange-500 text-md rounded-full shadow-lg cursor-pointer text-white">
-              Check
-            </button>
-          </div>
-
-          <div
-            className="project2 hover:bg-gray-300 shadow-lg rounded-xl space-y-3 bg-slate-100 p-5 flex flex-col items-center justify-center text-center"
-            onClick={() => window.open("https://poqolo.com", "_blank")}
-            style={{ cursor: "pointer" }}
-          >
-            <img
-              className=" rounded-full shadow-lg w-32 h-32 border border-slate-400"
-              src={projectImage2}
-            ></img>
-            <h1 className="text-2xl">Poqolo - Ecom Website</h1>
-            <p>
-              Poqolo is an eCommerce website built with WordPress, featuring responsive design, custom themes, and plugin integration. It enables smooth product browsing, secure checkout, and showcases strong skills in web development and user-centered design.
-            </p>
-            <button className="px-3 py-1 bg-orange-500 text-md rounded-full shadow-lg cursor-pointer text-white">
-              Check
-            </button>
-          </div>
-
-          <div
-            className="project3 hover:bg-gray-300 shadow-lg rounded-xl space-y-3 bg-slate-100 p-5 flex flex-col items-center justify-center  text-center"
-            onClick={() => window.open("https://nomadjourney.in", "_blank")}
-            style={{ cursor: "pointer" }}
-          >
-            <img
-              className=" rounded-full shadow-lg w-32 h-32 border border-slate-400"
-              src={projectImage3}
-            ></img>
-            <h1 className="text-2xl">Nomad Journey - Blog</h1>
-            <p>
-              Nomad Journey is a collaborative blog built to explore culture, ideas, and design. It highlights our storytelling and creative approach, featuring original content, thoughtful layout, and a responsive design to connect with curious, modern readers.
-            </p>
-            <button className="px-3 py-1 bg-orange-500 text-md rounded-full shadow-lg text-white">
-              Check
-            </button>
-          </div>
+  return (
+    <section className="mx-auto w-full max-w-6xl px-4 py-12 md:px-6 md:py-16 lg:px-8">
+      {showIntro && (
+        <div className="max-w-3xl">
+          <p className="text-xs font-semibold uppercase tracking-[0.28em] text-violet-600">
+            Projects
+          </p>
+          <h1 className="mt-3 font-display text-3xl font-semibold text-slate-900 md:text-5xl">
+            Professional work, freelance delivery, and reusable engineering
+          </h1>
+          <p className="mt-4 text-sm leading-7 text-slate-500 md:text-base">
+            Work across enterprise backends, commerce platforms, ERP systems, and open-source contributions.
+          </p>
         </div>
+      )}
 
-        {/* Download Modal */}
-        {isDownloadModalOpen && (
-          <div className="fixed top-0 left-0 right-0 bottom-0 flex justify-center items-center bg-black bg-opacity-50">
-            <div className="bg-gray-100 px-5 py-6 rounded-lg w-2/3 md:w-2/3">
-              <p className="text-2xl mb-4 font-bold text-center text-slate-700">
-                Download Queriverse APK
-              </p>
-              <div className=" flex justify-center">
-                <button
-                  onClick={handleDownloadAPK}
-                  className="px-4 py-2 bg-slate-700 text-white rounded-full"
+      <div className="mt-10 space-y-14">
+        {groups.map((group) => (
+          <div key={group.id}>
+            <div className="mb-6">
+              <h2 className="font-display text-2xl font-semibold text-slate-900 md:text-3xl">
+                {group.title}
+              </h2>
+              <p className="mt-1 text-sm text-slate-500">{group.description}</p>
+            </div>
+
+            <div className="grid gap-6 lg:grid-cols-2">
+              {group.projects.map((project) => (
+                <article
+                  key={project.slug}
+                  className="flex flex-col overflow-hidden rounded-2xl border border-white/70 shadow-sm transition hover:shadow-[0_12px_40px_rgba(197,94,162,0.15)] glass-card"
                 >
-                  Download
-                </button>
-                <button
-                  onClick={() => setIsDownloadModalOpen(false)}
-                  className="px-4 py-2 bg-orange-500 text-white rounded-full ml-3"
-                >
-                  Close
-                </button>
-              </div>
+                  <div className="h-0.5 w-full gradient-brand flex-shrink-0" />
+
+                  <div className="bg-slate-50 p-5">
+                    <ImagePlaceholder
+                      src={project.image}
+                      alt={project.title}
+                      hint={project.imageHint}
+                      className="h-52 w-full rounded-xl object-cover sm:h-60"
+                      fallbackClassName="h-52 w-full rounded-xl sm:h-60"
+                    />
+                  </div>
+
+                  <div className="flex flex-1 flex-col p-6">
+                    <div className="flex items-center justify-between gap-2">
+                      <p className="text-xs font-semibold uppercase tracking-wide text-violet-600">
+                        {project.subtitle}
+                      </p>
+                      {project.isLive && (
+                        <span className="flex items-center gap-1 rounded-full bg-emerald-50 px-2.5 py-1 text-xs font-semibold text-emerald-600">
+                          <span className="h-1.5 w-1.5 rounded-full bg-emerald-500" />
+                          Live
+                        </span>
+                      )}
+                    </div>
+
+                    <h3 className="mt-2 font-display text-2xl font-semibold text-slate-900">
+                      {project.title}
+                    </h3>
+                    <p className="mt-3 text-sm leading-7 text-slate-600 md:text-base">
+                      {project.summary}
+                    </p>
+
+                    <div className="mt-4 flex flex-wrap gap-2">
+                      {project.stack.map((item) => (
+                        <span
+                          key={item}
+                          className="rounded-full bg-slate-100 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-slate-600"
+                        >
+                          {item}
+                        </span>
+                      ))}
+                    </div>
+
+                    <ul className="mt-5 flex-1 space-y-2 text-sm text-slate-600">
+                      {project.details.map((detail) => (
+                        <li key={detail} className="flex items-start gap-3">
+                          <span className="mt-2 h-1.5 w-1.5 flex-shrink-0 rounded-full gradient-brand" />
+                          {detail}
+                        </li>
+                      ))}
+                    </ul>
+
+                    {project.links.length > 0 && (
+                      <div className="mt-5 flex flex-wrap gap-3 border-t border-slate-100 pt-5">
+                        {project.links.map((link) => (
+                          <a
+                            key={link.href}
+                            href={link.href}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-flex items-center gap-1.5 rounded-full border border-fuchsia-200 px-4 py-2 text-sm font-semibold text-fuchsia-600 transition hover:bg-fuchsia-50"
+                          >
+                            {link.label}
+                            <svg xmlns="http://www.w3.org/2000/svg" className="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                              <path strokeLinecap="round" strokeLinejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                            </svg>
+                          </a>
+                        ))}
+                      </div>
+                    )}
+                  </div>
+                </article>
+              ))}
             </div>
           </div>
-        )}
+        ))}
       </div>
-    );
+    </section>
+  );
+};
+
+Projects.propTypes = {
+  limit: PropTypes.number,
+  showIntro: PropTypes.bool,
 };
 
 export default Projects;

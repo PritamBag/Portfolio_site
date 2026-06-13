@@ -1,124 +1,128 @@
-import { useState, useEffect, useRef } from "react";
-import bannerImage from "../assets/Photo.png";
-import bannerBackground from "../assets/banner_wallpaper.svg";
+import { useEffect, useRef } from "react";
+import PropTypes from "prop-types";
 import Typed from "typed.js";
+import bannerImage from "../assets/Photo.png";
+import { heroRoles, siteConfig, socialLinks } from "../data/portfolioData";
 
-const Banner = () => {
-  const el = useRef(null);
-  const [isContactModalOpen, setIsContactModalOpen] = useState(false);
+const Banner = ({ onOpenHireModal }) => {
+  const typedTarget = useRef(null);
 
   useEffect(() => {
-    const typed = new Typed(el.current, {
-      strings: [
-        "Frontend Developer",
-        "Backend Developer",
-        "Database Designer",
-        "Android Developer",
-      ],
-      startDelay: 100,
+    const typed = new Typed(typedTarget.current, {
+      strings: heroRoles,
+      startDelay: 150,
       typeSpeed: 50,
-      backSpeed: 30,
-      backDelay: 100,
+      backSpeed: 28,
+      backDelay: 1300,
       loop: true,
     });
 
-    return () => {
-      typed.destroy();
-    };
+    return () => typed.destroy();
   }, []);
 
-  const toggleContactModal = () => {
-    setIsContactModalOpen(!isContactModalOpen);
-  };
-
   return (
-    <div
-      style={{
-        backgroundImage: `url(${bannerBackground})`,
-        backgroundSize: "cover",
-      }}
-      className="main-container flex flex-col md:flex-row items-center py-10 md:py-20 px-4 md:px-16"
-    >
-      <div className="w-full md:w-1/2 flex flex-col justify-center text-white mb-8 md:mb-0">
-        <div className="space-y-4 md:space-y-5">
-          <h3 className="text-lg md:text-xl font-semibold">Hi, I am</h3>
-          <h1 className="text-3xl md:text-4xl font-bold">Pritam Bag</h1>
-          <h2 className="text-lg md:text-xl">
-            I am a <span className="underline" ref={el}></span>
+    <section className="relative overflow-hidden bg-transparent">
+
+      <div className="relative mx-auto grid w-full max-w-6xl items-center gap-10 px-4 py-12 md:px-6 md:py-16 lg:grid-cols-[1.2fr_0.8fr] lg:px-8 lg:py-20">
+        {/* Left */}
+        <div className="px-1 md:px-0">
+          <span className="inline-flex items-center gap-2 rounded-full border border-fuchsia-200 bg-fuchsia-50 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.22em] text-fuchsia-700">
+            Software Development Engineer
+          </span>
+
+          <h1 className="mt-6 font-display text-5xl font-semibold leading-[0.92] text-slate-900 md:text-6xl lg:text-7xl">
+            {siteConfig.name}
+          </h1>
+
+          <h2 className="mt-5 min-h-[36px] text-lg font-medium text-slate-500 md:text-xl">
+            Building as a{" "}
+            <span ref={typedTarget} className="font-semibold text-gradient-brand" />
           </h2>
-          <p className="text-sm md:text-base ">
-            As a seasoned software developer, I&apos;m adept in various programming
-            languages and methodologies. Demonstrating strong problem-solving
-            abilities, I excel as a collaborative team player. Committed to
-            continuous learning, I strive to stay abreast of industry trends and
-            deliver high-quality solutions.
+
+          <p className="mt-6 max-w-xl text-base leading-8 text-slate-600">
+            {siteConfig.summary}
           </p>
-          <div className="icons-container flex space-x-4 pt-2 pb-3">
-            <a
-              href="https://www.linkedin.com/in/pritam-bag/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="cursor-pointer border hover:bg-orange-500 w-9 h-9 rounded-full flex justify-center items-center bg-gray-800"
-            >
-              <i className="fa-brands text-xl fa-linkedin"></i>
-            </a>
-            <a
-              href="https://github.com/PritamBag"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="cursor-pointer border hover:bg-orange-500 w-9 h-9 rounded-full flex justify-center items-center bg-gray-800"
-            >
-              <i className="fa-brands text-xl fa-github"></i>
-            </a>
+
+          <div className="mt-4 flex flex-wrap items-center gap-x-3 gap-y-2 text-sm text-slate-500">
+            <span className="flex items-center gap-1.5">
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 text-fuchsia-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                <path strokeLinecap="round" strokeLinejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+              </svg>
+              {siteConfig.location}
+            </span>
+            <span className="text-slate-300">·</span>
+            <span>~2 years in industry</span>
+            <span className="text-slate-300">·</span>
+            <span className="font-medium text-emerald-600">Open to opportunities</span>
           </div>
-          <a
-            className="inline-block px-3 py-1 bg-orange-500 shadow rounded-full text-sm md:text-md cursor-pointer"
-            onClick={toggleContactModal}
-          >
-            Contact Me
-          </a>
-        </div>
-      </div>
-      <div className="w-full md:w-1/2 flex justify-center">
-        <img
-          className="rounded-full shadow-lg w-64 h-64 md:w-80 md:h-80 object-cover"
-          src={bannerImage}
-          alt="Pritam Bag"
-        />
-      </div>
 
-      {/* Contact Modal */}
-      {isContactModalOpen && (
-        <div className="fixed top-0 left-0 right-0 bottom-0 flex justify-center items-center bg-black bg-opacity-50">
-          <div className="bg-gray-100 px-5 py-6 rounded-lg w-2/3 md:w-auto ">
-            <p className="text-2xl mb-4 font-bold text-center text-slate-700">
-              Contact Information
-            </p>
+          <div className="mt-9 flex flex-wrap gap-3">
+            <a
+              href="#/projects"
+              className="rounded-full px-6 py-3 text-sm font-semibold text-white transition hover:opacity-90 gradient-brand"
+            >
+              View Projects
+            </a>
+            <a
+              href={siteConfig.resumeUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="rounded-full border border-slate-200 bg-white px-6 py-3 text-sm font-semibold text-slate-700 transition hover:border-slate-300"
+            >
+              Resume
+            </a>
+            <button
+              onClick={onOpenHireModal}
+              className="rounded-full border border-fuchsia-200 bg-fuchsia-50 px-6 py-3 text-sm font-semibold text-fuchsia-700 transition hover:bg-fuchsia-100"
+            >
+              Contact Form
+            </button>
+          </div>
 
-            <p className=" text-lg pt-1 text-center mt-3 break-words">
-              <span className="font-bold">Connect on LinkedIn - </span>{" "}
+          <div className="mt-8 flex flex-wrap gap-3">
+            {socialLinks.map((link) => (
               <a
-                href="https://www.linkedin.com/in/pritam-bag"
+                key={link.label}
+                href={link.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="hover:underline hover:text-purple-700"
+                className="flex h-10 w-10 items-center justify-center rounded-full border border-slate-200 bg-white text-slate-600 transition hover:border-fuchsia-200 hover:text-fuchsia-600"
+                aria-label={link.label}
               >
-                https://www.linkedin.com/in/pritam-bag
+                <i className={`fa-brands ${link.icon}`}></i>
               </a>
-            </p>
-            <div className="flex justify-center">
-              <button
-                onClick={toggleContactModal}
-                className="px-4 py-2 bg-orange-500 text-white rounded-full mt-6 "
-              >
-                Close
-              </button>
+            ))}
+          </div>
+        </div>
+
+        {/* Right: photo card */}
+        <div className="flex items-center justify-center">
+          <div className="relative w-full max-w-sm overflow-hidden rounded-3xl border border-white/80 bg-white/80 shadow-[0_24px_70px_rgba(197,94,162,0.18)] backdrop-blur-sm">
+            <div className="h-1 w-full gradient-brand" />
+            <div className="p-6">
+              <img
+                className="mx-auto h-56 w-56 rounded-full border-4 border-white object-cover shadow-[0_18px_40px_rgba(139,92,246,0.18)] sm:h-60 sm:w-60 md:h-64 md:w-64"
+                src={bannerImage}
+                alt="Pritam Bag"
+              />
+              <div className="mt-7 border-t border-slate-100 pt-5">
+                <p className="text-xs font-semibold uppercase tracking-[0.22em] text-violet-600">
+                  Currently
+                </p>
+                <p className="mt-2 text-sm font-semibold text-slate-900">{siteConfig.currentRole}</p>
+                <p className="mt-2 text-xs leading-6 text-slate-500">{siteConfig.heroDescription}</p>
+              </div>
             </div>
           </div>
         </div>
-      )}
-    </div>
+      </div>
+    </section>
   );
+};
+
+Banner.propTypes = {
+  onOpenHireModal: PropTypes.func.isRequired,
 };
 
 export default Banner;

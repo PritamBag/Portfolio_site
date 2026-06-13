@@ -1,145 +1,64 @@
-import { useState } from "react";
-import bannerBackground from "../assets/banner_wallpaper.svg";
-import { HireMeModal } from "./Header"; // Adjust the import path as needed
+import PropTypes from "prop-types";
+import { skillGroups } from "../data/portfolioData";
 
-const Expertise = () => {
-  const [isHireModalOpen, setIsHireModalOpen] = useState(false);
-
-  const toggleHireModal = () => {
-    setIsHireModalOpen(!isHireModalOpen);
-  };
-
-  const handleFormSubmit = async (formData) => {
-    // This function will be passed to the HireMeModal component
-    // You can reuse the same logic from your Header component
-    // or create a separate utility function for form submission
-    
-    let token = '';
-    
-    // Wait a bit more for reCAPTCHA to be ready
-    if (window.grecaptcha) {
-      await new Promise(resolve => {
-        if (window.grecaptcha.ready) {
-          window.grecaptcha.ready(() => resolve());
-        } else {
-          setTimeout(() => resolve(), 1000);
-        }
-      });
-    }
-
-    // Try to get reCAPTCHA token with multiple attempts
-    if (window.grecaptcha && window.grecaptcha.execute) {
-      try {
-        token = await window.grecaptcha.execute("6Lf6ZNArAAAAALH2x5eIgW2RtN0omdVrt9X5vNxG", {
-          action: 'hire_me_form'
-        });
-      } catch (recaptchaError) {
-        console.error('reCAPTCHA execution error:', recaptchaError);
-      }
-    }
-
-    // If we still don't have a token, try one more time after a delay
-    if (!token && window.grecaptcha && window.grecaptcha.execute) {
-      await new Promise(resolve => setTimeout(resolve, 1000));
-      try {
-        token = await window.grecaptcha.execute("6Lf6ZNArAAAAALH2x5eIgW2RtN0omdVrt9X5vNxG", {
-          action: 'hire_me_form'
-        });
-      } catch (retryError) {
-        console.error('reCAPTCHA retry error:', retryError);
-      }
-    }
-
-    if (!token) {
-      throw new Error('Unable to get reCAPTCHA token');
-    }
-
-    // Submit the form using fetch API
-    const formDataToSend = new FormData();
-    formDataToSend.append('name', formData.name);
-    formDataToSend.append('email', formData.email);
-    formDataToSend.append('message', formData.message);
-    formDataToSend.append('g-recaptcha-response', token);
-
-    // Submit the form
-    await fetch('https://script.google.com/macros/s/AKfycbyBsjNLAE9lWS7xTru3Ooyi_DzZqbXS5p2bUU08hgcW7TG9kMX35_Gp13uw3-hivtbz/exec', {
-      method: 'POST',
-      body: formDataToSend,
-      mode: 'no-cors'
-    });
-  };
-
+const Expertise = ({ onOpenHireModal }) => {
   return (
-    <div className="main-container py-10 md:py-20" id="skill">
-      {/* Box section */}
-      <div
-        style={{
-          backgroundImage: `url(${bannerBackground})`,
-          // backgroundSize: "cover",
-        }}
-        className="box-container flex flex-col md:flex-row py-10 bg-fit md:bg-cover"
-      >
-        <div className="flex text-white justify-center md:justify-start px-4 md:px-16 mb-10 md:mb-0">
-          {/* Text container */}
-          <div className="w-full md:w-2/3 text-center md:text-left space-y-3">
-            <h1 className="text-2xl font-bold">I love these technologies</h1>
-            <p>
-              Driven by a passion for innovation and problem-solving, I&apos;m drawn
-              to the boundless possibilities of technology, fueling my
-              creativity and drive for excellence.
-            </p>
-            <button
-              className="px-3 py-1 bg-orange-500 text-md rounded-full shadow-lg"
-              onClick={toggleHireModal}
-            >
-              Hire Me
-            </button>
-          </div>
-        </div>
-        <div className="flex justify-center">
-          <div className="flex h-fit space-x-3 flex-wrap w-full md:w-2/3 justify-center">
-            {/* Skills container */}
-            {[
-              "Java",
-              "Python",
-              "Laravel",
-              "HTML",
-              "CSS",
-              "SCSS",
-              "Tailwind CSS",
-              "Bootstrap",
-              "JavaScript",
-              "ReactJs",
-              "Wrappid",
-              "NodeJs",
-              "Android",
-              "MySQL",
-              "MongoDB",
-              "Git",
-              "cPanel",
-              "Wordpress",
-              "Shopify",
-              "SEO",
-            ].map((skill) => (
-              <p
-                key={skill}
-                className="bg-gray-300 w-fit py-1 px-3 mt-3 rounded-lg cursor-pointer hover:bg-orange-500"
-              >
-                {skill}
-              </p>
-            ))}
+    <section className="py-12 md:py-16">
+      <div className="mx-auto w-full max-w-6xl px-4 md:px-6 lg:px-8">
+        <div className="overflow-hidden rounded-2xl bg-slate-900 shadow-[0_20px_60px_rgba(139,92,246,0.15)]">
+          <div className="h-1 w-full gradient-brand" />
+
+          <div className="px-8 py-10 md:px-10 md:py-12">
+            <div className="grid gap-10 md:grid-cols-[0.9fr_1.1fr]">
+              <div className="text-white">
+                <p className="text-xs font-semibold uppercase tracking-[0.24em] text-fuchsia-400">
+                  Tech Stack
+                </p>
+                <h2 className="mt-3 font-display text-3xl font-semibold md:text-4xl">
+                  Technology I work with
+                </h2>
+                <p className="mt-4 text-sm leading-7 text-slate-400 md:text-base">
+                  The stack here is tuned around delivery — backend systems,
+                  integrations, commerce customization, and day-to-day operations
+                  software.
+                </p>
+                <button
+                  className="mt-8 rounded-full px-5 py-3 text-sm font-semibold text-white transition hover:opacity-90 gradient-brand"
+                  onClick={onOpenHireModal}
+                >
+                  Start a conversation
+                </button>
+              </div>
+
+              <div className="space-y-5">
+                {skillGroups.map((group) => (
+                  <div key={group.title}>
+                    <p className="mb-2.5 text-xs font-semibold uppercase tracking-[0.18em] text-slate-500">
+                      {group.title}
+                    </p>
+                    <div className="flex flex-wrap gap-2">
+                      {group.items.map((skill) => (
+                        <span
+                          key={skill}
+                          className="rounded-full border border-white/10 bg-white/8 px-3.5 py-1.5 text-sm font-medium text-slate-300 transition hover:border-fuchsia-500/40 hover:text-white"
+                        >
+                          {skill}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
           </div>
         </div>
       </div>
-
-      {/* Use the HireMeModal component */}
-      <HireMeModal 
-        isOpen={isHireModalOpen} 
-        onClose={toggleHireModal} 
-        onSubmit={handleFormSubmit}
-      />
-    </div>
+    </section>
   );
+};
+
+Expertise.propTypes = {
+  onOpenHireModal: PropTypes.func.isRequired,
 };
 
 export default Expertise;

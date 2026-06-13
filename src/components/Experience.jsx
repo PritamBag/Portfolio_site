@@ -1,51 +1,104 @@
-import projectImage1 from "../assets/Rxefy-logo.png";
-import projectImage2 from "../assets/Wrappid-logo.png";
+import { educationItems, experienceItems, siteConfig } from "../data/portfolioData";
+import ImagePlaceholder from "./ImagePlaceholder";
 
 const Experience = () => {
   return (
-    <div className="main-container py-10 md:py-20 md:px-10 " id="experience">
-      <h1 className="text-3xl pb-5 underline text-center font-bold">
-        Experience
-      </h1>
-      
-      <div className="projects-container flex flex-col gap-5 md:flex-row mt-12 md:gap-10 space-y-5 md:space-y-0 md:space-x-5 px-10">
-        
-        {/* Project 1: Rxefy Tech */}
-        <div
-          className="project hover:bg-gray-300 shadow-lg rounded-xl space-y-3 bg-slate-100 p-5 flex flex-col items-center justify-center text-center transition duration-300 ease-in-out transform hover:scale-100"
-          onClick={() => window.open("https://rxefy.com/", "_blank")}
-          style={{ cursor: "pointer" }}
-        >
-          <img
-            className="rounded-full shadow-lg w-32 h-32 p-2 object-contain mx-auto bg-slate-50"
-            src={projectImage1}
-            alt="Rxefy Tech Logo"
-          />
-          <h1 className="text-2xl">Software Developer Engineer</h1>
-          <p>
-            Since July 2024, I’ve been part of the Rxefy team, actively contributing to a wide range of development projects focused on designing, building, and refining user-centric platforms. I work closely with cross-functional teams to deliver innovative features and enhance the overall user experience.
+    <section className="mx-auto w-full max-w-6xl px-4 py-12 md:px-6 md:py-16 lg:px-8">
+      <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
+        <div className="max-w-3xl">
+          <p className="text-xs font-semibold uppercase tracking-[0.28em] text-violet-600">
+            Resume
+          </p>
+          <h1 className="mt-3 font-display text-3xl font-semibold text-slate-900 md:text-5xl">
+            Work history & education
+          </h1>
+          <p className="mt-4 text-sm leading-7 text-slate-500 md:text-base">
+            Two years across enterprise backend work, framework contribution, API integrations, and operational software.
           </p>
         </div>
 
-        {/* Project 2: Wrappid */}
-        <div
-          className="project hover:bg-gray-300 shadow-lg rounded-xl space-y-3 bg-slate-100 p-5 flex flex-col items-center justify-center text-center transition duration-300 ease-in-out transform hover:scale-100"
-          onClick={() => window.open("https://wrappid.dev/", "_blank")}
-          style={{ cursor: "pointer" }}
+        <a
+          href={siteConfig.resumeUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex rounded-full px-5 py-3 text-sm font-semibold text-white transition hover:opacity-90 gradient-brand"
         >
-          <img
-            className="rounded-full shadow-lg w-32 h-32 p-2 object-contain mx-auto bg-slate-50"
-            src={projectImage2}
-            alt="Wrappid Logo"
-            />
-          <h1 className="text-2xl">Wrappider (Open-Source Contributor)</h1>
-          <p>
-            As a Wrappider, I contributed to various aspects of developing Wrappid, an open-source framework. This role enhanced my knowledge of modern development practices, improved my collaborative coding skills, and deepened my engagement with the open-source community.
-          </p>
-        </div>
-
+          Open Resume
+        </a>
       </div>
-    </div>
+
+      {/* Experience items */}
+      <div className="mt-12 space-y-0 divide-y divide-slate-100 border border-white/70 rounded-2xl overflow-hidden glass-card">
+        {experienceItems.map((item, index) => (
+          <div key={`${item.company}-${item.role}-${item.period}`} className="p-6 md:p-8">
+            <div className="grid gap-6 md:grid-cols-[80px_1fr] md:items-start">
+              <div className="flex-shrink-0">
+                <ImagePlaceholder
+                  src={item.logo}
+                  alt={`${item.company} logo`}
+                  hint={item.logoHint || `Add ${item.company} logo to src/assets/ and import it in portfolioData.js`}
+                  className="h-16 w-16 rounded-xl border border-slate-100 bg-white object-contain p-2 shadow-sm"
+                  fallbackClassName="h-16 w-16 rounded-xl"
+                />
+              </div>
+
+              <div>
+                <div className="flex flex-col gap-1 md:flex-row md:items-start md:justify-between">
+                  <div>
+                    <h2 className="text-lg font-semibold text-slate-900">{item.role}</h2>
+                    <p className="text-sm font-medium text-violet-600">{item.company}</p>
+                    <p className="mt-0.5 text-xs text-slate-400">
+                      {item.period} · {item.location}
+                    </p>
+                  </div>
+                  {item.link && (
+                    <a href={item.link} target="_blank" rel="noopener noreferrer"
+                      className="mt-1 text-xs font-semibold text-violet-600 hover:text-violet-700 md:mt-0">
+                      Visit site →
+                    </a>
+                  )}
+                </div>
+
+                <p className="mt-3 text-sm leading-7 text-slate-600">{item.summary}</p>
+
+                {/* Flat bullet list — no mini-cards */}
+                <ul className="mt-4 space-y-2">
+                  {item.highlights.map((highlight) => (
+                    <li key={highlight} className="flex items-start gap-3 text-sm text-slate-600">
+                      <span className="mt-2 h-1.5 w-1.5 flex-shrink-0 rounded-full gradient-brand" />
+                      {highlight}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      {/* Education — timeline */}
+      <div className="mt-16">
+        <p className="text-xs font-semibold uppercase tracking-[0.28em] text-violet-600">
+          Education
+        </p>
+        <h2 className="mt-3 font-display text-2xl font-semibold text-slate-900 md:text-3xl">
+          Academic background
+        </h2>
+
+        <div className="relative mt-8 border-l-2 border-slate-100 pl-8 space-y-6">
+          {educationItems.map((item) => (
+            <div key={`${item.title}-${item.institute}`} className="relative">
+              <span className="absolute -left-[2.35rem] flex h-5 w-5 items-center justify-center rounded-full border-2 border-white shadow-sm gradient-brand">
+                <span className="h-1.5 w-1.5 rounded-full bg-white" />
+              </span>
+              <h3 className="text-sm font-semibold text-slate-900">{item.title}</h3>
+              <p className="mt-0.5 text-sm font-medium text-violet-600">{item.institute}</p>
+              <p className="mt-0.5 text-xs text-slate-400">{item.meta}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
   );
 };
 
