@@ -2,6 +2,14 @@ import iquesterLogo from "../assets/iquester-logo.png";
 import rxefyLogo from "../assets/Rxefy-logo.png";
 import wrappidLogo from "../assets/Wrappid-logo.png";
 import resumePdf from "../assets/resume.pdf";
+import knoraiImage from "../assets/projects/knorai.png";
+import trackshootImage from "../assets/projects/trackshoot.png";
+import queriverseLogo from "../assets/projects/queriverse.png";
+import automobileDealerOperationImage from "../assets/projects/automobile-dealer-operation.jpeg";
+import multivendorImage from "../assets/projects/multivendor-platform.png";
+import wrappidContributionImage from "../assets/projects/wrappid-contributions.png";
+import laravelPackagesImage from "../assets/projects/laravel-packages.png";
+import dolibarrImage from "../assets/projects/dolibarr.png";
 
 export const siteConfig = {
   name: "Pritam Bag",
@@ -159,7 +167,7 @@ export const personalHighlights = [
     description:
       "I have written on Nomad Journey around food, recipes, and related experiences. It is a space where I share curiosity, taste, and storytelling beyond software.",
     link: {
-      label: "Visit Nomad Journey",
+      label: "Nomad Journey",
       href: "https://nomadjourney.in",
     },
   },
@@ -185,7 +193,7 @@ export const experienceItems = [
       "Managed deployments and server configurations through cPanel and VPS environments.",
       "Built and maintained backend systems in Laravel, including reusable custom packages.",
     ],
-    link: null,
+    link: "https://iquesters.com",
   },
   {
     company: "Rxefy Tech Pvt Ltd",
@@ -204,7 +212,7 @@ export const experienceItems = [
       "Integrated Zoho Books, WhatsApp, and Messenger APIs for financial automation and messaging workflows.",
       "Worked on multi-tenant applications, Docker-monitored services, and cPanel-based deployments.",
     ],
-    link: "https://rxefy.com/",
+    link: "https://in.linkedin.com/company/rxefy",
   },
   {
     company: "Wrappid",
@@ -262,11 +270,11 @@ export const projectGroups = [
       {
         slug: "knorai",
         title: "Knorai",
-        subtitle: "Live product · WooCommerce chat automation",
-        image: null,
+        subtitle: "eCommerce chat automation with AI",
+        image: knoraiImage,
         imageHint: "Add screenshot to src/assets/projects/knorai.jpg and import it in portfolioData.js",
-        isLive: true,
-        stack: ["WooCommerce", "WhatsApp", "Telegram", "Laravel", "Automation"],
+        isLive: false,
+        stack: ["Python", "WhatsApp API", "Laravel", "Telegram API", "Automation"],
         summary:
           "Contributed to Knorai — a live SaaS product that lets WooCommerce store owners automate customer support queries through WhatsApp and Telegram channels, reducing manual support effort.",
         details: [
@@ -277,7 +285,7 @@ export const projectGroups = [
         ],
         links: [
           {
-            label: "Visit knorai.com",
+            label: "Knorai",
             href: "https://knorai.com/",
           },
         ],
@@ -285,11 +293,11 @@ export const projectGroups = [
       {
         slug: "queriverse",
         title: "Queriverse",
-        subtitle: "Android social app with Laravel APIs",
-        image: null,
+        subtitle: "Android social media app",
+        image: queriverseLogo,
         imageHint: "Add screenshot to src/assets/projects/queriverse.jpg and import it in portfolioData.js",
         isLive: false,
-        stack: ["Java", "Android XML", "Laravel API", "MySQL"],
+        stack: ["Java", "Android XML", "MySQL", "Laravel API"],
         summary:
           "Built a social media Android app with posts, likes, comments, follows, quizzes, and Laravel-powered REST APIs.",
         details: [
@@ -308,7 +316,7 @@ export const projectGroups = [
         slug: "trackshoot",
         title: "TrackShoot",
         subtitle: "Production house operations platform",
-        image: null,
+        image: trackshootImage,
         imageHint: "Add screenshot to src/assets/projects/trackshoot.jpg and import it in portfolioData.js",
         isLive: false,
         stack: ["Laravel", "MySQL", "Zoho API", "Operations Workflow"],
@@ -319,7 +327,12 @@ export const projectGroups = [
           "Integrated Zoho APIs into operational processes.",
           "Focused on admin usability and smoother non-technical team operations.",
         ],
-        links: [],
+        links: [
+          {
+            label: "Trackshoot",
+            href: "https://trackshoot.com/",
+          },
+        ],
       },
     ],
   },
@@ -332,7 +345,7 @@ export const projectGroups = [
         slug: "multivendor-platform",
         title: "Multi-vendor Commerce Platform",
         subtitle: "Marketplace workflow customization",
-        image: null,
+        image: multivendorImage,
         imageHint: "Add screenshot to src/assets/projects/multivendor-platform.jpg and import it in portfolioData.js",
         isLive: false,
         stack: ["WordPress", "Dokan", "WooCommerce", "Custom PHP"],
@@ -343,14 +356,19 @@ export const projectGroups = [
           "Supported seller-specific operational and catalog flows.",
           "Worked inside a live commerce setup with practical constraints.",
         ],
-        links: [],
+        links: [
+          {
+            label: "Gigigadgets",
+            href: "https://gigigadgets.com/",
+          },
+        ],
       },
       {
         slug: "automobile-dealer-backend",
         isLive: false,
         title: "Automobile Dealer Backend Platform",
         subtitle: "Laravel internal operations software",
-        image: null,
+        image: automobileDealerOperationImage,
         imageHint: "Add screenshot to src/assets/projects/automobile-dealer-backend.jpg and import it in portfolioData.js",
         stack: ["Laravel", "MySQL", "Admin Operations"],
         summary:
@@ -372,7 +390,7 @@ export const projectGroups = [
         slug: "dolibarr-custom-work",
         title: "Dolibarr Custom Engineering",
         subtitle: "ERP customization and deployment support",
-        image: null,
+        image: dolibarrImage,
         imageHint: "Add screenshot to src/assets/projects/dolibarr-custom-work.jpg and import it in portfolioData.js",
         stack: ["Dolibarr", "PHP", "PDF Templates", "Email Templates", "Hosting"],
         summary:
@@ -400,7 +418,7 @@ export const projectGroups = [
         slug: "laravel-packages",
         title: "Laravel Package Set",
         subtitle: "Reusable backend support modules",
-        image: null,
+        image: laravelPackagesImage,
         imageHint: "Add screenshot to src/assets/projects/laravel-packages.jpg and import it in portfolioData.js",
         stack: ["Laravel", "Auth", "Jobs", "Workers", "Events"],
         summary:
@@ -410,13 +428,18 @@ export const projectGroups = [
           "Improved consistency in common backend features.",
           "Focused on scalable support for real production teams.",
         ],
-        links: [],
+        links: [
+          {
+            label: "Package",
+            href: "https://packagist.org/packages/iquesters/user-management",
+          },
+        ],
       },
       {
         slug: "wrappid-contributions",
         title: "Wrappid Contributions",
         subtitle: "Framework and module contribution work",
-        image: null,
+        image: wrappidContributionImage,
         imageHint: "Add screenshot to src/assets/projects/wrappid-contributions.jpg and import it in portfolioData.js",
         stack: ["Wrappid", "React", "Open Source"],
         summary:

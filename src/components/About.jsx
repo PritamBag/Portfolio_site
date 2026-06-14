@@ -1,4 +1,4 @@
-import bannerImage from "../assets/PIC-3.png";
+import bannerImage from "../assets/PIC-4.png";
 import { aboutContent, personalHighlights } from "../data/portfolioData";
 
 const About = () => {
@@ -30,7 +30,6 @@ const About = () => {
                   "MCA — Techno India Hooghly (2024)",
                   "B.Sc Mathematics — Barasat College (2021)",
                   "~2 years in the industry",
-                  "Food blogger at Nomad Journey",
                 ].map((fact) => (
                   <li key={fact} className="flex items-center gap-2.5">
                     <span className="h-1.5 w-1.5 flex-shrink-0 rounded-full bg-white/60" />
