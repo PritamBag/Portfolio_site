@@ -17,9 +17,9 @@ export const siteConfig = {
   location: "Kolkata, West Bengal, India",
   currentRole: "SDE at Iquester Solutions LLP",
   summary:
-    "I build backend systems for businesses that can't afford downtime — from custom Laravel applications and ERP integrations to multi-vendor platforms and automated workflows.",
+    "I think about software the way I approached mathematics — looking for the structure underneath. Systems design, event architecture, entity modeling, the invisible decisions that make products hold up past the first sprint. Based in Kolkata, building production software where the design matters as much as the delivery.",
   heroDescription:
-    "Two years across enterprise backend work, framework contribution, API integrations, and deployment-sensitive software. Based in Kolkata, working where the problem is real and the solution has to survive Monday morning.",
+    "Systems design, event architecture, framework internals, and integration work. 1.5+ years building software where the shape of the system matters as much as the feature that ships.",
   resumeUrl: resumePdf,
   availability:
     "Open to software engineering roles, backend-heavy freelance work, Laravel product builds, and business workflow automation projects.",
@@ -57,10 +57,10 @@ export const quickLinks = [
 ];
 
 export const heroRoles = [
-  "Laravel Engineer",
-  "Enterprise App Builder",
-  "WordPress Customization Specialist",
-  "API Integration Developer",
+  "Backend Systems Architect",
+  "Laravel & PHP Engineer",
+  "Systems Design Enthusiast",
+  "Framework Contributor",
 ];
 
 export const skills = [
@@ -144,8 +144,8 @@ export const aboutContent = {
     "I came to software the same way I approached mathematics — looking for the structure underneath the surface. My B.Sc in Mathematics at Barasat College was not a detour; it was the foundation. Numbers taught me how to break down complexity, spot patterns, and reason toward clean answers. That habit carried straight into MCA at Techno India Hooghly, where I graduated in 2024 with an 8.71 CGPA and a clear direction.",
     "In July 2024, I walked into Rxefy Tech as an intern. Within months, I was contributing to Wrappid — an in-house React-based application framework — while simultaneously building Laravel backends, publishing reusable packages, integrating Zoho Books for financial automation, and wiring WhatsApp and Messenger APIs into business operations. I also participated in architecture design: defining entity boundaries between Streamline and Business layers, building an event-driven worker system using Laravel Jobs to reduce spinup overhead, and creating a UI-driven database schema builder that let users define tables, queries, and relationships without writing raw SQL. By the time I transitioned to full-time, I had shipped production code across multi-tenant applications, Docker-monitored services, and cPanel-based deployments.",
     "In March 2026, I joined Iquester Solutions LLP to work on more operational problems — Dolibarr ERP customization, multi-vendor marketplace platforms on WordPress, custom Laravel systems, and VPS/cPanel server management. This is software that has to run reliably on a Monday morning when someone's entire business depends on it.",
-    "Nearly two years in, I build systems that are readable, maintainable, and useful beyond the first sprint. I care less about clever code and more about software that survives real usage.",
-    "Outside the screen, I run a food blog called Nomad Journey, where I write about recipes, food culture, and the process of making something good from scratch. The instinct is the same — working within constraints to make something that actually lands.",
+    "1.5+ years in, I build systems that are readable, maintainable, and useful beyond the first sprint. I care less about clever code and more about software that survives real usage.",
+    "Outside engineering, cooking is a genuine passion — not just a hobby. I'm curious about food, recipes, and the culture around what people eat and how it's made. I co-author Nomad Journey with a friend; we write about food and culture when there's something worth sharing. The instinct carries over — constraints, patience, and making something that actually works.",
   ],
   focusAreas: [
     "Enterprise Laravel applications and reusable backend modules",
@@ -160,12 +160,12 @@ export const personalHighlights = [
   {
     title: "Cooking",
     description:
-      "Cooking is one of the ways I reset outside engineering. I enjoy the process of combining structure, experimentation, and patience to make something thoughtful and enjoyable.",
+      "Cooking is a genuine passion — not just a screen break. I enjoy it deeply: the structure, the experimentation, the patience it takes to turn raw ingredients into something that actually works. The mindset is surprisingly close to engineering.",
   },
   {
-    title: "Food and Recipe Writing",
+    title: "Food & Culture",
     description:
-      "I have written on Nomad Journey around food, recipes, and related experiences. It is a space where I share curiosity, taste, and storytelling beyond software.",
+      "I'm curious about food culture — regional ingredients, how dishes travel, what eating habits say about people. I co-author Nomad Journey with a friend where we write about food and culture when there's something worth sharing, not on a schedule.",
     link: {
       label: "Nomad Journey",
       href: "https://nomadjourney.in",
@@ -460,7 +460,7 @@ export const projectGroups = [
 ];
 
 export const homeStats = [
-  { value: "~2", label: "Years in Industry" },
+  { value: "1.5+", label: "Years in Industry" },
   { value: "2", label: "Professional Roles" },
   { value: "5+", label: "Laravel Packages" },
   { value: "10+", label: "Projects Delivered" },

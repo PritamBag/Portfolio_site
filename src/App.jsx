@@ -100,12 +100,12 @@ function App() {
       </div>
 
       {/* All page content sits above the ambient layer */}
-      <div className="relative flex min-h-screen flex-col" style={{ zIndex: 1 }}>
+      <div className="relative flex flex-col" style={{ zIndex: 1 }}>
         <Header
           currentRoute={route}
           onOpenHireModal={() => setIsHireModalOpen(true)}
         />
-        <main className="flex-1">{page}</main>
+        <main className="min-h-screen">{page}</main>
         <Footer />
       </div>
 

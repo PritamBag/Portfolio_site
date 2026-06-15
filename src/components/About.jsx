@@ -29,7 +29,8 @@ const About = () => {
                   "Kolkata, West Bengal, India",
                   "MCA — Techno India Hooghly (2024)",
                   "B.Sc Mathematics — Barasat College (2021)",
-                  "~2 years in the industry",
+                  "1.5+ years in the industry",
+                  "Co-author at Nomad Journey",
                 ].map((fact) => (
                   <li key={fact} className="flex items-center gap-2.5">
                     <span className="h-1.5 w-1.5 flex-shrink-0 rounded-full bg-white/60" />

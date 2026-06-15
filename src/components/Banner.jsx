@@ -52,7 +52,7 @@ const Banner = ({ onOpenHireModal }) => {
               {siteConfig.location}
             </span>
             <span className="text-slate-300">·</span>
-            <span>~2 years in industry</span>
+            <span>1.5+ years in industry</span>
             <span className="text-slate-300">·</span>
             <span className="font-medium text-emerald-600">Open to opportunities</span>
           </div>

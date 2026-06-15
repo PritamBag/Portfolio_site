@@ -13,7 +13,7 @@ const Experience = () => {
             Work history & education
           </h1>
           <p className="mt-4 text-sm leading-7 text-slate-500 md:text-base">
-            Two years across enterprise backend work, framework contribution, API integrations, and operational software.
+            1.5+ years across enterprise backend work, framework contribution, API integrations, and operational software.
           </p>
         </div>
 
