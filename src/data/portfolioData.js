@@ -13,9 +13,9 @@ import dolibarrImage from "../assets/projects/dolibarr.png";
 
 export const siteConfig = {
   name: "Pritam Bag",
-  title: "Software Development Engineer",
+  title: "Tech Enthusiast",
   location: "Kolkata, West Bengal, India",
-  currentRole: "Software Developer at Iquester Solutions LLP",
+  currentRole: "SDE at Iquester Solutions LLP",
   summary:
     "I build backend systems for businesses that can't afford downtime — from custom Laravel applications and ERP integrations to multi-vendor platforms and automated workflows.",
   heroDescription:
@@ -181,7 +181,7 @@ export const personalHighlights = [
 export const experienceItems = [
   {
     company: "Iquester Solutions LLP",
-    role: "Software Developer",
+    role: "Software Development Engineer",
     period: "March 2026 - Present",
     location: "Kolkata, West Bengal, India - Remote",
     logo: iquesterLogo,

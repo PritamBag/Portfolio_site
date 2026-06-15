@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useState } from "react";
-import Header, { HireMeModal } from "./components/Header";
+import Header from "./components/Header";
+import HireMeModal from "./components/HireMeModal";
 import Banner from "./components/Banner";
 import About from "./components/About";
 import Experience from "./components/Experience";
@@ -78,7 +79,7 @@ function App() {
   }, [route]);
 
   return (
-    <div className="relative min-h-screen overflow-x-hidden bg-[#f8fafc] text-slate-900">
+    <div className="relative bg-[#f8fafc] text-slate-900">
       {/* Global ambient background — fixed so it persists across all pages */}
       <div className="pointer-events-none fixed inset-0 overflow-hidden" aria-hidden="true" style={{ zIndex: 0 }}>
         {/* Top-right pink blob */}
@@ -99,12 +100,12 @@ function App() {
       </div>
 
       {/* All page content sits above the ambient layer */}
-      <div className="relative" style={{ zIndex: 1 }}>
+      <div className="relative flex min-h-screen flex-col" style={{ zIndex: 1 }}>
         <Header
           currentRoute={route}
           onOpenHireModal={() => setIsHireModalOpen(true)}
         />
-        <main>{page}</main>
+        <main className="flex-1">{page}</main>
         <Footer />
       </div>
 

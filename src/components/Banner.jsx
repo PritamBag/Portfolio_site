@@ -27,7 +27,7 @@ const Banner = ({ onOpenHireModal }) => {
         {/* Left */}
         <div className="px-1 md:px-0">
           <span className="inline-flex items-center gap-2 rounded-full border border-fuchsia-200 bg-fuchsia-50 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.22em] text-fuchsia-700">
-            Software Development Engineer
+            {siteConfig.title}
           </span>
 
           <h1 className="mt-6 font-display text-5xl font-semibold leading-[0.92] text-slate-900 md:text-6xl lg:text-7xl">
@@ -68,16 +68,10 @@ const Banner = ({ onOpenHireModal }) => {
               href={siteConfig.resumeUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="rounded-full border border-slate-200 bg-white px-6 py-3 text-sm font-semibold text-slate-700 transition hover:border-slate-300"
+              className="rounded-full border border-fuchsia-200 bg-fuchsia-50 px-6 py-3 text-sm font-semibold text-fuchsia-700 transition hover:bg-fuchsia-100"
             >
               Resume
             </a>
-            <button
-              onClick={onOpenHireModal}
-              className="rounded-full border border-fuchsia-200 bg-fuchsia-50 px-6 py-3 text-sm font-semibold text-fuchsia-700 transition hover:bg-fuchsia-100"
-            >
-              Contact Form
-            </button>
           </div>
 
           <div className="mt-8 flex flex-wrap gap-3">
