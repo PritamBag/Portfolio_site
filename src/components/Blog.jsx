@@ -1,8 +1,14 @@
 import { blogIdeas } from "../data/portfolioData";
+import DecorGrafx from "./DecorGrafx";
 
 const Blog = () => {
   return (
-    <section className="mx-auto w-full max-w-6xl px-4 py-12 md:px-6 md:py-16 lg:px-8">
+    <section className="relative overflow-hidden mx-auto w-full max-w-6xl px-4 py-16 md:px-6 md:py-24 lg:px-8">
+
+      <DecorGrafx id="blg" ringPos="br" dotPos="tl" c1="#9333EA" c2="#6366F1" c3="#3B82F6" flipCurve orbitPos="bl"
+        showCube cubePos="tr" cubeSize={90}
+        showPolygons polyPos="bl"
+      />
       <div className="max-w-3xl">
         <p className="font-display text-sm font-semibold uppercase tracking-[0.28em] text-orange-500">
           Blog

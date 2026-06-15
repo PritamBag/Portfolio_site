@@ -23,28 +23,30 @@ const Header = ({ currentRoute, onOpenHireModal }) => {
 
   return (
     <header
-      className="sticky top-0 z-40 border-b border-white/60 backdrop-blur-md"
+      className="sticky top-0 z-50 border-b border-white/60 backdrop-blur-md"
       style={{ background: "rgba(255,255,255,0.80)" }}
     >
-      <div className="mx-auto flex h-20 w-full max-w-6xl items-center justify-between gap-4 px-4 md:px-6 lg:px-8">
+      <div className="mx-auto flex h-24 w-full max-w-6xl items-center justify-between gap-4 px-4 md:px-6 lg:px-8">
         {/* Logo / name */}
-        <a href="#/" className="flex flex-col">
-          <span className="text-xl font-semibold tracking-tight text-slate-900 md:text-2xl">
+        <a href="#/" className="flex flex-col gap-0.5">
+          <span className="text-xl font-semibold tracking-[-0.01em] text-slate-900 md:text-2xl">
             {siteConfig.name}
           </span>
-          <span className="text-xs text-slate-500">{siteConfig.title}</span>
+          <span className="text-[10px] font-semibold uppercase tracking-[0.18em] text-slate-400">
+            {siteConfig.title}
+          </span>
         </a>
 
         {/* Desktop nav */}
-        <nav className="hidden items-center gap-5 lg:flex">
+        <nav className="hidden items-center gap-8 lg:flex">
           {navItems.map((item) => {
             const isActive = activeRoute === item.path.replace("#", "");
             return (
               <a
                 key={item.title}
                 href={item.path}
-                className={`text-sm font-medium transition ${
-                  isActive ? "text-violet-600" : "text-slate-600 hover:text-slate-900"
+                className={`text-[11px] font-semibold uppercase tracking-[0.12em] transition ${
+                  isActive ? "text-violet-600" : "text-slate-500 hover:text-slate-900"
                 }`}
               >
                 {item.title}
@@ -54,22 +56,10 @@ const Header = ({ currentRoute, onOpenHireModal }) => {
         </nav>
 
         {/* Desktop actions */}
-        <div className="hidden items-center gap-3 lg:flex">
-          {socialLinks.map((link) => (
-            <a
-              key={link.label}
-              href={link.href}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label={link.label}
-              className="flex h-10 w-10 items-center justify-center rounded-full border border-slate-300 text-slate-600 transition hover:border-slate-400 hover:text-slate-900"
-            >
-              <i className={`fa-brands ${link.icon}`}></i>
-            </a>
-          ))}
+        <div className="hidden items-center lg:flex">
           <button
             onClick={onOpenHireModal}
-            className="rounded-full px-4 py-2 text-sm font-semibold text-white transition hover:opacity-90 gradient-brand"
+            className="rounded-full px-6 py-2.5 text-[11px] font-semibold uppercase tracking-[0.12em] text-white transition hover:opacity-90 gradient-brand"
           >
             Hire Me
           </button>
@@ -87,15 +77,15 @@ const Header = ({ currentRoute, onOpenHireModal }) => {
         </button>
       </div>
 
-      {/* Mobile menu */}
+      {/* Mobile menu — absolute so it layers over page content */}
       {isMenuOpen && (
-        <div className="border-t border-slate-200 bg-white px-4 py-4 lg:hidden">
-          <div className="mx-auto flex max-w-6xl flex-col gap-3">
+        <div className="absolute inset-x-0 top-full z-50 border-t border-slate-200 bg-white shadow-xl px-4 py-5 lg:hidden">
+          <div className="mx-auto flex max-w-6xl flex-col gap-1">
             {navItems.map((item) => (
               <a
                 key={item.title}
                 href={item.path}
-                className="rounded-xl px-3 py-2 text-sm font-medium text-slate-700 hover:bg-slate-50 hover:text-slate-900"
+                className="rounded-xl px-3 py-2.5 text-[11px] font-semibold uppercase tracking-[0.12em] text-slate-600 hover:bg-slate-50 hover:text-slate-900"
               >
                 {item.title}
               </a>
@@ -116,7 +106,7 @@ const Header = ({ currentRoute, onOpenHireModal }) => {
             </div>
             <button
               onClick={onOpenHireModal}
-              className="mt-2 rounded-full px-4 py-2 text-sm font-semibold text-white gradient-brand"
+              className="mt-2 rounded-full px-5 py-2.5 text-[11px] font-semibold uppercase tracking-[0.12em] text-white gradient-brand"
             >
               Hire Me
             </button>

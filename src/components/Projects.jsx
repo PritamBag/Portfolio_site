@@ -1,6 +1,7 @@
 import PropTypes from "prop-types";
 import { projectGroups } from "../data/portfolioData";
 import ImagePlaceholder from "./ImagePlaceholder";
+import DecorGrafx from "./DecorGrafx";
 
 const ProjectCard = ({ project }) => (
   <article
@@ -80,7 +81,7 @@ const ProjectCard = ({ project }) => (
               href={link.href}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 rounded-full border border-fuchsia-200 px-4 py-2 text-sm font-semibold text-fuchsia-600 transition hover:bg-fuchsia-50"
+              className="inline-flex items-center gap-1.5 rounded-full border border-fuchsia-200 px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.10em] text-fuchsia-600 transition hover:bg-fuchsia-50"
             >
               {link.label}
               <svg xmlns="http://www.w3.org/2000/svg" className="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
@@ -105,7 +106,13 @@ const Projects = ({ limit = null, showIntro = true }) => {
   }));
 
   return (
-    <section className="mx-auto w-full max-w-6xl px-4 py-12 md:px-6 md:py-16 lg:px-8">
+    <section className="relative overflow-hidden mx-auto w-full max-w-6xl px-4 py-16 md:px-6 md:py-24 lg:px-8">
+
+      <DecorGrafx id="prj" ringPos="tr" dotPos="bl" c1="#EC4899" c2="#A855F7" c3="#F472B6" showGrid
+        showCube cubePos="bl" cubeSize={100}
+        showBrackets
+      />
+
       {showIntro && (
         <div className="max-w-3xl">
           <p className="text-xs font-semibold uppercase tracking-[0.28em] text-violet-600">
@@ -120,7 +127,7 @@ const Projects = ({ limit = null, showIntro = true }) => {
         </div>
       )}
 
-      <div className="mt-10 space-y-14">
+      <div className="mt-14 space-y-20">
         {groups.map((group) => {
           // Split into pairs so each pair forms its own 2-col subgrid
           const pairs = [];
@@ -141,7 +148,8 @@ const Projects = ({ limit = null, showIntro = true }) => {
                 {pairs.map((pair, pairIdx) => (
                   <div
                     key={pairIdx}
-                    className="grid gap-6 lg:gap-x-6 lg:gap-y-0 lg:grid-cols-2 lg:items-start"
+                    className="anim-fade-up grid gap-6 lg:gap-x-6 lg:gap-y-0 lg:grid-cols-2 lg:items-start"
+                    style={{ animationDelay: `${pairIdx * 0.1}s` }}
                   >
                     {pair.map((project) => (
                       <ProjectCard key={project.slug} project={project} />

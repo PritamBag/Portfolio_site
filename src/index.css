@@ -50,3 +50,140 @@ button {
 ::selection {
   background: rgba(99, 102, 241, 0.15);
 }
+
+/* ── Ambient blob drift ── */
+@keyframes blobDrift1 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33%       { transform: translate(-28px, 20px) scale(1.05); }
+  66%       { transform: translate(18px, -14px) scale(0.97); }
+}
+
+@keyframes blobDrift2 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33%       { transform: translate(24px, -20px) scale(0.96); }
+  66%       { transform: translate(-20px, 16px) scale(1.06); }
+}
+
+@keyframes blobPulse {
+  0%, 100% { transform: translate(-50%, -50%) scale(1);    opacity: 1; }
+  50%       { transform: translate(-50%, -50%) scale(1.18); opacity: 0.7; }
+}
+
+/* ── Scroll-triggered animation ── */
+@keyframes fadeSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(28px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.anim-fade-up {
+  opacity: 0;
+}
+
+.anim-fade-up.in-view {
+  animation: fadeSlideUp 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* ── Aurora gradient layers ── */
+.aurora-1 {
+  background: radial-gradient(ellipse 80% 55% at 15% 35%, rgba(197,94,162,0.11) 0%, transparent 55%);
+  animation: aurora1 13s ease-in-out infinite alternate;
+}
+.aurora-2 {
+  background: radial-gradient(ellipse 65% 60% at 85% 65%, rgba(139,92,246,0.11) 0%, transparent 55%);
+  animation: aurora2 17s ease-in-out infinite alternate;
+}
+.aurora-3 {
+  background: radial-gradient(ellipse 50% 40% at 50% 80%, rgba(99,102,241,0.08) 0%, transparent 60%);
+  animation: aurora1 21s ease-in-out infinite alternate-reverse;
+}
+
+@keyframes aurora1 {
+  from { transform: scale(1) translate(0%, 0%);   opacity: 0.9; }
+  to   { transform: scale(1.14) translate(8%, -5%); opacity: 1; }
+}
+@keyframes aurora2 {
+  from { transform: scale(1) translate(0%, 0%);    opacity: 0.8; }
+  to   { transform: scale(1.1) translate(-6%, 8%); opacity: 1; }
+}
+
+/* ── Hero 3-D perspective grid ── */
+.hero-pgrid {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+.hero-pgrid-inner {
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  width: 200%;
+  height: 260%;
+  transform: translateX(-50%) rotateX(74deg);
+  transform-origin: bottom center;
+  background-image:
+    linear-gradient(rgba(139,92,246,0.11) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(197,94,162,0.07) 1px, transparent 1px);
+  background-size: 52px 52px;
+  -webkit-mask-image: radial-gradient(ellipse 70% 50% at 50% 100%, rgba(0,0,0,0.45) 0%, transparent 72%);
+  mask-image:         radial-gradient(ellipse 70% 50% at 50% 100%, rgba(0,0,0,0.45) 0%, transparent 72%);
+}
+
+/* ── Animated gradient border ── */
+@keyframes gradBorderSpin {
+  from { background-position: 0%   center; }
+  to   { background-position: 200% center; }
+}
+.grad-border-wrap {
+  position: relative;
+}
+.grad-border-wrap::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1.5px;
+  background: linear-gradient(90deg, #C55EA2, #8B5CF6, #63a0f8, #C55EA2);
+  background-size: 200%;
+  animation: gradBorderSpin 3.5s linear infinite;
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: destination-out;
+  mask-composite: exclude;
+  pointer-events: none;
+}
+
+/* ── Shimmer scan line on badge ── */
+@keyframes shimmerSlide {
+  from { transform: translateX(-100%); }
+  to   { transform: translateX(100%); }
+}
+.badge-shimmer {
+  position: relative;
+  overflow: hidden;
+}
+.badge-shimmer::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.55) 50%, transparent 100%);
+  animation: shimmerSlide 2.4s ease-in-out infinite;
+}
+
+/* ── Floating 3-D decorative elements ── */
+@keyframes floatY {
+  0%, 100% { transform: translateY(0px)   rotate(0deg);   }
+  33%       { transform: translateY(-9px)  rotate(1.2deg); }
+  66%       { transform: translateY(-5px)  rotate(-0.8deg);}
+}
+@keyframes floatY2 {
+  0%, 100% { transform: translateY(0px)   rotate(0deg);   }
+  40%       { transform: translateY(-12px) rotate(-1.5deg);}
+  70%       { transform: translateY(-4px)  rotate(1deg);   }
+}
+.decor-float-y  { animation: floatY  7s ease-in-out infinite; }
+.decor-float-y2 { animation: floatY2 9s ease-in-out infinite; animation-delay: 3.2s; }

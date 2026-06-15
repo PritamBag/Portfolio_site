@@ -1,9 +1,15 @@
 import { educationItems, experienceItems, siteConfig } from "../data/portfolioData";
 import ImagePlaceholder from "./ImagePlaceholder";
+import DecorGrafx from "./DecorGrafx";
 
 const Experience = () => {
   return (
-    <section className="mx-auto w-full max-w-6xl px-4 py-12 md:px-6 md:py-16 lg:px-8">
+    <section className="relative overflow-hidden mx-auto w-full max-w-6xl px-4 py-16 md:px-6 md:py-24 lg:px-8">
+
+      <DecorGrafx id="xpr" ringPos="bl" dotPos="tr" c1="#9333EA" c2="#6366F1" c3="#06B6D4" flipCurve orbitPos="mr"
+        showCube cubePos="br" cubeSize={90}
+        showPolygons polyPos="tl"
+      />
       <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
         <div className="max-w-3xl">
           <p className="text-xs font-semibold uppercase tracking-[0.28em] text-violet-600">
@@ -21,14 +27,14 @@ const Experience = () => {
           href={siteConfig.resumeUrl}
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-flex rounded-full px-5 py-3 text-sm font-semibold text-white transition hover:opacity-90 gradient-brand"
+          className="inline-flex rounded-full px-5 py-3 text-[11px] font-semibold uppercase tracking-[0.10em] text-white transition hover:opacity-90 gradient-brand"
         >
           Open Resume
         </a>
       </div>
 
       {/* Experience items */}
-      <div className="mt-12 space-y-0 divide-y divide-slate-100 border border-white/70 rounded-2xl overflow-hidden glass-card">
+      <div className="anim-fade-up mt-14 space-y-0 divide-y divide-slate-100 border border-white/70 rounded-2xl overflow-hidden glass-card">
         {experienceItems.map((item, index) => (
           <div key={`${item.company}-${item.role}-${item.period}`} className="p-6 md:p-8">
             <div className="grid gap-6 md:grid-cols-[80px_1fr] md:items-start">
@@ -77,7 +83,7 @@ const Experience = () => {
       </div>
 
       {/* Education — timeline */}
-      <div className="mt-16">
+      <div className="anim-fade-up mt-24">
         <p className="text-xs font-semibold uppercase tracking-[0.28em] text-violet-600">
           Education
         </p>

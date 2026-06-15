@@ -1,5 +1,6 @@
 import { architectureHighlights, homeStats, projectGroups } from "../data/portfolioData";
 import ImagePlaceholder from "./ImagePlaceholder";
+import DecorGrafx from "./DecorGrafx";
 
 const featuredProjects = projectGroups.find((g) => g.id === "featured")?.projects ?? [];
 
@@ -28,10 +29,15 @@ const archIcons = {
 
 const HomeSnapshot = () => {
   return (
-    <div className="mx-auto w-full max-w-6xl px-4 py-10 md:px-6 md:py-14 lg:px-8">
+    <div className="relative overflow-hidden mx-auto w-full max-w-6xl px-4 py-16 md:px-6 md:py-20 lg:px-8">
+
+      <DecorGrafx id="snap" ringPos="br" dotPos="tl" c1="#EC4899" c2="#8B5CF6" c3="#06B6D4" orbitPos="ml"
+        showCube cubePos="br" cubeSize={92}
+        showPolygons polyPos="tr"
+      />
 
       {/* Stats — single unified bar */}
-      <div className="overflow-hidden rounded-2xl border border-white/70 shadow-sm glass-card">
+      <div className="anim-fade-up overflow-hidden rounded-2xl border border-white/70 shadow-sm glass-card">
         <div className="h-0.5 w-full gradient-brand" />
         <div className="grid grid-cols-2 divide-x divide-y divide-slate-100 md:grid-cols-4 md:divide-y-0">
           {homeStats.map((stat) => (
@@ -46,22 +52,28 @@ const HomeSnapshot = () => {
       </div>
 
       {/* Architecture — flat list, no individual card boxes */}
-      <div className="mt-16">
-        <p className="text-xs font-semibold uppercase tracking-[0.24em] text-violet-600">
-          System Design & Architecture
-        </p>
-        <div className="mt-2 flex items-end justify-between gap-4">
-          <h2 className="font-display text-2xl font-semibold text-slate-900 md:text-3xl">
-            Beyond writing code
-          </h2>
-          <p className="hidden max-w-sm text-right text-sm text-slate-500 md:block">
-            As an SDE I participate in architecture decisions and build patterns that scale.
+      <div className="mt-24">
+        <div className="anim-fade-up">
+          <p className="text-xs font-semibold uppercase tracking-[0.24em] text-violet-600">
+            System Design & Architecture
           </p>
+          <div className="mt-2 flex items-end justify-between gap-4">
+            <h2 className="font-display text-2xl font-semibold text-slate-900 md:text-3xl">
+              Beyond writing code
+            </h2>
+            <p className="hidden max-w-sm text-right text-sm text-slate-500 md:block">
+              As an SDE I participate in architecture decisions and build patterns that scale.
+            </p>
+          </div>
         </div>
 
-        <div className="mt-8 grid gap-8 sm:grid-cols-2">
-          {architectureHighlights.map((item) => (
-            <div key={item.id} className="flex gap-4">
+        <div className="mt-10 grid gap-8 sm:grid-cols-2">
+          {architectureHighlights.map((item, i) => (
+            <div
+              key={item.id}
+              className="anim-fade-up flex gap-4"
+              style={{ animationDelay: `${i * 0.1}s` }}
+            >
               <div className="gradient-brand mt-0.5 flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-xl text-white">
                 {archIcons[item.icon]}
               </div>
@@ -75,8 +87,8 @@ const HomeSnapshot = () => {
       </div>
 
       {/* Featured projects */}
-      <div className="mt-16">
-        <div className="flex items-end justify-between">
+      <div className="mt-24">
+        <div className="anim-fade-up flex items-end justify-between">
           <div>
             <p className="text-xs font-semibold uppercase tracking-[0.24em] text-violet-600">
               Featured Work
@@ -90,11 +102,12 @@ const HomeSnapshot = () => {
           </a>
         </div>
 
-        <div className="mt-8 grid gap-6 sm:grid-cols-2 xl:grid-cols-3">
-          {featuredProjects.map((project) => (
+        <div className="mt-10 grid gap-6 sm:grid-cols-2 xl:grid-cols-3">
+          {featuredProjects.map((project, i) => (
             <article
               key={project.slug}
-              className="flex flex-col overflow-hidden rounded-2xl border border-white/70 shadow-sm transition hover:shadow-[0_12px_40px_rgba(197,94,162,0.15)] glass-card"
+              className="anim-fade-up flex flex-col overflow-hidden rounded-2xl border border-white/70 shadow-sm transition hover:shadow-[0_12px_40px_rgba(197,94,162,0.15)] glass-card"
+              style={{ animationDelay: `${i * 0.1}s` }}
             >
               {/* Gradient top accent */}
               <div className="h-0.5 w-full gradient-brand flex-shrink-0" />

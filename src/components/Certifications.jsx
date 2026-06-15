@@ -1,4 +1,5 @@
 import { certifications } from "../data/portfolioData";
+import DecorGrafx from "./DecorGrafx";
 
 const categoryColors = {
   "Backend Development": {
@@ -64,7 +65,7 @@ const CertCard = ({ cert }) => {
         </div>
 
         {cert.link && (
-          <a href={cert.link} target="_blank" rel="noopener noreferrer" className="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-violet-600 hover:text-violet-700">
+          <a href={cert.link} target="_blank" rel="noopener noreferrer" className="mt-5 inline-flex items-center gap-1.5 text-[11px] font-semibold uppercase tracking-[0.10em] text-violet-600 hover:text-violet-700">
             View Credential
             <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
               <path strokeLinecap="round" strokeLinejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
@@ -78,8 +79,14 @@ const CertCard = ({ cert }) => {
 
 const Certifications = () => {
   return (
-    <section className="mx-auto w-full max-w-6xl px-4 py-12 md:px-6 md:py-16 lg:px-8">
-      <div className="max-w-3xl">
+    <section className="relative overflow-hidden mx-auto w-full max-w-6xl px-4 py-16 md:px-6 md:py-24 lg:px-8">
+
+      <DecorGrafx id="crt" ringPos="tr" dotPos="bl" c1="#C55EA2" c2="#EC4899" c3="#9333EA"
+        showCube cubePos="bl" cubeSize={86}
+        showBrackets
+        showPolygons polyPos="br"
+      />
+      <div className="anim-fade-up max-w-3xl">
         <p className="text-xs font-semibold uppercase tracking-[0.28em] text-violet-600">
           Certifications
         </p>
@@ -92,17 +99,10 @@ const Certifications = () => {
         </p>
       </div>
 
-      <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
         {certifications.map((cert) => (
           <CertCard key={cert.id} cert={cert} />
         ))}
-      </div>
-
-      <div className="mt-10 rounded-2xl border border-dashed border-violet-200 bg-violet-50/50 p-6 text-center">
-        <p className="text-sm text-slate-500">
-          Update the <code className="rounded bg-violet-100 px-1.5 py-0.5 text-xs text-violet-700">certifications</code> array in{" "}
-          <code className="rounded bg-violet-100 px-1.5 py-0.5 text-xs text-violet-700">src/data/portfolioData.js</code> to add your actual certifications.
-        </p>
       </div>
     </section>
   );

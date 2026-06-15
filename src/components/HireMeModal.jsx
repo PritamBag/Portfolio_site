@@ -100,14 +100,14 @@ const HireMeModal = ({ isOpen, onClose }) => {
           <div className="flex justify-center gap-2">
             <button
               onClick={onClose}
-              className="mt-4 rounded-full border border-slate-200 px-5 py-2 text-sm text-slate-600 transition hover:border-slate-300"
+              className="mt-4 rounded-full border border-slate-200 px-5 py-2 text-[11px] font-semibold uppercase tracking-[0.10em] text-slate-600 transition hover:border-slate-300"
             >
               Close
             </button>
             <button
               onClick={handleSubmit}
               disabled={isSubmitting}
-              className="mt-4 rounded-full px-5 py-2 text-sm font-semibold text-white transition hover:opacity-90 disabled:opacity-50 gradient-brand"
+              className="mt-4 rounded-full px-5 py-2 text-[11px] font-semibold uppercase tracking-[0.10em] text-white transition hover:opacity-90 disabled:opacity-50 gradient-brand"
             >
               {isSubmitting ? "Sending..." : "Send"}
             </button>

@@ -1,12 +1,19 @@
 import bannerImage from "../assets/PIC-4.png";
 import { aboutContent, personalHighlights } from "../data/portfolioData";
+import DecorGrafx from "./DecorGrafx";
 
 const About = () => {
   return (
-    <section className="mx-auto w-full max-w-6xl px-4 py-12 md:px-6 md:py-16 lg:px-8">
+    <section className="relative overflow-hidden mx-auto w-full max-w-6xl px-4 py-16 md:px-6 md:py-24 lg:px-8">
+
+      <DecorGrafx id="abt" ringPos="tl" dotPos="br" c1="#3B82F6" c2="#8B5CF6" c3="#C55EA2" flipCurve orbitPos="ml"
+        showCube cubePos="tr" cubeSize={88}
+        showBrackets
+        showPolygons polyPos="bl"
+      />
 
       {/* Story section */}
-      <div className="grid gap-12 md:grid-cols-[0.85fr_1.15fr] md:items-start">
+      <div className="anim-fade-up grid gap-12 md:grid-cols-[0.85fr_1.15fr] md:items-start">
         <div className="flex flex-col gap-6">
           <div className="overflow-hidden rounded-[2rem] shadow-xl">
             <img
@@ -67,7 +74,7 @@ const About = () => {
               {aboutContent.focusAreas.map((item) => (
                 <span
                   key={item}
-                  className="rounded-full border border-violet-200 bg-violet-50 px-4 py-2 text-sm font-medium text-violet-800"
+                  className="rounded-full border border-violet-200 bg-violet-50 px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.10em] text-violet-800"
                 >
                   {item}
                 </span>
@@ -78,14 +85,14 @@ const About = () => {
       </div>
 
       {/* Hobbies — no card boxes, just top-line accent */}
-      <div className="mt-16">
+      <div className="mt-24">
         <p className="text-xs font-semibold uppercase tracking-[0.24em] text-violet-600">
           Beyond the code
         </p>
         <h2 className="mt-2 font-display text-2xl font-semibold text-slate-900 md:text-3xl">
           What keeps me grounded
         </h2>
-        <div className="mt-6 grid gap-px border border-white/70 bg-slate-200/60 sm:grid-cols-3 rounded-2xl overflow-hidden">
+        <div className="anim-fade-up mt-8 grid gap-px border border-white/70 bg-slate-200/60 sm:grid-cols-3 rounded-2xl overflow-hidden">
           {personalHighlights.map((item) => (
             <div key={item.title} className="flex flex-col p-6 glass-card">
               <div className="mb-3 h-0.5 w-8 gradient-brand rounded-full" />

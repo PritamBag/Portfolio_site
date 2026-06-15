@@ -11,6 +11,7 @@ import Blog from "./components/Blog";
 import Contact from "./components/Contact";
 import HomeSnapshot from "./components/HomeSnapshot";
 import Certifications from "./components/Certifications";
+import GrafxBackground from "./components/GrafxBackground";
 import { siteConfig } from "./data/portfolioData";
 import "./App.css";
 
@@ -33,6 +34,23 @@ function App() {
     window.addEventListener("hashchange", handleHashChange);
     return () => window.removeEventListener("hashchange", handleHashChange);
   }, []);
+
+  // Scroll-triggered animations — re-run on every route change
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("in-view");
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.08 }
+    );
+    document.querySelectorAll(".anim-fade-up").forEach((el) => observer.observe(el));
+    return () => observer.disconnect();
+  }, [route]);
 
   useEffect(() => {
     const pageTitles = {
@@ -80,24 +98,7 @@ function App() {
 
   return (
     <div className="relative bg-[#f8fafc] text-slate-900">
-      {/* Global ambient background — fixed so it persists across all pages */}
-      <div className="pointer-events-none fixed inset-0 overflow-hidden" aria-hidden="true" style={{ zIndex: 0 }}>
-        {/* Top-right pink blob */}
-        <div
-          className="absolute -right-48 -top-24 h-[700px] w-[700px] rounded-full blur-[180px]"
-          style={{ background: "rgba(197, 94, 162, 0.13)" }}
-        />
-        {/* Bottom-left violet blob */}
-        <div
-          className="absolute -left-48 bottom-0 h-[650px] w-[650px] rounded-full blur-[180px]"
-          style={{ background: "rgba(139, 92, 246, 0.10)" }}
-        />
-        {/* Subtle center glow */}
-        <div
-          className="absolute left-1/2 top-1/2 h-[500px] w-[500px] -translate-x-1/2 -translate-y-1/2 rounded-full blur-[220px]"
-          style={{ background: "rgba(197, 94, 162, 0.05)" }}
-        />
-      </div>
+      <GrafxBackground />
 
       {/* All page content sits above the ambient layer */}
       <div className="relative flex flex-col" style={{ zIndex: 1 }}>

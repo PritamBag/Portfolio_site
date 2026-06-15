@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { socialLinks, siteConfig } from "../data/portfolioData";
 import { loadRecaptchaScript, submitContactForm } from "../utils/contactForm";
+import DecorGrafx from "./DecorGrafx";
 
 const Contact = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -39,8 +40,13 @@ const Contact = () => {
   };
 
   return (
-    <section className="mx-auto w-full max-w-6xl px-4 py-12 md:px-6 md:py-16 lg:px-8">
-      <div className="max-w-3xl">
+    <section className="relative overflow-hidden mx-auto w-full max-w-6xl px-4 py-16 md:px-6 md:py-24 lg:px-8">
+
+      <DecorGrafx id="ctn" ringPos="bl" dotPos="tr" c1="#6366F1" c2="#8B5CF6" c3="#EC4899" orbitPos="mr"
+        showCube cubePos="tr" cubeSize={86}
+        showBrackets
+      />
+      <div className="anim-fade-up max-w-3xl">
         <p className="text-xs font-semibold uppercase tracking-[0.28em] text-indigo-500">
           Contact
         </p>
@@ -52,7 +58,7 @@ const Contact = () => {
         </p>
       </div>
 
-      <div className="mt-12 grid gap-10 lg:grid-cols-[1fr_1.5fr] lg:items-start">
+      <div className="anim-fade-up mt-14 grid gap-10 lg:grid-cols-[1fr_1.5fr] lg:items-start">
         {/* Left: contact links */}
         <div className="space-y-6">
           <div className="rounded-3xl border border-white/70 p-6 shadow-sm glass-card">
@@ -110,7 +116,7 @@ const Contact = () => {
             href={siteConfig.resumeUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex w-full items-center justify-center gap-2 rounded-2xl border border-indigo-200 bg-violet-50 px-5 py-3.5 text-sm font-semibold text-violet-700 transition hover:bg-indigo-100"
+            className="flex w-full items-center justify-center gap-2 rounded-2xl border border-indigo-200 bg-violet-50 px-5 py-3.5 text-[11px] font-semibold uppercase tracking-[0.10em] text-violet-700 transition hover:bg-indigo-100"
           >
             <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
               <path strokeLinecap="round" strokeLinejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
@@ -210,7 +216,7 @@ const Contact = () => {
             <button
               type="submit"
               disabled={isSubmitting || submitStatus === "success"}
-              className="flex w-full items-center justify-center gap-2 rounded-xl px-6 py-3.5 text-sm font-semibold text-white transition hover:opacity-90 disabled:opacity-60 gradient-brand"
+              className="flex w-full items-center justify-center gap-2 rounded-xl px-6 py-3.5 text-[11px] font-semibold uppercase tracking-[0.10em] text-white transition hover:opacity-90 disabled:opacity-60 gradient-brand"
             >
               {isSubmitting ? (
                 <>
