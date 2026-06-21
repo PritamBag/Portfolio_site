@@ -1,0 +1,44 @@
+# Pritam Bag — Portfolio
+
+> Software Development Engineer based in Kolkata, West Bengal, India.
+> Specialist in Laravel, PHP, React, and backend systems architecture.
+> 1.5+ years building production software at Rxefy Tech and Iquester Solutions LLP.
+
+## About
+
+Pritam Bag is a Software Development Engineer with expertise in Laravel backend systems,
+WordPress/WooCommerce customization, Dolibarr ERP, and React frontends. He holds an MCA
+from Techno India Hooghly (CGPA 8.71) and a B.Sc in Mathematics from Barasat College (CGPA 9.10).
+
+Currently working at Iquester Solutions LLP on ERP systems, multi-vendor platforms, and custom Laravel packages.
+
+## Skills
+
+- Backend: Laravel, PHP, REST APIs, Jobs & Queues
+- Frontend: React, TypeScript, JavaScript, Tailwind CSS
+- Database: MySQL, MariaDB
+- Platforms: WordPress, WooCommerce, Dokan, Dolibarr
+- Tools: Docker, Git, cPanel, VPS
+- Integrations: Zoho Books, WhatsApp API, Messenger API
+
+## Notable Work
+
+- Built 5+ reusable Laravel packages including iquesters/user-management (published on Packagist)
+- Designed an event-driven worker system using Laravel Jobs and Queues
+- Built a UI-driven database schema builder inside a production application
+- Contributed to Wrappid, an open-source React-based application framework
+- Integrated Zoho Books, WhatsApp, and Messenger APIs into business workflows
+- Customized Dolibarr ERP with templates, modules, and hosting migrations
+- Built multi-vendor marketplace features on WordPress with Dokan and WooCommerce
+
+## Blog
+
+- "Your Laravel App Keeps Growing Columns. WordPress Solved This 15 Years Ago." — architecture post on the Entity-Meta database pattern, pivot tables, and vertical scaling
+
+## Contact
+
+- Email: pritam02b@gmail.com
+- GitHub: https://github.com/PritamBag
+- LinkedIn: https://www.linkedin.com/in/pritam-bag/
+- Portfolio: https://pritambag.in
+- Packagist: https://packagist.org/packages/iquesters/user-management

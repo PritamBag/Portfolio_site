@@ -165,7 +165,7 @@ const Banner = ({ onOpenHireModal }) => {
 
           <div className="mt-9 flex flex-wrap gap-3">
             <a
-              href="#/projects"
+              href="/projects"
               className="rounded-full px-6 py-3 text-[11px] font-semibold uppercase tracking-[0.10em] text-white transition hover:opacity-90 gradient-brand"
             >
               View Projects

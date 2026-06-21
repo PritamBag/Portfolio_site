@@ -97,7 +97,7 @@ const HomeSnapshot = () => {
               Projects that shipped
             </h2>
           </div>
-          <a href="#/projects" className="hidden text-sm font-semibold text-violet-600 hover:text-violet-700 md:block">
+          <a href="/projects" className="hidden text-sm font-semibold text-violet-600 hover:text-violet-700 md:block">
             View all →
           </a>
         </div>
@@ -178,7 +178,7 @@ const HomeSnapshot = () => {
         </div>
 
         <div className="mt-6 text-center md:hidden">
-          <a href="#/projects" className="text-sm font-semibold text-violet-600 hover:text-violet-700">
+          <a href="/projects" className="text-sm font-semibold text-violet-600 hover:text-violet-700">
             View all projects →
           </a>
         </div>

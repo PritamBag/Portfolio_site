@@ -8,6 +8,7 @@ import Projects from "./components/Projects";
 import Expertise from "./components/Expertise";
 import Footer from "./components/Footer";
 import Blog from "./components/Blog";
+import BlogPost from "./components/BlogPost";
 import Contact from "./components/Contact";
 import HomeSnapshot from "./components/HomeSnapshot";
 import Certifications from "./components/Certifications";
@@ -15,24 +16,17 @@ import GrafxBackground from "./components/GrafxBackground";
 import { siteConfig } from "./data/portfolioData";
 import "./App.css";
 
-const normalizeRoute = (hash) => {
-  if (!hash || hash === "#") return "/";
-  const cleanedHash = hash.replace(/^#/, "");
-  if (cleanedHash === "" || cleanedHash === "/") return "/";
-  return cleanedHash.startsWith("/") ? cleanedHash : `/${cleanedHash}`;
-};
-
 function App() {
-  const [route, setRoute] = useState(normalizeRoute(window.location.hash));
+  const [route, setRoute] = useState(window.location.pathname || "/");
   const [isHireModalOpen, setIsHireModalOpen] = useState(false);
 
   useEffect(() => {
-    const handleHashChange = () => {
-      setRoute(normalizeRoute(window.location.hash));
+    const handlePopState = () => {
+      setRoute(window.location.pathname || "/");
       window.scrollTo({ top: 0, behavior: "smooth" });
     };
-    window.addEventListener("hashchange", handleHashChange);
-    return () => window.removeEventListener("hashchange", handleHashChange);
+    window.addEventListener("popstate", handlePopState);
+    return () => window.removeEventListener("popstate", handlePopState);
   }, []);
 
   // Scroll-triggered animations — re-run on every route change
@@ -53,6 +47,10 @@ function App() {
   }, [route]);
 
   useEffect(() => {
+    if (route.startsWith("/blog/")) {
+      document.title = `Blog | ${siteConfig.name}`;
+      return;
+    }
     const pageTitles = {
       "/": `${siteConfig.name} | Software Development Engineer`,
       "/about": `About | ${siteConfig.name}`,
@@ -66,6 +64,10 @@ function App() {
   }, [route]);
 
   const page = useMemo(() => {
+    if (route.startsWith("/blog/")) {
+      const slug = route.replace("/blog/", "");
+      return <BlogPost slug={slug} />;
+    }
     switch (route) {
       case "/about":
         return (

@@ -499,6 +499,254 @@ export const certifications = [
   },
 ];
 
+export const blogPosts = [
+  {
+    slug: "entity-meta-pattern-laravel",
+    title: "Your Laravel App Keeps Growing Columns. WordPress Solved This 15 Years Ago.",
+    subtitle: "How I rebuilt the Entity-Meta pattern into a Laravel package — and what it taught me about vertical scaling, pivot tables, and building for small business.",
+    status: "Published",
+    date: "June 2026",
+    readTime: "8 min read",
+    tags: ["Laravel", "Architecture", "Database Design", "Packages", "Scaling"],
+    summary:
+      "How I implemented the WordPress-style entity-meta database pattern in a Laravel package — covering pivot tables for many-to-many relationships, reusable traits, and why this architecture lets small business applications scale vertically before ever needing distributed complexity.",
+    content: [
+      {
+        type: "p",
+        text: "You're building a Laravel application for a small business. It starts simple — users, products, orders. Then the client asks: can we add a GST number to each customer? Can products have a warranty period field? Can orders track a preferred delivery time slot?",
+      },
+      {
+        type: "p",
+        text: "The naive approach: add a column for each. Three months later you have 40 columns per table, half of them NULL for most rows, and every new business requirement means a new migration. This is the problem the Entity-Meta pattern solves. And WordPress figured this out over a decade ago.",
+      },
+      {
+        type: "h2",
+        text: "What WordPress Actually Got Right",
+      },
+      {
+        type: "p",
+        text: "WordPress has four core tables — posts, users, terms, comments. For each, there's a corresponding meta table: wp_posts + wp_postmeta, wp_users + wp_usermeta. The meta table is always the same shape: (meta_id, object_id, meta_key, meta_value).",
+      },
+      {
+        type: "p",
+        text: "Every plugin, theme, and page builder stores flexible attributes there without touching the schema. A new plugin doesn't create new columns — it adds new meta keys. This is why you can install WooCommerce and suddenly products have prices, weights, and dimensions, with zero schema collision. WordPress runs 43% of the internet. The meta pattern is a large part of why.",
+      },
+      {
+        type: "h2",
+        text: "The Laravel Package Implementation",
+      },
+      {
+        type: "h3",
+        text: "The Tables",
+      },
+      {
+        type: "p",
+        text: "The foundation is two tables. The entities table holds the core object with fixed, always-queried columns. The entity_meta table holds flexible key-value pairs.",
+      },
+      {
+        type: "code",
+        lang: "sql",
+        text: `-- entities: the core object
+CREATE TABLE entities (
+    id          BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+    type        VARCHAR(100) NOT NULL,
+    name        VARCHAR(255),
+    status      VARCHAR(50) DEFAULT 'active',
+    created_at  TIMESTAMP,
+    updated_at  TIMESTAMP
+);
+
+-- entity_meta: flexible key-value store
+CREATE TABLE entity_meta (
+    id          BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+    entity_id   BIGINT UNSIGNED NOT NULL,
+    meta_key    VARCHAR(191) NOT NULL,
+    meta_value  LONGTEXT,
+    FOREIGN KEY (entity_id) REFERENCES entities(id) ON DELETE CASCADE,
+    INDEX idx_entity_meta (entity_id, meta_key)
+);`,
+      },
+      {
+        type: "p",
+        text: "Two tables. That's the foundation. The type column on entities is your namespace — user, product, order, whatever your application needs. The composite index on (entity_id, meta_key) is what keeps lookups fast at scale.",
+      },
+      {
+        type: "h3",
+        text: "The HasEntity Trait",
+      },
+      {
+        type: "p",
+        text: "The trait is what makes this installable rather than a copy-paste pattern. Any model gets meta storage by adding one line.",
+      },
+      {
+        type: "code",
+        lang: "php",
+        text: `trait HasEntity
+{
+    public function entity(): MorphOne
+    {
+        return $this->morphOne(Entity::class, 'entityable');
+    }
+
+    public function getMeta(string $key, mixed $default = null): mixed
+    {
+        return $this->entity?->meta
+            ->firstWhere('meta_key', $key)
+            ?->meta_value ?? $default;
+    }
+
+    public function setMeta(string $key, mixed $value): void
+    {
+        $this->entity()->firstOrCreate([])->meta()->updateOrCreate(
+            ['meta_key' => $key],
+            ['meta_value' => $value]
+        );
+    }
+}`,
+      },
+      {
+        type: "code",
+        lang: "php",
+        text: `class User extends Authenticatable
+{
+    use HasEntity;
+}
+
+// Usage — no migrations, no new columns
+$user->setMeta('gst_number', 'GST123456789');
+$user->setMeta('preferred_delivery', 'morning');
+
+$gst = $user->getMeta('gst_number'); // "GST123456789"`,
+      },
+      {
+        type: "h2",
+        text: "Relationships: One-to-Many and Many-to-Many",
+      },
+      {
+        type: "h3",
+        text: "One-to-Many: Standard Eloquent Still Applies",
+      },
+      {
+        type: "p",
+        text: "For simple parent-child relationships, standard Eloquent foreign keys still apply. A User has many Orders — that's a user_id on the orders table. The entity-meta pattern doesn't replace this. It handles flexible attributes, not structured relational data.",
+      },
+      {
+        type: "h3",
+        text: "Many-to-Many: The Pivot Table Pattern",
+      },
+      {
+        type: "p",
+        text: "For many-to-many relationships, the package follows the same pattern that Spatie's Permission package popularized — model_has_roles, model_has_permissions. For every many-to-many entity relationship, a pivot table is created with a polymorphic structure:",
+      },
+      {
+        type: "code",
+        lang: "sql",
+        text: `CREATE TABLE model_has_tags (
+    entity_id   BIGINT UNSIGNED NOT NULL,
+    model_type  VARCHAR(255) NOT NULL,
+    model_id    BIGINT UNSIGNED NOT NULL,
+    PRIMARY KEY (entity_id, model_type, model_id),
+    INDEX idx_model (model_type, model_id)
+);`,
+      },
+      {
+        type: "p",
+        text: "The model_type + model_id columns make this polymorphic — the same pivot table works for User-has-tags, Product-has-tags, and Order-has-tags. No separate tables per model pair. One table, every model that needs it.",
+      },
+      {
+        type: "code",
+        lang: "php",
+        text: `// Attach tags to any model
+$user->attachTag('vip');
+$product->attachTag('featured');
+
+// Query all VIP users
+User::withTag('vip')->get();`,
+      },
+      {
+        type: "h2",
+        text: "Why This Works for Small Applications",
+      },
+      {
+        type: "p",
+        text: "A small business application has two requirements that pull in opposite directions: defined structure (things must be stored reliably and queryable) and flexible attributes (every business tracks different things). Column-per-attribute satisfies the first but breaks the second. JSON columns satisfy the second but make the first harder — you cannot index inside a JSON column efficiently without generated columns.",
+      },
+      {
+        type: "p",
+        text: "The entity-meta pattern satisfies both. Fixed, indexed columns for things that are always queried (type, status, name). Meta table for variable attributes — meta_key + entity_id indexed, so lookups are fast. Pivot tables for relationships — clean, queryable, no array serialization.",
+      },
+      {
+        type: "p",
+        text: "For a small retail business: products get base attributes (name, price, stock) and use meta for anything custom (warranty period, country of origin, clearance flag) — without a developer involved for every new field type. This is exactly what WordPress gave non-technical users. This package gives it to Laravel applications.",
+      },
+      {
+        type: "h2",
+        text: "Vertical vs Horizontal Scaling: Where This Pattern Fits",
+      },
+      {
+        type: "p",
+        text: "This is the architectural decision most tutorials skip entirely, so let's be direct about it.",
+      },
+      {
+        type: "h3",
+        text: "Vertical Scaling",
+      },
+      {
+        type: "p",
+        text: "Vertical scaling means making your single server bigger — more CPU, more RAM, faster storage. It's the right default for most small-to-medium applications. The entity-meta pattern is well-suited to vertical scaling because queries hit a single database server with proper indexing, the composite index on (entity_id, meta_key) keeps lookups O(log n), and a properly indexed entity_meta table handles 10M+ rows cleanly on a $20/month VPS. No distributed coordination complexity. WordPress proves this at scale — most high-traffic WordPress sites run on a single database server.",
+      },
+      {
+        type: "h3",
+        text: "Horizontal Scaling",
+      },
+      {
+        type: "p",
+        text: "Horizontal scaling means distributing across multiple servers — read replicas, sharding, distributed caches. This is where the entity-meta pattern needs attention. EAV queries are harder to shard because querying WHERE meta_key = 'gst_number' AND meta_value = 'GST123' doesn't split cleanly across shards by entity_id alone. Read replicas help — reporting queries that scan meta rows can go to a replica. Redis caching bridges the gap for hot meta values that are frequently read and rarely changed.",
+      },
+      {
+        type: "table",
+        headers: ["", "Vertical", "Horizontal"],
+        rows: [
+          ["Approach", "Bigger single server", "Multiple servers"],
+          ["Complexity", "Low", "High"],
+          ["Cost model", "Predictable", "Scales with traffic"],
+          ["Entity-meta fit", "Excellent", "Needs caching layer first"],
+          ["Right for", "Most small-medium apps", "High-traffic SaaS"],
+          ["When to choose", "Until you hit the ceiling", "When vertical isn't enough"],
+        ],
+      },
+      {
+        type: "p",
+        text: "The practical implication: this pattern lets you stay vertical longer. Most small business applications hit the vertical ceiling much later than developers expect. When you genuinely need horizontal scale, you add a Redis layer first, then read replicas — the entity-meta pattern works through both those phases before requiring schema redesign.",
+      },
+      {
+        type: "p",
+        text: "The mistake most developers make is reaching for horizontal architecture before exhausting vertical options. A properly indexed server with a Redis cache layer handles more traffic than most small business applications will ever generate.",
+      },
+      {
+        type: "h2",
+        text: "What I Learned Building It",
+      },
+      {
+        type: "p",
+        text: "Two things surprised me during implementation. First, eager loading is non-negotiable. Without with('entity.meta') on queries, you hit N+1 problems immediately. The trait handles this internally, but it's something to be aware of when writing custom queries outside the trait.",
+      },
+      {
+        type: "p",
+        text: "Second, meta keys need discipline. The flexibility of key-value storage is also its risk. If different parts of your codebase store gst_number sometimes and gst-number other times, you'll have silent inconsistencies. Define meta key constants in a dedicated class and reference those — never use raw strings scattered across the codebase.",
+      },
+      {
+        type: "h2",
+        text: "Summary",
+      },
+      {
+        type: "p",
+        text: "The entity-meta pattern is not new — WordPress proved it at internet scale. What this Laravel package does is bring that architecture into a composer-installable, trait-driven module that any Laravel application can use. For small business applications it means flexible attributes without schema migrations, polymorphic many-to-many relationships via pivot tables, and a foundation that scales vertically before requiring distributed complexity. It's the kind of architecture decision that looks obvious in hindsight but saves weeks of rework on real projects.",
+      },
+    ],
+  },
+];
+
 export const blogIdeas = [
   {
     title: "Building enterprise workflows with Laravel",

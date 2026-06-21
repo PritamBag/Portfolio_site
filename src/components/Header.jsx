@@ -3,13 +3,13 @@ import PropTypes from "prop-types";
 import { socialLinks, siteConfig } from "../data/portfolioData";
 
 const navItems = [
-  { title: "Home", path: "#/" },
-  { title: "About", path: "#/about" },
-  { title: "Resume", path: "#/resume" },
-  { title: "Projects", path: "#/projects" },
-  { title: "Certifications", path: "#/certifications" },
-  { title: "Blog", path: "#/blog" },
-  { title: "Contact", path: "#/contact" },
+  { title: "Home", path: "/" },
+  { title: "About", path: "/about" },
+  { title: "Resume", path: "/resume" },
+  { title: "Projects", path: "/projects" },
+  { title: "Certifications", path: "/certifications" },
+  { title: "Blog", path: "/blog" },
+  { title: "Contact", path: "/contact" },
 ];
 
 const Header = ({ currentRoute, onOpenHireModal }) => {
@@ -26,10 +26,10 @@ const Header = ({ currentRoute, onOpenHireModal }) => {
       className="sticky top-0 z-50 border-b border-white/60 backdrop-blur-md"
       style={{ background: "rgba(255,255,255,0.80)" }}
     >
-      <div className="mx-auto flex h-24 w-full max-w-6xl items-center justify-between gap-4 px-4 md:px-6 lg:px-8">
+      <div className="mx-auto flex h-16 w-full max-w-6xl items-center justify-between gap-4 px-4 md:px-6 lg:px-8">
         {/* Logo / name */}
-        <a href="#/" className="flex flex-col gap-0.5">
-          <span className="text-xl font-semibold tracking-[-0.01em] text-slate-900 md:text-2xl">
+        <a href="/" className="flex flex-col gap-0.5">
+          <span className="text-base font-medium tracking-[-0.01em] text-slate-900 md:text-lg">
             {siteConfig.name}
           </span>
           <span className="text-[10px] font-semibold uppercase tracking-[0.18em] text-slate-400">
@@ -40,7 +40,7 @@ const Header = ({ currentRoute, onOpenHireModal }) => {
         {/* Desktop nav */}
         <nav className="hidden items-center gap-8 lg:flex">
           {navItems.map((item) => {
-            const isActive = activeRoute === item.path.replace("#", "");
+            const isActive = activeRoute === item.path;
             return (
               <a
                 key={item.title}
