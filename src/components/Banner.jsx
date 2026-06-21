@@ -1,10 +1,9 @@
 import { useEffect, useRef } from "react";
-import PropTypes from "prop-types";
 import Typed from "typed.js";
 import bannerImage from "../assets/Photo.png";
 import { heroRoles, siteConfig, socialLinks } from "../data/portfolioData";
 
-const Banner = ({ onOpenHireModal }) => {
+const Banner = () => {
   const typedTarget = useRef(null);
 
   useEffect(() => {
@@ -166,7 +165,7 @@ const Banner = ({ onOpenHireModal }) => {
 
           <div className="mt-9 flex flex-wrap gap-3">
             <a
-              href="/projects"
+              href="#/projects"
               className="rounded-full px-6 py-3 text-[11px] font-semibold uppercase tracking-[0.10em] text-white transition hover:opacity-90 gradient-brand"
             >
               View Projects
@@ -222,8 +221,5 @@ const Banner = ({ onOpenHireModal }) => {
   );
 };
 
-Banner.propTypes = {
-  onOpenHireModal: PropTypes.func.isRequired,
-};
 
 export default Banner;

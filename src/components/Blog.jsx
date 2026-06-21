@@ -58,7 +58,7 @@ const Blog = () => {
                   ))}
                 </div>
                 <a
-                  href={`/blog/${post.slug}`}
+                  href={`#/blog/${post.slug}`}
                   className="mt-6 inline-flex items-center gap-1.5 text-sm font-semibold text-violet-600 hover:underline"
                 >
                   Read article

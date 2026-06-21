@@ -75,7 +75,7 @@ const BlogPost = ({ slug }) => {
     return (
       <div className="mx-auto w-full max-w-3xl px-4 py-24 text-center">
         <p className="text-slate-500">Post not found.</p>
-        <a href="/blog" className="mt-4 inline-block text-violet-600 hover:underline">
+        <a href="#/blog" className="mt-4 inline-block text-violet-600 hover:underline">
           Back to Blog
         </a>
       </div>
@@ -86,7 +86,7 @@ const BlogPost = ({ slug }) => {
     <article className="mx-auto w-full max-w-3xl px-4 py-16 md:px-6 md:py-24">
       {/* Back */}
       <a
-        href="/blog"
+        href="#/blog"
         className="inline-flex items-center gap-1.5 text-xs font-semibold uppercase tracking-widest text-slate-400 hover:text-violet-600 transition"
       >
         <svg xmlns="http://www.w3.org/2000/svg" className="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
@@ -133,7 +133,7 @@ const BlogPost = ({ slug }) => {
       {/* Footer */}
       <div className="mt-16 border-t border-slate-200 pt-8">
         <a
-          href="/blog"
+          href="#/blog"
           className="inline-flex items-center gap-1.5 text-sm font-semibold text-violet-600 hover:underline"
         >
           <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>

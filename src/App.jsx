@@ -16,17 +16,24 @@ import GrafxBackground from "./components/GrafxBackground";
 import { siteConfig } from "./data/portfolioData";
 import "./App.css";
 
+const normalizeRoute = (hash) => {
+  if (!hash || hash === "#") return "/";
+  const cleaned = hash.replace(/^#/, "");
+  if (cleaned === "" || cleaned === "/") return "/";
+  return cleaned.startsWith("/") ? cleaned : `/${cleaned}`;
+};
+
 function App() {
-  const [route, setRoute] = useState(window.location.pathname || "/");
+  const [route, setRoute] = useState(normalizeRoute(window.location.hash));
   const [isHireModalOpen, setIsHireModalOpen] = useState(false);
 
   useEffect(() => {
-    const handlePopState = () => {
-      setRoute(window.location.pathname || "/");
+    const handleHashChange = () => {
+      setRoute(normalizeRoute(window.location.hash));
       window.scrollTo({ top: 0, behavior: "smooth" });
     };
-    window.addEventListener("popstate", handlePopState);
-    return () => window.removeEventListener("popstate", handlePopState);
+    window.addEventListener("hashchange", handleHashChange);
+    return () => window.removeEventListener("hashchange", handleHashChange);
   }, []);
 
   // Scroll-triggered animations — re-run on every route change
@@ -90,7 +97,7 @@ function App() {
       default:
         return (
           <>
-            <Banner onOpenHireModal={() => setIsHireModalOpen(true)} />
+            <Banner />
             <HomeSnapshot />
             <Expertise onOpenHireModal={() => setIsHireModalOpen(true)} />
           </>
