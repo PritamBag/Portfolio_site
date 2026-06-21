@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Pritam Bag | Portfolio</title>
+    <script>
+      // GitHub Pages SPA routing fix.
+      // When a path like /about is requested and has no file, GitHub Pages
+      // serves this 404.html. We encode the path into the query string and
+      // redirect to index.html, which then restores the real URL.
+      var l = window.location;
+      l.replace(
+        l.protocol + '//' + l.host +
+        l.pathname.split('/').slice(0, 1).join('/') +
+        '/?/' + l.pathname.slice(1).replace(/&/g, '~and~') +
+        (l.search ? '&' + l.search.slice(1).replace(/&/g, '~and~') : '') +
+        l.hash
+      );
+    </script>
+  </head>
+  <body></body>
+</html>

@@ -51,6 +51,18 @@
     <!-- Canonical URL -->
     <link rel="canonical" href="https://pritambag.in/" />
 
+    <!-- GitHub Pages SPA routing: restore path from query string set by 404.html -->
+    <script>
+      (function (l) {
+        if (l.search[1] === '/') {
+          var decoded = l.search.slice(1).split('&').map(function (s) {
+            return s.replace(/~and~/g, '&');
+          }).join('?');
+          window.history.replaceState(null, null, l.pathname.slice(0, -1) + decoded + l.hash);
+        }
+      }(window.location));
+    </script>
+
     <!-- Structured Data (Schema.org JSON-LD) -->
     <script type="application/ld+json">
     {
@@ -124,8 +136,8 @@
     }
     </script>
     <!-- <script src="https://www.google.com/recaptcha/api.js" async defer></script> -->
-    <script type="module" crossorigin src="/assets/index-HKmqbG0R.js"></script>
-    <link rel="stylesheet" crossorigin href="/assets/index-IiDLpJ7O.css">
+    <script type="module" crossorigin src="/assets/index-DR39VNjc.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/index-hi-zmTCg.css">
   </head>
   <body>
     <div id="root"></div>

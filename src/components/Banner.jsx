@@ -140,8 +140,9 @@ const Banner = ({ onOpenHireModal }) => {
             {siteConfig.name}
           </h1>
 
-          <h2 className="mt-5 min-h-[36px] text-lg font-medium text-slate-500 md:text-xl">
+          <h2 className="mt-5 min-h-[3.5rem] text-lg font-medium text-slate-500 sm:min-h-[1.75rem] md:text-xl">
             Building as a{" "}
+            <br className="sm:hidden" />
             <span ref={typedTarget} className="font-semibold text-gradient-brand" />
           </h2>
 
