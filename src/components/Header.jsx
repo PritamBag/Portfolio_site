@@ -14,40 +14,58 @@ const navItems = [
 
 const Header = ({ currentRoute, onOpenHireModal }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
     setIsMenuOpen(false);
   }, [currentRoute]);
 
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 8);
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
   const activeRoute = useMemo(() => currentRoute || "/", [currentRoute]);
 
   return (
     <header
-      className="sticky top-0 z-50 border-b border-white/60 backdrop-blur-md"
-      style={{ background: "rgba(255,255,255,0.80)" }}
+      className="sticky top-0 z-50 border-b border-black/[0.06] backdrop-blur-md transition-shadow"
+      style={{
+        background: "rgba(255,255,255,0.82)",
+        boxShadow: scrolled
+          ? "0px 1px 2px rgba(0,0,0,0.20), 0px 2px 6px 2px rgba(0,0,0,0.08)"
+          : "none",
+      }}
     >
       <div className="mx-auto flex h-16 w-full max-w-6xl items-center justify-between gap-4 px-4 md:px-6 lg:px-8">
-        {/* Logo / name */}
-        <a href="#/" className="flex flex-col gap-0.5">
-          <span className="text-base font-medium tracking-[-0.01em] text-slate-900 md:text-lg">
+        {/* Brand — Title Large (22sp / 500) */}
+        <a href="#/" className="flex items-center">
+          <span className="m3-title-lg text-slate-900 tracking-tight">
             {siteConfig.name}
-          </span>
-          <span className="text-[10px] font-semibold uppercase tracking-[0.18em] text-slate-400">
-            {siteConfig.title}
           </span>
         </a>
 
-        {/* Desktop nav */}
-        <nav className="hidden items-center gap-8 lg:flex">
+        {/* Desktop nav — Label Large, normal case */}
+        <nav className="hidden items-center gap-1 lg:flex">
           {navItems.map((item) => {
             const isActive = activeRoute === item.path.replace("#", "");
             return (
               <a
                 key={item.title}
                 href={item.path}
-                className={`text-[11px] font-semibold uppercase tracking-[0.12em] transition ${
-                  isActive ? "text-violet-600" : "text-slate-500 hover:text-slate-900"
-                }`}
+                className="relative px-3 py-1.5 rounded-full transition-colors"
+                style={{
+                  fontSize: "0.875rem",
+                  fontWeight: 500,
+                  letterSpacing: "0.00625rem",
+                  color: isActive
+                    ? "var(--md-sys-color-primary)"
+                    : "var(--md-sys-color-on-surface-variant)",
+                  background: isActive
+                    ? "var(--md-sys-color-primary-container)"
+                    : "transparent",
+                }}
               >
                 {item.title}
               </a>
@@ -55,58 +73,90 @@ const Header = ({ currentRoute, onOpenHireModal }) => {
           })}
         </nav>
 
-        {/* Desktop actions */}
+        {/* Desktop CTA — M3 Filled button (brand gradient) */}
         <div className="hidden items-center lg:flex">
           <button
             onClick={onOpenHireModal}
-            className="rounded-full px-6 py-2.5 text-[11px] font-semibold uppercase tracking-[0.12em] text-white transition hover:opacity-90 gradient-brand"
+            className="m3-btn m3-btn-filled"
           >
             Hire Me
           </button>
         </div>
 
-        {/* Mobile menu toggle */}
+        {/* Mobile toggle — M3 Icon Button */}
         <button
           onClick={() => setIsMenuOpen((v) => !v)}
-          className="rounded-lg border border-slate-300 p-2 text-slate-700 lg:hidden"
+          className="flex h-10 w-10 items-center justify-center rounded-full transition-colors hover:bg-black/5 lg:hidden"
+          style={{ color: "var(--md-sys-color-on-surface-variant)" }}
           aria-label="Toggle menu"
         >
-          <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16m-7 6h7" />
-          </svg>
+          {isMenuOpen ? (
+            <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+              <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          ) : (
+            <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+              <path strokeLinecap="round" strokeLinejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+          )}
         </button>
       </div>
 
-      {/* Mobile menu — absolute so it layers over page content */}
+      {/* Mobile menu — M3 surface, extra-large radius */}
       {isMenuOpen && (
-        <div className="absolute inset-x-0 top-full z-50 border-t border-slate-200 bg-white shadow-xl px-4 py-5 lg:hidden">
-          <div className="mx-auto flex max-w-6xl flex-col gap-1">
-            {navItems.map((item) => (
-              <a
-                key={item.title}
-                href={item.path}
-                className="rounded-xl px-3 py-2.5 text-[11px] font-semibold uppercase tracking-[0.12em] text-slate-600 hover:bg-slate-50 hover:text-slate-900"
-              >
-                {item.title}
-              </a>
-            ))}
-            <div className="mt-2 flex gap-3">
+        <div
+          className="absolute inset-x-0 top-full z-50 px-4 py-4 lg:hidden"
+          style={{
+            background: "var(--md-sys-color-surface-container-low)",
+            borderBottom: "1px solid var(--md-sys-color-outline-variant)",
+            boxShadow: "var(--md-sys-elevation-2)",
+          }}
+        >
+          <div className="mx-auto flex max-w-6xl flex-col gap-0.5">
+            {navItems.map((item) => {
+              const isActive = activeRoute === item.path.replace("#", "");
+              return (
+                <a
+                  key={item.title}
+                  href={item.path}
+                  className="rounded-full px-4 py-2.5 transition-colors"
+                  style={{
+                    fontSize: "0.875rem",
+                    fontWeight: 500,
+                    color: isActive
+                      ? "var(--md-sys-color-primary)"
+                      : "var(--md-sys-color-on-surface-variant)",
+                    background: isActive
+                      ? "var(--md-sys-color-primary-container)"
+                      : "transparent",
+                  }}
+                >
+                  {item.title}
+                </a>
+              );
+            })}
+            <div className="mt-3 flex gap-2 px-1">
               {socialLinks.map((link) => (
                 <a
                   key={link.label}
                   href={link.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex h-10 w-10 items-center justify-center rounded-full border border-slate-300 text-slate-700"
+                  className="flex h-10 w-10 items-center justify-center rounded-full transition-colors"
+                  style={{
+                    border: "1px solid var(--md-sys-color-outline-variant)",
+                    color: "var(--md-sys-color-on-surface-variant)",
+                  }}
                   aria-label={link.label}
                 >
-                  <i className={`fa-brands ${link.icon}`}></i>
+                  <i className={`fa-brands ${link.icon} text-sm`}></i>
                 </a>
               ))}
             </div>
             <button
               onClick={onOpenHireModal}
-              className="mt-2 rounded-full px-5 py-2.5 text-[11px] font-semibold uppercase tracking-[0.12em] text-white gradient-brand"
+              className="m3-btn m3-btn-filled mt-3"
+              style={{ justifyContent: "center" }}
             >
               Hire Me
             </button>

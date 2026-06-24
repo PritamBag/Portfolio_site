@@ -13,7 +13,7 @@ import dolibarrImage from "../assets/projects/dolibarr.png";
 
 export const siteConfig = {
   name: "Pritam Bag",
-  title: "Tech Enthusiast",
+  title: "Laravel · PHP · React",
   location: "Kolkata, West Bengal, India",
   currentRole: "SDE at Iquester Solutions LLP",
   summary:
@@ -274,7 +274,7 @@ export const projectGroups = [
         image: knoraiImage,
         imageHint: "Add screenshot to src/assets/projects/knorai.jpg and import it in portfolioData.js",
         isLive: false,
-        stack: ["Python", "WhatsApp API", "Laravel", "Telegram API", "Automation"],
+        stack: ["Python", "Automation", "Whatsapp API", "Telegram API"],
         summary:
           "Contributed to Knorai — a live SaaS product that lets WooCommerce store owners automate customer support queries through WhatsApp and Telegram channels, reducing manual support effort.",
         details: [
@@ -377,7 +377,12 @@ export const projectGroups = [
           "Converted manual business processes into structured software workflows.",
           "Focused on maintainability and everyday operational usage.",
         ],
-        links: [],
+        links: [
+          {
+            label: "Automobile",
+            href: "#",
+          },
+        ],
       },
     ],
   },

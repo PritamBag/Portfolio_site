@@ -1,4 +1,6 @@
 import { useEffect, useMemo, useState } from "react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Header from "./components/Header";
 import HireMeModal from "./components/HireMeModal";
 import Banner from "./components/Banner";
@@ -15,6 +17,8 @@ import Certifications from "./components/Certifications";
 import GrafxBackground from "./components/GrafxBackground";
 import { siteConfig } from "./data/portfolioData";
 import "./App.css";
+
+gsap.registerPlugin(ScrollTrigger);
 
 const normalizeRoute = (hash) => {
   if (!hash || hash === "#") return "/";
@@ -36,21 +40,28 @@ function App() {
     return () => window.removeEventListener("hashchange", handleHashChange);
   }, []);
 
-  // Scroll-triggered animations — re-run on every route change
+  // Scroll-triggered animations via GSAP — re-run on every route change
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("in-view");
-            observer.unobserve(entry.target);
-          }
+    const ctx = gsap.context(() => {
+      gsap.utils.toArray(".anim-fade-up").forEach((el, i) => {
+        gsap.to(el, {
+          opacity: 1,
+          y: 0,
+          duration: 0.32,
+          ease: "power3.out",
+          delay: i * 0.025,
+          scrollTrigger: {
+            trigger: el,
+            start: "top 94%",
+            once: true,
+          },
         });
-      },
-      { threshold: 0.08 }
-    );
-    document.querySelectorAll(".anim-fade-up").forEach((el) => observer.observe(el));
-    return () => observer.disconnect();
+      });
+    });
+    return () => {
+      ctx.revert();
+      ScrollTrigger.getAll().forEach((t) => t.kill());
+    };
   }, [route]);
 
   useEffect(() => {

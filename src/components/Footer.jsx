@@ -1,58 +1,214 @@
 import { socialLinks, siteConfig } from "../data/portfolioData";
 
+const navLinks = [
+  { label: "Home",           href: "#/" },
+  { label: "About",          href: "#/about" },
+  { label: "Projects",       href: "#/projects" },
+  { label: "Experience",     href: "#/resume" },
+  { label: "Certifications", href: "#/certifications" },
+  { label: "Blog",           href: "#/blog" },
+  { label: "Contact",        href: "#/contact" },
+];
+
 const Footer = () => {
   return (
-    <footer className="relative overflow-hidden border-t border-slate-200 bg-white">
-      {/* ── Decorative: constellation ── */}
+    <footer
+      style={{
+        background: "var(--md-sys-color-surface-container-highest)",
+        borderTop: "1px solid var(--md-sys-color-outline-variant)",
+        position: "relative",
+        overflow: "hidden",
+      }}
+    >
+      {/* M3 tonal gradient line at top */}
+      <div
+        className="h-0.5 w-full"
+        style={{ background: "linear-gradient(90deg, #7c3aed 0%, #c55ea2 50%, #6366f1 100%)" }}
+      />
+
+      {/* Subtle background blobs */}
       <div className="pointer-events-none absolute inset-0" aria-hidden="true">
-        <svg className="absolute inset-0 h-full w-full opacity-[0.14]" viewBox="0 0 1200 80" preserveAspectRatio="xMidYMid slice" fill="none">
-          {[
-            {x:80,y:20},{x:140,y:50},{x:220,y:15},{x:310,y:40},{x:400,y:22},
-            {x:520,y:55},{x:600,y:18},{x:680,y:45},{x:780,y:25},{x:870,y:58},
-            {x:960,y:20},{x:1040,y:48},{x:1120,y:30},
-          ].map((s,i) => (
-            <circle key={i} cx={s.x} cy={s.y} r={i % 4 === 0 ? 2 : 1.2} fill={i % 2 === 0 ? '#C55EA2' : '#8B5CF6'}/>
-          ))}
-          {[
-            [80,20, 140,50],[140,50, 220,15],[310,40, 400,22],
-            [600,18, 680,45],[780,25, 870,58],[960,20, 1040,48],[1040,48, 1120,30],
-          ].map(([x1,y1,x2,y2],i) => (
-            <line key={i} x1={x1} y1={y1} x2={x2} y2={y2} stroke="#8B5CF6" strokeWidth="0.6" opacity="0.5"/>
-          ))}
-        </svg>
-        <div className="absolute left-1/4 right-1/4 top-0 h-px opacity-[0.35]"
-          style={{ background: 'linear-gradient(90deg, transparent, #C55EA2 40%, #8B5CF6 60%, transparent)' }}/>
+        <div
+          className="absolute -bottom-24 -left-24 h-64 w-64 rounded-full"
+          style={{ background: "radial-gradient(circle, rgba(124,58,237,0.05) 0%, transparent 70%)" }}
+        />
+        <div
+          className="absolute -bottom-24 right-0 h-64 w-64 rounded-full"
+          style={{ background: "radial-gradient(circle, rgba(197,94,162,0.04) 0%, transparent 70%)" }}
+        />
       </div>
 
-      <div className="mx-auto w-full max-w-6xl px-4 py-14 md:px-6 lg:px-8">
-        <div className="flex flex-col gap-8 md:flex-row md:items-center md:justify-between">
-          {/* Brand */}
-          <div className="flex flex-col gap-1.5">
-            <p className="text-base font-semibold tracking-[-0.01em] text-slate-900">
+      <div className="relative mx-auto w-full max-w-6xl px-4 py-12 md:px-6 lg:px-8">
+
+        {/* Main content row */}
+        <div className="grid gap-10 md:grid-cols-[1fr_auto_auto]">
+
+          {/* Brand block */}
+          <div>
+            <p
+              style={{
+                fontFamily: '"Google Sans Display","DM Sans",sans-serif',
+                fontSize: "1.15rem",
+                fontWeight: 600,
+                color: "var(--md-sys-color-on-surface)",
+              }}
+            >
               {siteConfig.name}
             </p>
-            <p className="text-[10px] font-semibold uppercase tracking-[0.18em] text-slate-400">
+            <p
+              className="mt-1"
+              style={{
+                fontFamily: '"Google Sans Text","DM Sans",sans-serif',
+                fontSize: "0.8125rem",
+                fontWeight: 500,
+                letterSpacing: "0.06em",
+                textTransform: "uppercase",
+                color: "var(--md-sys-color-on-surface-variant)",
+              }}
+            >
               {siteConfig.title}
             </p>
-            <p className="mt-1 text-xs text-slate-400">
-              &copy; {new Date().getFullYear()} {siteConfig.name}. All rights reserved.
+            <p
+              className="mt-4 max-w-xs leading-6"
+              style={{
+                fontFamily: '"Google Sans Text","DM Sans",sans-serif',
+                fontSize: "0.875rem",
+                color: "var(--md-sys-color-on-surface-variant)",
+              }}
+            >
+              Building backend systems, Laravel products, and scalable integrations from Kolkata.
             </p>
+
+            {/* Social icon buttons */}
+            <div className="mt-5 flex gap-2.5">
+              {socialLinks.map((link) => (
+                <a
+                  key={link.label}
+                  href={link.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex h-9 w-9 items-center justify-center rounded-full transition-colors"
+                  style={{
+                    border: "1px solid var(--md-sys-color-outline-variant)",
+                    background: "var(--md-sys-color-surface-container-lowest)",
+                    color: "var(--md-sys-color-on-surface-variant)",
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.background = "var(--md-sys-color-primary-container)";
+                    e.currentTarget.style.color = "var(--md-sys-color-primary)";
+                    e.currentTarget.style.borderColor = "var(--md-sys-color-primary-container)";
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.background = "var(--md-sys-color-surface-container-lowest)";
+                    e.currentTarget.style.color = "var(--md-sys-color-on-surface-variant)";
+                    e.currentTarget.style.borderColor = "var(--md-sys-color-outline-variant)";
+                  }}
+                  aria-label={link.label}
+                >
+                  <i className={`fa-brands ${link.icon} text-xs`}></i>
+                </a>
+              ))}
+            </div>
           </div>
 
-          {/* Social links */}
-          <div className="flex flex-wrap items-center gap-6">
-            {socialLinks.map((link) => (
-              <a
-                key={link.label}
-                href={link.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-[11px] font-semibold uppercase tracking-[0.12em] text-slate-400 transition hover:text-violet-600"
-              >
-                {link.label}
-              </a>
-            ))}
+          {/* Navigation */}
+          <div>
+            <p
+              style={{
+                fontFamily: '"Google Sans Text","DM Sans",sans-serif',
+                fontSize: "0.75rem",
+                fontWeight: 600,
+                letterSpacing: "0.06em",
+                textTransform: "uppercase",
+                color: "var(--md-sys-color-on-surface-variant)",
+                marginBottom: "1rem",
+              }}
+            >
+              Pages
+            </p>
+            <nav className="flex flex-col gap-2.5">
+              {navLinks.map((link) => (
+                <a
+                  key={link.href}
+                  href={link.href}
+                  style={{
+                    fontFamily: '"Google Sans Text","DM Sans",sans-serif',
+                    fontSize: "0.9rem",
+                    color: "var(--md-sys-color-on-surface-variant)",
+                    transition: "color 200ms",
+                  }}
+                  onMouseEnter={(e) => { e.currentTarget.style.color = "var(--md-sys-color-primary)"; }}
+                  onMouseLeave={(e) => { e.currentTarget.style.color = "var(--md-sys-color-on-surface-variant)"; }}
+                >
+                  {link.label}
+                </a>
+              ))}
+            </nav>
           </div>
+
+          {/* Contact block */}
+          <div>
+            <p
+              style={{
+                fontFamily: '"Google Sans Text","DM Sans",sans-serif',
+                fontSize: "0.75rem",
+                fontWeight: 600,
+                letterSpacing: "0.06em",
+                textTransform: "uppercase",
+                color: "var(--md-sys-color-on-surface-variant)",
+                marginBottom: "1rem",
+              }}
+            >
+              Get in touch
+            </p>
+            <div className="flex flex-col gap-3">
+              <a
+                href={`mailto:${siteConfig.email}`}
+                style={{
+                  fontFamily: '"Google Sans Text","DM Sans",sans-serif',
+                  fontSize: "0.875rem",
+                  color: "var(--md-sys-color-on-surface-variant)",
+                  transition: "color 200ms",
+                }}
+                onMouseEnter={(e) => { e.currentTarget.style.color = "var(--md-sys-color-primary)"; }}
+                onMouseLeave={(e) => { e.currentTarget.style.color = "var(--md-sys-color-on-surface-variant)"; }}
+              >
+                {siteConfig.email}
+              </a>
+              <a
+                href="#/contact"
+                className="m3-btn m3-btn-tonal self-start"
+                style={{ height: "2rem", padding: "0 1rem", fontSize: "0.8125rem" }}
+              >
+                Say hello →
+              </a>
+            </div>
+          </div>
+        </div>
+
+        {/* Bottom divider + copyright */}
+        <div
+          className="mt-10 flex flex-col items-start justify-between gap-3 border-t pt-6 sm:flex-row sm:items-center"
+          style={{ borderColor: "var(--md-sys-color-outline-variant)" }}
+        >
+          <p
+            style={{
+              fontFamily: '"Google Sans Text","DM Sans",sans-serif',
+              fontSize: "0.8125rem",
+              color: "var(--md-sys-color-outline)",
+            }}
+          >
+            &copy; {new Date().getFullYear()} {siteConfig.name}. All rights reserved.
+          </p>
+          <p
+            style={{
+              fontFamily: '"Google Sans Text","DM Sans",sans-serif',
+              fontSize: "0.8125rem",
+              color: "var(--md-sys-color-outline)",
+            }}
+          >
+            Built with React + Vite · Material Design 3
+          </p>
         </div>
       </div>
     </footer>
