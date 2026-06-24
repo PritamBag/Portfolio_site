@@ -1,6 +1,5 @@
 import { educationItems, experienceItems, siteConfig } from "../data/portfolioData";
 import ImagePlaceholder from "./ImagePlaceholder";
-import DecorGrafx from "./DecorGrafx";
 
 const EXP_CAPS = [
   { cap: "linear-gradient(135deg,#e9ddff 0%,#cbb8f4 100%)", on: "#21005d" },
@@ -16,11 +15,6 @@ const EDU_CAPS = [
 const Experience = () => {
   return (
     <section className="relative overflow-hidden w-full py-16 md:py-24">
-
-      <DecorGrafx id="xpr" ringPos="bl" dotPos="tr" c1="#7c3aed" c2="#6366f1" c3="#c55ea2" flipCurve orbitPos="mr"
-        showCube cubePos="br" cubeSize={90}
-        showPolygons polyPos="tl"
-      />
 
       <div className="mx-auto w-full max-w-6xl px-4 md:px-6 lg:px-8">
       {/* Page header */}

@@ -1,6 +1,5 @@
 import bannerImage from "../assets/PIC-4.png";
 import { aboutContent, personalHighlights } from "../data/portfolioData";
-import DecorGrafx from "./DecorGrafx";
 
 const glanceFacts = [
   {
@@ -72,14 +71,6 @@ const hobbyOnColors = ["#21005d", "#3d0a22", "#1e1b4b"];
 const About = () => {
   return (
     <section className="relative overflow-hidden w-full py-16 md:py-24">
-
-      <DecorGrafx id="abt" ringPos="tl" dotPos="br"
-        c1="#7c3aed" c2="#c55ea2" c3="#6366f1"
-        flipCurve orbitPos="ml"
-        showCube cubePos="tr" cubeSize={88}
-        showBrackets
-        showPolygons polyPos="bl"
-      />
 
       <div className="mx-auto w-full max-w-6xl px-4 md:px-6 lg:px-8">
       {/* ── Main story grid ── */}

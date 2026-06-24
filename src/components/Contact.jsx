@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import { socialLinks, siteConfig } from "../data/portfolioData";
 import { loadRecaptchaScript, submitContactForm } from "../utils/contactForm";
-import DecorGrafx from "./DecorGrafx";
 
 const Contact = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -38,11 +37,6 @@ const Contact = () => {
 
   return (
     <section className="relative overflow-hidden w-full py-16 md:py-24">
-
-      <DecorGrafx id="ctn" ringPos="bl" dotPos="tr" c1="#6366f1" c2="#7c3aed" c3="#c55ea2" orbitPos="mr"
-        showCube cubePos="tr" cubeSize={86}
-        showBrackets
-      />
 
       <div className="mx-auto w-full max-w-6xl px-4 md:px-6 lg:px-8">
       {/* Page header */}

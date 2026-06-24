@@ -1,7 +1,6 @@
 import PropTypes from "prop-types";
 import { projectGroups } from "../data/portfolioData";
 import ImagePlaceholder from "./ImagePlaceholder";
-import DecorGrafx from "./DecorGrafx";
 
 /* Cap tonal palettes cycling per project group */
 const CAP_SETS = [
@@ -137,11 +136,6 @@ const Projects = ({ limit = null, showIntro = true }) => {
 
   return (
     <section className="relative overflow-hidden w-full py-16 md:py-24">
-
-      <DecorGrafx id="prj" ringPos="tr" dotPos="bl" c1="#7c3aed" c2="#c55ea2" c3="#6366f1" showGrid
-        showCube cubePos="bl" cubeSize={100}
-        showBrackets
-      />
 
       <div className="mx-auto w-full max-w-6xl px-4 md:px-6 lg:px-8">
 

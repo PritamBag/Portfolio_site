@@ -15,6 +15,7 @@ import Contact from "./components/Contact";
 import HomeSnapshot from "./components/HomeSnapshot";
 import Certifications from "./components/Certifications";
 import GrafxBackground from "./components/GrafxBackground";
+import DecorGrafx from "./components/DecorGrafx";
 import { siteConfig } from "./data/portfolioData";
 import "./App.css";
 
@@ -89,28 +90,160 @@ function App() {
     switch (route) {
       case "/about":
         return (
-          <>
+          <div className="relative overflow-hidden">
+            <DecorGrafx
+              id="about-flow"
+              ringPos="tl"
+              dotPos="br"
+              orbitPos="ml"
+              c1="#7c3aed"
+              c2="#c55ea2"
+              c3="#6366f1"
+              flipCurve
+              showCube
+              cubePos="tr"
+              cubeSize={88}
+              showBrackets
+              showPolygons
+              polyPos="bl"
+              showAmbientFill={false}
+            />
             <About />
             <Expertise onOpenHireModal={() => setIsHireModalOpen(true)} />
-          </>
+          </div>
         );
       case "/projects":
-        return <Projects />;
+        return (
+          <div className="relative overflow-hidden">
+            <DecorGrafx
+              id="projects-flow"
+              ringPos="tr"
+              dotPos="bl"
+              orbitPos="mr"
+              c1="#7c3aed"
+              c2="#c55ea2"
+              c3="#6366f1"
+              showCube
+              cubePos="bl"
+              cubeSize={96}
+              showBrackets
+              showPolygons
+              polyPos="tr"
+              showAmbientFill={false}
+            />
+            <Projects />
+          </div>
+        );
       case "/resume":
-        return <Experience />;
+        return (
+          <div className="relative overflow-hidden">
+            <DecorGrafx
+              id="resume-flow"
+              ringPos="bl"
+              dotPos="tr"
+              orbitPos="mr"
+              c1="#6366f1"
+              c2="#7c3aed"
+              c3="#c55ea2"
+              showCube
+              cubePos="br"
+              cubeSize={90}
+              showPolygons
+              polyPos="tl"
+              showAmbientFill={false}
+            />
+            <Experience />
+          </div>
+        );
       case "/certifications":
-        return <Certifications />;
+        return (
+          <div className="relative overflow-hidden">
+            <DecorGrafx
+              id="certifications-flow"
+              ringPos="tr"
+              dotPos="bl"
+              orbitPos="br"
+              c1="#7c3aed"
+              c2="#c55ea2"
+              c3="#6366f1"
+              showCube
+              cubePos="bl"
+              cubeSize={86}
+              showBrackets
+              showPolygons
+              polyPos="br"
+              showAmbientFill={false}
+            />
+            <Certifications />
+          </div>
+        );
       case "/blog":
-        return <Blog />;
+        return (
+          <div className="relative overflow-hidden">
+            <DecorGrafx
+              id="blog-flow"
+              ringPos="br"
+              dotPos="tl"
+              orbitPos="bl"
+              c1="#7c3aed"
+              c2="#6366f1"
+              c3="#c55ea2"
+              flipCurve
+              showCube
+              cubePos="tr"
+              cubeSize={90}
+              showPolygons
+              polyPos="bl"
+              showAmbientFill={false}
+            />
+            <Blog />
+          </div>
+        );
       case "/contact":
-        return <Contact />;
+        return (
+          <div className="relative overflow-hidden">
+            <DecorGrafx
+              id="contact-flow"
+              ringPos="bl"
+              dotPos="tr"
+              orbitPos="mr"
+              c1="#6366f1"
+              c2="#7c3aed"
+              c3="#c55ea2"
+              showCube
+              cubePos="tr"
+              cubeSize={86}
+              showBrackets
+              showAmbientFill={false}
+            />
+            <Contact />
+          </div>
+        );
       case "/":
       default:
         return (
           <>
             <Banner />
+            <div className="relative overflow-hidden">
+              <DecorGrafx
+                id="home-flow"
+                ringPos="br"
+                dotPos="tl"
+                orbitPos="ml"
+                c1="#7c3aed"
+                c2="#c55ea2"
+                c3="#6366f1"
+                showCube
+                cubePos="br"
+                cubeSize={92}
+                showPolygons
+                polyPos="tr"
+                showBrackets
+                showAmbientFill={false}
+              />
             <HomeSnapshot />
             <Expertise onOpenHireModal={() => setIsHireModalOpen(true)} />
+            </div>
           </>
         );
     }
@@ -126,8 +259,10 @@ function App() {
           currentRoute={route}
           onOpenHireModal={() => setIsHireModalOpen(true)}
         />
-        <main className="min-h-screen">{page}</main>
-        <Footer />
+        <div className="relative flex flex-1 flex-col overflow-hidden">
+          <main className="relative min-h-screen">{page}</main>
+          <Footer />
+        </div>
       </div>
 
       <HireMeModal

@@ -1,32 +1,30 @@
 import { socialLinks, siteConfig } from "../data/portfolioData";
 
 const navLinks = [
-  { label: "Home",           href: "#/" },
-  { label: "About",          href: "#/about" },
-  { label: "Projects",       href: "#/projects" },
-  { label: "Experience",     href: "#/resume" },
+  { label: "Home", href: "#/" },
+  { label: "About", href: "#/about" },
+  { label: "Projects", href: "#/projects" },
+  { label: "Experience", href: "#/resume" },
   { label: "Certifications", href: "#/certifications" },
-  { label: "Blog",           href: "#/blog" },
-  { label: "Contact",        href: "#/contact" },
+  { label: "Blog", href: "#/blog" },
+  { label: "Contact", href: "#/contact" },
 ];
 
 const Footer = () => {
   return (
     <footer
       style={{
-        background: "var(--md-sys-color-surface-container-highest)",
-        borderTop: "1px solid var(--md-sys-color-outline-variant)",
+        background: "var(--md-sys-color-surface-container-high)",
+        borderTop: "1px solid rgba(121, 116, 126, 0.14)",
         position: "relative",
         overflow: "hidden",
       }}
     >
-      {/* M3 tonal gradient line at top */}
       <div
         className="h-0.5 w-full"
-        style={{ background: "linear-gradient(90deg, #7c3aed 0%, #c55ea2 50%, #6366f1 100%)" }}
+        style={{ background: "linear-gradient(90deg, rgba(124,58,237,0.38) 0%, rgba(197,94,162,0.24) 50%, rgba(99,102,241,0.32) 100%)" }}
       />
 
-      {/* Subtle background blobs */}
       <div className="pointer-events-none absolute inset-0" aria-hidden="true">
         <div
           className="absolute -bottom-24 -left-24 h-64 w-64 rounded-full"
@@ -39,11 +37,7 @@ const Footer = () => {
       </div>
 
       <div className="relative mx-auto w-full max-w-6xl px-4 py-12 md:px-6 lg:px-8">
-
-        {/* Main content row */}
         <div className="grid gap-10 md:grid-cols-[1fr_auto_auto]">
-
-          {/* Brand block */}
           <div>
             <p
               style={{
@@ -66,7 +60,7 @@ const Footer = () => {
                 color: "var(--md-sys-color-on-surface-variant)",
               }}
             >
-              {siteConfig.title}
+              Tech Enthusiast
             </p>
             <p
               className="mt-4 max-w-xs leading-6"
@@ -76,10 +70,9 @@ const Footer = () => {
                 color: "var(--md-sys-color-on-surface-variant)",
               }}
             >
-              Building backend systems, Laravel products, and scalable integrations from Kolkata.
+              Crafting reliable backend systems, thoughtful products, and scalable integrations.
             </p>
 
-            {/* Social icon buttons */}
             <div className="mt-5 flex gap-2.5">
               {socialLinks.map((link) => (
                 <a
@@ -111,7 +104,6 @@ const Footer = () => {
             </div>
           </div>
 
-          {/* Navigation */}
           <div>
             <p
               style={{
@@ -137,8 +129,12 @@ const Footer = () => {
                     color: "var(--md-sys-color-on-surface-variant)",
                     transition: "color 200ms",
                   }}
-                  onMouseEnter={(e) => { e.currentTarget.style.color = "var(--md-sys-color-primary)"; }}
-                  onMouseLeave={(e) => { e.currentTarget.style.color = "var(--md-sys-color-on-surface-variant)"; }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.color = "var(--md-sys-color-primary)";
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.color = "var(--md-sys-color-on-surface-variant)";
+                  }}
                 >
                   {link.label}
                 </a>
@@ -146,7 +142,6 @@ const Footer = () => {
             </nav>
           </div>
 
-          {/* Contact block */}
           <div>
             <p
               style={{
@@ -170,8 +165,12 @@ const Footer = () => {
                   color: "var(--md-sys-color-on-surface-variant)",
                   transition: "color 200ms",
                 }}
-                onMouseEnter={(e) => { e.currentTarget.style.color = "var(--md-sys-color-primary)"; }}
-                onMouseLeave={(e) => { e.currentTarget.style.color = "var(--md-sys-color-on-surface-variant)"; }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.color = "var(--md-sys-color-primary)";
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.color = "var(--md-sys-color-on-surface-variant)";
+                }}
               >
                 {siteConfig.email}
               </a>
@@ -186,7 +185,6 @@ const Footer = () => {
           </div>
         </div>
 
-        {/* Bottom divider + copyright */}
         <div
           className="mt-10 flex flex-col items-start justify-between gap-3 border-t pt-6 sm:flex-row sm:items-center"
           style={{ borderColor: "var(--md-sys-color-outline-variant)" }}
@@ -207,7 +205,7 @@ const Footer = () => {
               color: "var(--md-sys-color-outline)",
             }}
           >
-            Built with React + Vite · Material Design 3
+            Built with passion, shaped with love.
           </p>
         </div>
       </div>

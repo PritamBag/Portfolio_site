@@ -67,24 +67,22 @@ const Expertise = ({ onOpenHireModal }) => {
           className="anim-fade-up relative overflow-hidden"
           style={{
             borderRadius: "var(--md-sys-shape-extra-large)",
-            background: "linear-gradient(135deg, #0f0621 0%, #1e1060 55%, #0d0b1f 100%)",
-            boxShadow: "0 24px 80px rgba(124,58,237,0.22)",
+            background: "linear-gradient(135deg, var(--md-sys-color-surface-container-lowest) 0%, var(--md-sys-color-surface-container) 42%, var(--md-sys-color-primary-container) 100%)",
+            border: "1px solid var(--md-sys-color-outline-variant)",
+            boxShadow: "var(--md-sys-elevation-1)",
           }}
         >
-          {/* Brand gradient top line */}
-          <div className="h-0.5 w-full" style={{ background: "linear-gradient(90deg,#7c3aed,#c55ea2,#6366f1)" }} />
-
           {/* Decorative background blobs */}
           <div className="pointer-events-none absolute inset-0" aria-hidden="true">
-            <div className="absolute -right-24 -top-24 h-80 w-80 rounded-full" style={{ background: "radial-gradient(circle,rgba(124,58,237,0.18) 0%,transparent 70%)" }} />
-            <div className="absolute -left-16 -bottom-16 h-64 w-64 rounded-full" style={{ background: "radial-gradient(circle,rgba(197,94,162,0.14) 0%,transparent 70%)" }} />
+            <div className="absolute -right-24 -top-24 h-80 w-80 rounded-full" style={{ background: "radial-gradient(circle,rgba(124,58,237,0.12) 0%,transparent 70%)" }} />
+            <div className="absolute -left-16 -bottom-16 h-64 w-64 rounded-full" style={{ background: "radial-gradient(circle,rgba(99,102,241,0.10) 0%,transparent 70%)" }} />
             {/* Geometric decorations */}
-            <svg className="absolute right-8 top-8 h-20 w-20 opacity-[0.08]" viewBox="0 0 80 80" fill="none">
+            <svg className="absolute right-8 top-8 h-20 w-20 opacity-[0.16]" viewBox="0 0 80 80" fill="none">
               <circle cx="40" cy="40" r="36" stroke="#cbb8f4" strokeWidth="1" strokeDasharray="5 3"/>
-              <circle cx="40" cy="40" r="22" stroke="#ffb0d4" strokeWidth="0.8"/>
+              <circle cx="40" cy="40" r="22" stroke="#e9ddff" strokeWidth="0.8"/>
               <circle cx="40" cy="40" r="10" stroke="#a5b4fc" strokeWidth="0.8"/>
             </svg>
-            <svg className="absolute left-4 bottom-4 h-16 w-16 opacity-[0.07]" viewBox="0 0 64 64" fill="none">
+            <svg className="absolute left-4 bottom-4 h-16 w-16 opacity-[0.14]" viewBox="0 0 64 64" fill="none">
               <polygon points="32,4 60,20 60,44 32,60 4,44 4,20" stroke="#cbb8f4" strokeWidth="1"/>
               <polygon points="32,14 50,24 50,40 32,50 14,40 14,24" stroke="#a5b4fc" strokeWidth="0.8"/>
             </svg>
@@ -98,7 +96,7 @@ const Expertise = ({ onOpenHireModal }) => {
                     fontFamily: '"Google Sans Display","DM Sans",sans-serif',
                     fontSize: "2rem",
                     fontWeight: 600,
-                    color: "#ffffff",
+                    color: "var(--md-sys-color-on-surface)",
                     lineHeight: "2.5rem",
                   }}
                 >
@@ -109,7 +107,7 @@ const Expertise = ({ onOpenHireModal }) => {
                   style={{
                     fontFamily: '"Google Sans Text","DM Sans",sans-serif',
                     fontSize: "0.9375rem",
-                    color: "rgba(255,255,255,0.60)",
+                    color: "var(--md-sys-color-on-surface-variant)",
                   }}
                 >
                   Stack tuned around delivery — backend systems, integrations,

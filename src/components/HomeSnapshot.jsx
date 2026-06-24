@@ -1,6 +1,5 @@
 import { architectureHighlights, homeStats, projectGroups } from "../data/portfolioData";
 import ImagePlaceholder from "./ImagePlaceholder";
-import DecorGrafx from "./DecorGrafx";
 
 const featuredProjects = projectGroups.find((g) => g.id === "featured")?.projects ?? [];
 
@@ -58,11 +57,6 @@ const archIcons = {
 const HomeSnapshot = () => {
   return (
     <div className="relative overflow-hidden w-full py-16 md:py-20">
-
-      <DecorGrafx id="snap" ringPos="br" dotPos="tl" c1="#7c3aed" c2="#c55ea2" c3="#6366f1" orbitPos="ml"
-        showCube cubePos="br" cubeSize={92}
-        showPolygons polyPos="tr"
-      />
 
       <div className="mx-auto w-full max-w-6xl px-4 md:px-6 lg:px-8">
 
@@ -160,11 +154,11 @@ const HomeSnapshot = () => {
           </a>
         </div>
 
-        <div className="mt-8 grid gap-6 sm:grid-cols-2 xl:grid-cols-3">
+        <div className="mt-8 grid items-stretch gap-6 sm:grid-cols-2 xl:grid-cols-3">
           {featuredProjects.map((project, i) => (
             <article
               key={project.slug}
-              className="anim-fade-up m3-feature-card flex flex-col"
+              className="anim-fade-up m3-feature-card flex h-full flex-col"
               style={{ animationDelay: `${i * 0.1}s` }}
             >
               {/* Image cap — gradient frame + inner box */}
@@ -196,25 +190,27 @@ const HomeSnapshot = () => {
               {/* Body */}
               <div className="flex flex-1 flex-col p-5">
                 <div className="flex-1">
-                  <h3 className="m3-title-lg" style={{ color: "var(--md-sys-color-on-surface)" }}>
-                    {project.title}
-                  </h3>
-                  <p className="m3-body-sm mt-2 leading-6 line-clamp-3"
-                     style={{ color: "var(--md-sys-color-on-surface-variant)" }}>
-                    {project.summary}
-                  </p>
-                </div>
+                  <div>
+                    <h3 className="m3-title-lg" style={{ color: "var(--md-sys-color-on-surface)" }}>
+                      {project.title}
+                    </h3>
+                    <p className="m3-body-sm mt-2 h-[4.5rem] overflow-hidden leading-6"
+                       style={{ color: "var(--md-sys-color-on-surface-variant)" }}>
+                      {project.summary}
+                    </p>
+                  </div>
 
-                {/* Stack chips */}
-                <div className="mt-3 flex flex-wrap gap-1.5">
-                  {project.stack.slice(0, 3).map((item) => (
-                    <span key={item} className="m3-chip">{item}</span>
-                  ))}
-                  {project.stack.length > 3 && (
-                    <span className="m3-chip" style={{ opacity: 0.6 }}>
-                      +{project.stack.length - 3}
-                    </span>
-                  )}
+                  {/* Stack chips */}
+                  <div className="mt-3 flex flex-wrap gap-1.5">
+                    {project.stack.slice(0, 3).map((item) => (
+                      <span key={item} className="m3-chip">{item}</span>
+                    ))}
+                    {project.stack.length > 3 && (
+                      <span className="m3-chip" style={{ opacity: 0.6 }}>
+                        +{project.stack.length - 3}
+                      </span>
+                    )}
+                  </div>
                 </div>
 
                 {project.links.length > 0 && (

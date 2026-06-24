@@ -1,5 +1,4 @@
 import { certifications } from "../data/portfolioData";
-import DecorGrafx from "./DecorGrafx";
 import PropTypes from "prop-types";
 
 /* Tonal cap palette — keyed by cert category + index fallback for variety */
@@ -149,12 +148,6 @@ CertCard.propTypes = { cert: PropTypes.object.isRequired, idx: PropTypes.number.
 const Certifications = () => {
   return (
     <section className="relative overflow-hidden w-full py-16 md:py-24">
-
-      <DecorGrafx id="crt" ringPos="tr" dotPos="bl" c1="#7c3aed" c2="#c55ea2" c3="#6366f1"
-        showCube cubePos="bl" cubeSize={86}
-        showBrackets
-        showPolygons polyPos="br"
-      />
 
       <div className="mx-auto w-full max-w-6xl px-4 md:px-6 lg:px-8">
       <div className="anim-fade-up max-w-3xl">

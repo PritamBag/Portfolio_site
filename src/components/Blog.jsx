@@ -1,5 +1,4 @@
 import { blogIdeas, blogPosts } from "../data/portfolioData";
-import DecorGrafx from "./DecorGrafx";
 
 /* Tonal palette cycling for published posts */
 const POST_CAPS = [
@@ -16,11 +15,6 @@ const IDEA_CAPS = [
 const Blog = () => {
   return (
     <section className="relative overflow-hidden w-full py-16 md:py-24">
-
-      <DecorGrafx id="blg" ringPos="br" dotPos="tl" c1="#7c3aed" c2="#6366f1" c3="#c55ea2" flipCurve orbitPos="bl"
-        showCube cubePos="tr" cubeSize={90}
-        showPolygons polyPos="bl"
-      />
 
       <div className="mx-auto w-full max-w-6xl px-4 md:px-6 lg:px-8">
       {/* Page header */}
