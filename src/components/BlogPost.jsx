@@ -170,6 +170,14 @@ const BlogPost = ({ slug }) => {
             </span>
           ))}
         </div>
+
+        {post.coverImage && (
+          <img
+            src={post.coverImage}
+            alt={post.title}
+            className="mt-8 w-full rounded-2xl border border-slate-200 object-cover"
+          />
+        )}
       </div>
 
       {/* Divider */}

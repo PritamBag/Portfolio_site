@@ -11,6 +11,8 @@ const ROOT = join(__dirname, "..");
 const OUT_DIR = join(ROOT, "docs");
 const SSR_DIR = join(ROOT, "dist-ssr");
 const SITE_URL = "https://pritambag.in";
+const DEFAULT_KEYWORDS =
+  "Pritam Bag, software development engineer, Laravel developer, WordPress developer, portfolio, backend engineer, API integration, Kolkata";
 
 const escapeHtml = (str) =>
   String(str).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
@@ -40,24 +42,59 @@ function setRootContent(html, contentHtml) {
   return html.replace('<div id="root"></div>', `<div id="root">${contentHtml || ""}</div>`);
 }
 
+function setOgType(html, type) {
+  return html.replace(
+    /<meta property="og:type" content="[^"]*"\s*\/>/,
+    `<meta property="og:type" content="${escapeAttr(type)}" />`
+  );
+}
+
 function injectJsonLd(html, jsonLd) {
   if (!jsonLd) return html;
-  const script = `    <script type="application/ld+json">\n${JSON.stringify(jsonLd, null, 2)}\n    </script>\n  </head>`;
-  return html.replace(/\s*<\/head>/, `\n${script}`);
+  const entries = Array.isArray(jsonLd) ? jsonLd : [jsonLd];
+  const scripts = entries
+    .map((entry) => `    <script type="application/ld+json">\n${JSON.stringify(entry, null, 2)}\n    </script>`)
+    .join("\n");
+  return html.replace(/\s*<\/head>/, `\n${scripts}\n  </head>`);
+}
+
+function injectArticleMeta(html, article) {
+  if (!article) return html;
+  const tags = [];
+  if (article.publishedTime) {
+    tags.push(`    <meta property="article:published_time" content="${escapeAttr(article.publishedTime)}" />`);
+  }
+  if (article.author) {
+    tags.push(`    <meta property="article:author" content="${escapeAttr(article.author)}" />`);
+  }
+  for (const tag of article.tags || []) {
+    tags.push(`    <meta property="article:tag" content="${escapeAttr(tag)}" />`);
+  }
+  if (tags.length === 0) return html;
+  return html.replace(/\s*<\/head>/, `\n${tags.join("\n")}\n  </head>`);
 }
 
 function buildPageHtml(template, route, meta, contentHtml) {
   let html = template;
   html = setTitle(html, meta.title);
   html = setMetaContent(html, "name", "description", meta.description);
+  html = setMetaContent(html, "name", "keywords", meta.keywords || DEFAULT_KEYWORDS);
   html = setMetaContent(html, "property", "og:title", meta.title);
   html = setMetaContent(html, "property", "og:description", meta.description);
   html = setMetaContent(html, "property", "og:url", meta.canonical);
+  html = setOgType(html, meta.ogType || "website");
+  if (meta.image) {
+    html = setMetaContent(html, "property", "og:image", meta.image);
+    html = setMetaContent(html, "property", "og:image:alt", meta.title);
+    html = setMetaContent(html, "name", "twitter:image", meta.image);
+    html = setMetaContent(html, "name", "twitter:image:alt", meta.title);
+  }
   html = setMetaContent(html, "name", "twitter:title", meta.title);
   html = setMetaContent(html, "name", "twitter:description", meta.description);
   html = setMetaContent(html, "name", "twitter:url", meta.canonical);
   html = setCanonical(html, meta.canonical);
   html = setRootContent(html, contentHtml);
+  html = injectArticleMeta(html, meta.article);
   if (meta.jsonLd) html = injectJsonLd(html, meta.jsonLd);
   return html;
 }

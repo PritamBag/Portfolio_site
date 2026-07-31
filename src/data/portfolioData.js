@@ -10,6 +10,9 @@ import multivendorImage from "../assets/projects/multivendor-platform.png";
 import wrappidContributionImage from "../assets/projects/wrappid-contributions.png";
 import laravelPackagesImage from "../assets/projects/laravel-packages.png";
 import dolibarrImage from "../assets/projects/dolibarr.png";
+// Blog cover images — add the files, then uncomment:
+import entityMetaCover from "../assets/blog/entity-meta-pattern-laravel.webp";
+import dolibarrBlogCover from "../assets/blog/custom-dolibarr-business-software.webp";
 
 export const siteConfig = {
   name: "Pritam Bag",
@@ -521,7 +524,9 @@ export const blogPosts = [
     subtitle: "How I rebuilt the Entity-Meta pattern into a Laravel package - and what it taught me about vertical scaling, pivot tables, and building for small business.",
     status: "Published",
     date: "June 2026",
+    isoDate: "2026-06-01",
     readTime: "8 min read",
+    coverImage: entityMetaCover,
     tags: ["Laravel", "Architecture", "Database Design", "Packages", "Scaling"],
     summary:
       "How I implemented the WordPress-style entity-meta database pattern in a Laravel package - covering pivot tables for many-to-many relationships, reusable traits, and why this architecture lets small business applications scale vertically before ever needing distributed complexity.",
@@ -776,7 +781,9 @@ User::withTag('vip')->get();`,
     subtitle: "Lessons from ERP templates, modules, deployment work, and client-specific customization.",
     status: "Published",
     date: "July 2026",
+    isoDate: "2026-07-01",
     readTime: "8 min read",
+    coverImage: dolibarrBlogCover,
     tags: ["Dolibarr", "ERP", "Business Software", "Customization", "Deployments"],
     summary:
       "What repeated Dolibarr customization work taught me about how business software actually succeeds: not through abstract elegance alone, but through templates, modules, deployment discipline, and careful adaptation to how a company already operates.",

@@ -62,10 +62,20 @@ const Blog = () => {
 
                   {/* Tonal editorial cap - post title lives here */}
                   <div
-                    className="flex flex-col justify-between gap-4 px-6 py-7"
+                    className="relative flex flex-col justify-between gap-4 overflow-hidden px-6 py-7"
                     style={{ background: pal.cap, minHeight: "10rem" }}
                   >
-                    <div className="flex flex-wrap items-center gap-2">
+                    {post.coverImage && (
+                      <>
+                        <img
+                          src={post.coverImage}
+                          alt=""
+                          className="absolute inset-0 h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
+                        />
+                        <div className="absolute inset-0" style={{ background: pal.cap, opacity: 0.72 }} />
+                      </>
+                    )}
+                    <div className="relative flex flex-wrap items-center gap-2">
                       <span
                         className="rounded-full px-3 py-1"
                         style={{
@@ -92,16 +102,21 @@ const Blog = () => {
                     </div>
 
                     <h2
-                      className="transition-opacity group-hover:opacity-80"
+                      className="relative"
                       style={{
                         fontFamily: '"Google Sans Display","DM Sans",sans-serif',
                         fontSize: "1.2rem",
                         fontWeight: 600,
                         lineHeight: "1.65rem",
-                        color: pal.on,
                       }}
                     >
-                      {post.title}
+                      <a
+                        href={`/blog/${post.slug}`}
+                        className="transition-opacity hover:opacity-80"
+                        style={{ color: pal.on }}
+                      >
+                        {post.title}
+                      </a>
                     </h2>
                   </div>
 
@@ -113,7 +128,7 @@ const Blog = () => {
                           fontFamily: '"Google Sans Text","DM Sans",sans-serif',
                           fontSize: "0.875rem",
                           fontWeight: 500,
-                          color: "var(--md-sys-color-primary)",
+                          color: "var(--md-sys-color-on-surface)",
                         }}
                       >
                         {post.subtitle}

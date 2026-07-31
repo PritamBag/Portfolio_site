@@ -77,29 +77,69 @@ export function getMetaForRoute(route) {
     const slug = route.replace("/blog/", "");
     const post = blogPosts.find((p) => p.slug === slug);
     if (!post) return null;
+    const canonical = `${SITE_URL}/blog/${post.slug}`;
+    const imageUrl = post.coverImage ? `${SITE_URL}${post.coverImage}` : `${SITE_URL}/Photo.png`;
     return {
       title: `${post.title} | ${siteConfig.name}`,
       description: post.summary,
-      canonical: `${SITE_URL}/blog/${post.slug}`,
-      jsonLd: {
-        "@context": "https://schema.org",
-        "@type": "BlogPosting",
-        headline: post.title,
-        description: post.summary,
-        datePublished: post.date,
-        author: { "@type": "Person", name: siteConfig.name, url: SITE_URL },
-        url: `${SITE_URL}/blog/${post.slug}`,
-        keywords: post.tags.join(", "),
+      canonical,
+      ogType: "article",
+      image: imageUrl,
+      keywords: post.tags.join(", "),
+      article: {
+        publishedTime: post.isoDate,
+        author: siteConfig.name,
+        tags: post.tags,
       },
+      jsonLd: [
+        {
+          "@context": "https://schema.org",
+          "@type": "BlogPosting",
+          headline: post.title,
+          description: post.summary,
+          image: imageUrl,
+          datePublished: post.isoDate,
+          dateModified: post.isoDate,
+          author: { "@type": "Person", name: siteConfig.name, url: SITE_URL },
+          publisher: { "@type": "Person", name: siteConfig.name, url: SITE_URL },
+          mainEntityOfPage: { "@type": "WebPage", "@id": canonical },
+          url: canonical,
+          keywords: post.tags.join(", "),
+        },
+        {
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          itemListElement: [
+            { "@type": "ListItem", position: 1, name: "Home", item: `${SITE_URL}/` },
+            { "@type": "ListItem", position: 2, name: "Blog", item: `${SITE_URL}/blog` },
+            { "@type": "ListItem", position: 3, name: post.title, item: canonical },
+          ],
+        },
+      ],
     };
   }
   const entry = staticRoutes[route];
   if (!entry) return null;
-  return {
+  const meta = {
     title: entry.title,
     description: entry.description,
     canonical: `${SITE_URL}${route === "/" ? "/" : route}`,
   };
+  if (route === "/blog") {
+    meta.jsonLd = {
+      "@context": "https://schema.org",
+      "@type": "Blog",
+      name: `${siteConfig.name} Blog`,
+      url: meta.canonical,
+      blogPost: blogPosts.map((post) => ({
+        "@type": "BlogPosting",
+        headline: post.title,
+        url: `${SITE_URL}/blog/${post.slug}`,
+        datePublished: post.isoDate,
+      })),
+    };
+  }
+  return meta;
 }
 
 export function renderRoute(route) {
