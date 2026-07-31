@@ -122,7 +122,7 @@ function buildSitemap(routes) {
   };
   const urls = routes
     .map((route) => {
-      const loc = `${SITE_URL}${route === "/" ? "/" : route}`;
+      const loc = route === "/" ? `${SITE_URL}/` : `${SITE_URL}${route}/`;
       const priority = priorities[route] || (route.startsWith("/blog/") ? "0.7" : "0.6");
       const freq = changefreq[route] || (route.startsWith("/blog/") ? "monthly" : "monthly");
       return `  <url>\n    <loc>${loc}</loc>\n    <changefreq>${freq}</changefreq>\n    <priority>${priority}</priority>\n  </url>`;

@@ -256,7 +256,7 @@ const Banner = () => {
 
           {/* CTAs - M3 Filled + Outlined */}
           <div className="mt-9 flex flex-wrap gap-3">
-            <a href="/projects" className="m3-btn m3-btn-filled">
+            <a href="/projects/" className="m3-btn m3-btn-filled">
               View Projects
             </a>
             <a

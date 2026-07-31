@@ -111,7 +111,7 @@ const Blog = () => {
                       }}
                     >
                       <a
-                        href={`/blog/${post.slug}`}
+                        href={`/blog/${post.slug}/`}
                         className="transition-opacity hover:opacity-80"
                         style={{ color: pal.on }}
                       >
@@ -150,7 +150,7 @@ const Blog = () => {
                       ))}
                     </div>
                     <a
-                      href={`/blog/${post.slug}`}
+                      href={`/blog/${post.slug}/`}
                       className="m3-btn m3-btn-text mt-5 self-start px-0"
                       style={{ color: "var(--md-sys-color-primary)", gap: "0.375rem" }}
                     >

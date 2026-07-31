@@ -14,6 +14,11 @@ import { siteConfig, blogPosts } from "./data/portfolioData";
 const SITE_URL = "https://pritambag.in";
 const noop = () => {};
 
+// GitHub Pages 301-redirects bare paths to their trailing-slash form (it's serving
+// real directory/index.html files), so canonical/sitemap/OG URLs must use the
+// trailing-slash form directly to avoid pointing at a URL that redirects away from itself.
+const canonicalUrl = (route) => (route === "/" ? `${SITE_URL}/` : `${SITE_URL}${route}/`);
+
 const staticRoutes = {
   "/": {
     title: `${siteConfig.name} | Software Development Engineer`,
@@ -77,7 +82,7 @@ export function getMetaForRoute(route) {
     const slug = route.replace("/blog/", "");
     const post = blogPosts.find((p) => p.slug === slug);
     if (!post) return null;
-    const canonical = `${SITE_URL}/blog/${post.slug}`;
+    const canonical = canonicalUrl(`/blog/${post.slug}`);
     const imageUrl = post.coverImage ? `${SITE_URL}${post.coverImage}` : `${SITE_URL}/Photo.png`;
     return {
       title: `${post.title} | ${siteConfig.name}`,
@@ -110,8 +115,8 @@ export function getMetaForRoute(route) {
           "@context": "https://schema.org",
           "@type": "BreadcrumbList",
           itemListElement: [
-            { "@type": "ListItem", position: 1, name: "Home", item: `${SITE_URL}/` },
-            { "@type": "ListItem", position: 2, name: "Blog", item: `${SITE_URL}/blog` },
+            { "@type": "ListItem", position: 1, name: "Home", item: canonicalUrl("/") },
+            { "@type": "ListItem", position: 2, name: "Blog", item: canonicalUrl("/blog") },
             { "@type": "ListItem", position: 3, name: post.title, item: canonical },
           ],
         },
@@ -123,7 +128,7 @@ export function getMetaForRoute(route) {
   const meta = {
     title: entry.title,
     description: entry.description,
-    canonical: `${SITE_URL}${route === "/" ? "/" : route}`,
+    canonical: canonicalUrl(route),
   };
   if (route === "/blog") {
     meta.jsonLd = {
@@ -134,7 +139,7 @@ export function getMetaForRoute(route) {
       blogPost: blogPosts.map((post) => ({
         "@type": "BlogPosting",
         headline: post.title,
-        url: `${SITE_URL}/blog/${post.slug}`,
+        url: canonicalUrl(`/blog/${post.slug}`),
         datePublished: post.isoDate,
       })),
     };

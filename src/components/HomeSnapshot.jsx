@@ -147,7 +147,7 @@ const HomeSnapshot = () => {
               style={{ color: "var(--md-sys-color-on-surface)", fontFamily: '"Google Sans","DM Sans",sans-serif' }}>
             Projects that shipped
           </h2>
-          <a href="/projects"
+          <a href="/projects/"
              className="hidden m3-label-lg md:block"
              style={{ color: "var(--md-sys-color-primary)" }}>
             View all →
@@ -239,7 +239,7 @@ const HomeSnapshot = () => {
         </div>
 
         <div className="mt-6 text-center md:hidden">
-          <a href="/projects"
+          <a href="/projects/"
              className="m3-label-lg"
              style={{ color: "var(--md-sys-color-primary)" }}>
             View all projects →

@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from "react";
 import PropTypes from "prop-types";
 import { socialLinks, siteConfig } from "../data/portfolioData";
+import { toHref } from "../utils/routes";
 
 const navItems = [
   { title: "Home", path: "/" },
@@ -53,7 +54,7 @@ const Header = ({ currentRoute, onOpenHireModal }) => {
             return (
               <a
                 key={item.title}
-                href={item.path}
+                href={toHref(item.path)}
                 className="relative px-3 py-1.5 rounded-full transition-colors"
                 style={{
                   fontSize: "0.875rem",
@@ -118,7 +119,7 @@ const Header = ({ currentRoute, onOpenHireModal }) => {
               return (
                 <a
                   key={item.title}
-                  href={item.path}
+                  href={toHref(item.path)}
                   className="rounded-full px-4 py-2.5 transition-colors"
                   style={{
                     fontSize: "0.875rem",
