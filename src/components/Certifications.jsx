@@ -1,7 +1,7 @@
 import { certifications } from "../data/portfolioData";
 import PropTypes from "prop-types";
 
-/* Tonal cap palette — keyed by cert category + index fallback for variety */
+/* Tonal cap palette - keyed by cert category + index fallback for variety */
 const CAT_PALETTE = {
   "CI & CD":            { cap: "linear-gradient(135deg,#dcfce7 0%,#a7f3d0 100%)", on: "#064e3b", iconBg: "rgba(255,255,255,0.55)" },
   "Cloud & DevOps":     { cap: "linear-gradient(135deg,#dcfce7 0%,#a7f3d0 100%)", on: "#064e3b", iconBg: "rgba(255,255,255,0.55)" },
@@ -25,7 +25,7 @@ const CertCard = ({ cert, idx }) => {
   return (
     <article className="m3-feature-card flex flex-col">
 
-      {/* Tonal gradient cap — icon + category chip */}
+      {/* Tonal gradient cap - icon + category chip */}
       <div
         className="flex items-center gap-4 px-6 py-6"
         style={{ background: pal.cap }}

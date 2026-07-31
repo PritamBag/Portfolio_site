@@ -236,7 +236,7 @@ const Contact = () => {
           </a>
         </div>
 
-        {/* ── Right — contact form ── */}
+        {/* ── Right - contact form ── */}
         <div
           className="m3-feature-card overflow-hidden"
           style={{ boxShadow: "0 12px 40px rgba(124,58,237,0.10), var(--md-sys-elevation-1)" }}

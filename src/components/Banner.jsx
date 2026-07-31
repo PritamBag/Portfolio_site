@@ -21,9 +21,9 @@ const Banner = () => {
   return (
     <section className="relative overflow-hidden">
 
-      {/* ── M3 gradient mesh — m3.material.io inspired ── */}
+      {/* ── M3 gradient mesh - m3.material.io inspired ── */}
       <div className="pointer-events-none absolute inset-0" aria-hidden="true">
-        {/* Primary mesh blob — top-left, violet */}
+        {/* Primary mesh blob - top-left, violet */}
         <div
           className="absolute"
           style={{
@@ -34,7 +34,7 @@ const Banner = () => {
             filter: "blur(56px)",
           }}
         />
-        {/* Secondary mesh blob — top-right, pink */}
+        {/* Secondary mesh blob - top-right, pink */}
         <div
           className="absolute"
           style={{
@@ -45,7 +45,7 @@ const Banner = () => {
             filter: "blur(48px)",
           }}
         />
-        {/* Tertiary mesh blob — bottom-center, indigo */}
+        {/* Tertiary mesh blob - bottom-center, indigo */}
         <div
           className="absolute"
           style={{
@@ -56,7 +56,7 @@ const Banner = () => {
             filter: "blur(44px)",
           }}
         />
-        {/* Center glow — warm */}
+        {/* Center glow - warm */}
         <div
           className="absolute"
           style={{
@@ -99,7 +99,7 @@ const Banner = () => {
           <div className="hero-pgrid-inner" />
         </div>
 
-        {/* Large concentric ring — right side */}
+        {/* Large concentric ring - right side */}
         <div className="absolute -right-24 -top-20 h-[640px] w-[640px] opacity-[0.22]">
           <svg viewBox="0 0 600 600" fill="none" className="h-full w-full">
             <defs>
@@ -118,7 +118,7 @@ const Banner = () => {
           </svg>
         </div>
 
-        {/* 5×5 dot matrix */}
+        {/* 5�-5 dot matrix */}
         <div className="absolute bottom-10 left-8 opacity-[0.32]">
           <svg viewBox="0 0 170 170" className="h-44 w-44" fill="none">
             <defs>
@@ -165,7 +165,7 @@ const Banner = () => {
           <polygon points="20,2 35,11 35,29 20,38 5,29 5,11" stroke="#c55ea2" strokeWidth="1.6" />
           <polygon points="20,9 29,14 29,26 20,31 11,26 11,14" stroke="#7c3aed" strokeWidth="1.1" />
         </svg>
-        {/* Small polygon — top area */}
+        {/* Small polygon - top area */}
         <svg className="absolute left-[60%] top-16 h-10 w-10 opacity-[0.18]" viewBox="0 0 40 40" fill="none">
           <polygon points="20,2 38,32 2,32" stroke="#6366f1" strokeWidth="1.4" />
           <polygon points="20,10 32,28 8,28" stroke="#c55ea2" strokeWidth="1.0" strokeDasharray="4 2" />
@@ -175,10 +175,10 @@ const Banner = () => {
       {/* ── Content ── */}
       <div className="relative mx-auto grid w-full max-w-6xl items-center gap-10 px-4 py-16 md:px-6 md:py-20 lg:grid-cols-[1.2fr_0.8fr] lg:px-8 lg:py-28">
 
-        {/* Left — text */}
+        {/* Left - text */}
         <div className="px-1 md:px-0">
 
-          {/* Display — Google Sans Display */}
+          {/* Display - Google Sans Display */}
           <h1
             className="m3-display-md font-semibold leading-[1.08]"
             style={{ color: "var(--md-sys-color-on-surface)", fontFamily: '"Google Sans Display","DM Sans",sans-serif' }}
@@ -186,7 +186,7 @@ const Banner = () => {
             {siteConfig.name}
           </h1>
 
-          {/* Typed role — Title Large */}
+          {/* Typed role - Title Large */}
           <h2
             className="mt-5 min-h-[3.5rem] sm:min-h-[1.75rem]"
             style={{
@@ -201,7 +201,7 @@ const Banner = () => {
             <span ref={typedTarget} className="font-semibold text-gradient-brand" />
           </h2>
 
-          {/* Summary — Body Large */}
+          {/* Summary - Body Large */}
           <p
             className="m3-body-lg mt-6 max-w-xl leading-8"
             style={{ color: "var(--md-sys-color-on-surface-variant)" }}
@@ -209,7 +209,7 @@ const Banner = () => {
             {siteConfig.summary}
           </p>
 
-          {/* Meta chips — M3 tonal pill style */}
+          {/* Meta chips - M3 tonal pill style */}
           <div className="mt-5 flex flex-wrap items-center gap-2">
             <span
               className="flex items-center gap-1.5 rounded-full px-3 py-1.5"
@@ -254,9 +254,9 @@ const Banner = () => {
             </span>
           </div>
 
-          {/* CTAs — M3 Filled + Outlined */}
+          {/* CTAs - M3 Filled + Outlined */}
           <div className="mt-9 flex flex-wrap gap-3">
-            <a href="#/projects" className="m3-btn m3-btn-filled">
+            <a href="/projects" className="m3-btn m3-btn-filled">
               View Projects
             </a>
             <a
@@ -269,7 +269,7 @@ const Banner = () => {
             </a>
           </div>
 
-          {/* Social — M3 Icon Buttons */}
+          {/* Social - M3 Icon Buttons */}
           <div className="mt-8 flex flex-wrap gap-2">
             {socialLinks.map((link) => (
               <a
@@ -291,7 +291,7 @@ const Banner = () => {
           </div>
         </div>
 
-        {/* Right — photo in M3 feature card */}
+        {/* Right - photo in M3 feature card */}
         <div className="flex items-center justify-center">
           <div
             className="relative w-full max-w-sm overflow-hidden"

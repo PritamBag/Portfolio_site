@@ -67,11 +67,11 @@ const HireMeModal = ({ isOpen, onClose }) => {
           boxShadow: "var(--md-sys-elevation-3)",
         }}
       >
-        {/* Dialog header — 24dp padding */}
+        {/* Dialog header - 24dp padding */}
         <div className="px-6 pt-6 pb-0">
           <div className="flex items-start justify-between gap-4">
             <div>
-              {/* Headline — Title Large (22sp / 400) */}
+              {/* Headline - Title Large (22sp / 400) */}
               <h2
                 id="dialog-headline"
                 className="m3-title-lg"
@@ -79,7 +79,7 @@ const HireMeModal = ({ isOpen, onClose }) => {
               >
                 Let&apos;s work together
               </h2>
-              {/* Supporting text — Body Medium */}
+              {/* Supporting text - Body Medium */}
               <p
                 className="m3-body-md mt-1"
                 style={{ color: "var(--md-sys-color-on-surface-variant)" }}
@@ -88,7 +88,7 @@ const HireMeModal = ({ isOpen, onClose }) => {
               </p>
             </div>
 
-            {/* Close — M3 Icon Button */}
+            {/* Close - M3 Icon Button */}
             <button
               onClick={onClose}
               className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full transition-colors"
@@ -105,7 +105,7 @@ const HireMeModal = ({ isOpen, onClose }) => {
           </div>
         </div>
 
-        {/* Dialog content — 24dp horizontal, 16dp vertical padding */}
+        {/* Dialog content - 24dp horizontal, 16dp vertical padding */}
         <div className="px-6 py-5 flex flex-col gap-4">
           {submitStatus === "success" && (
             <div
@@ -115,7 +115,7 @@ const HireMeModal = ({ isOpen, onClose }) => {
               <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                 <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
               </svg>
-              Message sent — I&apos;ll be in touch shortly.
+              Message sent - I&apos;ll be in touch shortly.
             </div>
           )}
 
@@ -179,7 +179,7 @@ const HireMeModal = ({ isOpen, onClose }) => {
           </p>
         </div>
 
-        {/* Dialog actions — right-aligned, 24dp padding
+        {/* Dialog actions - right-aligned, 24dp padding
             M3: Text or Filled buttons, never Outlined for dialog actions */}
         <div className="flex items-center justify-end gap-2 px-6 pb-6">
           <button onClick={onClose} className="m3-btn m3-btn-text">

@@ -3,13 +3,13 @@ import PropTypes from "prop-types";
 import { socialLinks, siteConfig } from "../data/portfolioData";
 
 const navItems = [
-  { title: "Home", path: "#/" },
-  { title: "About", path: "#/about" },
-  { title: "Resume", path: "#/resume" },
-  { title: "Projects", path: "#/projects" },
-  { title: "Certifications", path: "#/certifications" },
-  { title: "Blog", path: "#/blog" },
-  { title: "Contact", path: "#/contact" },
+  { title: "Home", path: "/" },
+  { title: "About", path: "/about" },
+  { title: "Resume", path: "/resume" },
+  { title: "Projects", path: "/projects" },
+  { title: "Certifications", path: "/certifications" },
+  { title: "Blog", path: "/blog" },
+  { title: "Contact", path: "/contact" },
 ];
 
 const Header = ({ currentRoute, onOpenHireModal }) => {
@@ -39,17 +39,17 @@ const Header = ({ currentRoute, onOpenHireModal }) => {
       }}
     >
       <div className="mx-auto flex h-16 w-full max-w-6xl items-center justify-between gap-4 px-4 md:px-6 lg:px-8">
-        {/* Brand — Title Large (22sp / 500) */}
-        <a href="#/" className="flex items-center">
+        {/* Brand - Title Large (22sp / 500) */}
+        <a href="/" className="flex items-center">
           <span className="m3-title-lg text-slate-900 tracking-tight">
             {siteConfig.name}
           </span>
         </a>
 
-        {/* Desktop nav — Label Large, normal case */}
+        {/* Desktop nav - Label Large, normal case */}
         <nav className="hidden items-center gap-1 lg:flex">
           {navItems.map((item) => {
-            const isActive = activeRoute === item.path.replace("#", "");
+            const isActive = activeRoute === item.path;
             return (
               <a
                 key={item.title}
@@ -73,7 +73,7 @@ const Header = ({ currentRoute, onOpenHireModal }) => {
           })}
         </nav>
 
-        {/* Desktop CTA — M3 Filled button (brand gradient) */}
+        {/* Desktop CTA - M3 Filled button (brand gradient) */}
         <div className="hidden items-center lg:flex">
           <button
             onClick={onOpenHireModal}
@@ -83,7 +83,7 @@ const Header = ({ currentRoute, onOpenHireModal }) => {
           </button>
         </div>
 
-        {/* Mobile toggle — M3 Icon Button */}
+        {/* Mobile toggle - M3 Icon Button */}
         <button
           onClick={() => setIsMenuOpen((v) => !v)}
           className="flex h-10 w-10 items-center justify-center rounded-full transition-colors hover:bg-black/5 lg:hidden"
@@ -102,7 +102,7 @@ const Header = ({ currentRoute, onOpenHireModal }) => {
         </button>
       </div>
 
-      {/* Mobile menu — M3 surface, extra-large radius */}
+      {/* Mobile menu - M3 surface, extra-large radius */}
       {isMenuOpen && (
         <div
           className="absolute inset-x-0 top-full z-50 px-4 py-4 lg:hidden"
@@ -114,7 +114,7 @@ const Header = ({ currentRoute, onOpenHireModal }) => {
         >
           <div className="mx-auto flex max-w-6xl flex-col gap-0.5">
             {navItems.map((item) => {
-              const isActive = activeRoute === item.path.replace("#", "");
+              const isActive = activeRoute === item.path;
               return (
                 <a
                   key={item.title}

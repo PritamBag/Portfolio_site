@@ -21,27 +21,46 @@ import "./App.css";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const normalizeRoute = (hash) => {
-  if (!hash || hash === "#") return "/";
-  const cleaned = hash.replace(/^#/, "");
-  if (cleaned === "" || cleaned === "/") return "/";
-  return cleaned.startsWith("/") ? cleaned : `/${cleaned}`;
+const normalizeRoute = (pathname) => {
+  if (!pathname) return "/";
+  if (pathname.length > 1 && pathname.endsWith("/")) return pathname.slice(0, -1);
+  return pathname;
 };
 
 function App() {
-  const [route, setRoute] = useState(normalizeRoute(window.location.hash));
+  const [route, setRoute] = useState(normalizeRoute(window.location.pathname));
   const [isHireModalOpen, setIsHireModalOpen] = useState(false);
 
   useEffect(() => {
-    const handleHashChange = () => {
-      setRoute(normalizeRoute(window.location.hash));
+    const handlePopState = () => {
+      setRoute(normalizeRoute(window.location.pathname));
       window.scrollTo({ top: 0, behavior: "smooth" });
     };
-    window.addEventListener("hashchange", handleHashChange);
-    return () => window.removeEventListener("hashchange", handleHashChange);
+    window.addEventListener("popstate", handlePopState);
+    return () => window.removeEventListener("popstate", handlePopState);
   }, []);
 
-  // Scroll-triggered animations via GSAP — re-run on every route change
+  // Intercept clicks on internal links so navigation stays client-side (no full reload)
+  useEffect(() => {
+    const handleClick = (e) => {
+      if (e.defaultPrevented || e.button !== 0) return;
+      if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+      const anchor = e.target.closest("a");
+      if (!anchor || anchor.hasAttribute("download")) return;
+      if (anchor.target && anchor.target !== "_self") return;
+      const href = anchor.getAttribute("href");
+      if (!href || !href.startsWith("/") || href.startsWith("//")) return;
+      e.preventDefault();
+      const nextRoute = normalizeRoute(href);
+      window.history.pushState(null, "", href);
+      setRoute(nextRoute);
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    };
+    document.addEventListener("click", handleClick);
+    return () => document.removeEventListener("click", handleClick);
+  }, []);
+
+  // Scroll-triggered animations via GSAP - re-run on every route change
   useEffect(() => {
     const ctx = gsap.context(() => {
       gsap.utils.toArray(".anim-fade-up").forEach((el, i) => {

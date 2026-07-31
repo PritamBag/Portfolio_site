@@ -3,7 +3,7 @@ import ImagePlaceholder from "./ImagePlaceholder";
 
 const featuredProjects = projectGroups.find((g) => g.id === "featured")?.projects ?? [];
 
-/* M3 tonal palette — container + on-container pairs for each card cap */
+/* M3 tonal palette - container + on-container pairs for each card cap */
 const CAP_COLORS = [
   /* Primary */ {
     cap:   "linear-gradient(135deg, #e9ddff 0%, #cbb8f4 100%)",
@@ -60,7 +60,7 @@ const HomeSnapshot = () => {
 
       <div className="mx-auto w-full max-w-6xl px-4 md:px-6 lg:px-8">
 
-      {/* ── Stats — M3 feature cards with tonal gradient caps ── */}
+      {/* ── Stats - M3 feature cards with tonal gradient caps ── */}
       <div className="anim-fade-up grid grid-cols-2 gap-4 sm:grid-cols-4">
         {homeStats.map((stat, i) => {
           const t = CAP_COLORS[i % CAP_COLORS.length];
@@ -89,7 +89,7 @@ const HomeSnapshot = () => {
         })}
       </div>
 
-      {/* ── Architecture — M3 feature cards ── */}
+      {/* ── Architecture - M3 feature cards ── */}
       <div className="mt-24">
         <div className="anim-fade-up flex items-end justify-between gap-4">
           <h2 className="m3-headline-md font-semibold"
@@ -147,7 +147,7 @@ const HomeSnapshot = () => {
               style={{ color: "var(--md-sys-color-on-surface)", fontFamily: '"Google Sans","DM Sans",sans-serif' }}>
             Projects that shipped
           </h2>
-          <a href="#/projects"
+          <a href="/projects"
              className="hidden m3-label-lg md:block"
              style={{ color: "var(--md-sys-color-primary)" }}>
             View all →
@@ -161,7 +161,7 @@ const HomeSnapshot = () => {
               className="anim-fade-up m3-feature-card flex h-full flex-col"
               style={{ animationDelay: `${i * 0.1}s` }}
             >
-              {/* Image cap — gradient frame + inner box */}
+              {/* Image cap - gradient frame + inner box */}
               <div style={{ background: CAP_COLORS[i % CAP_COLORS.length].cap, padding: "0.875rem 0.875rem 0" }}>
                 <div className="relative overflow-hidden rounded-xl" style={{ height: "10rem" }}>
                   <ImagePlaceholder
@@ -239,7 +239,7 @@ const HomeSnapshot = () => {
         </div>
 
         <div className="mt-6 text-center md:hidden">
-          <a href="#/projects"
+          <a href="/projects"
              className="m3-label-lg"
              style={{ color: "var(--md-sys-color-primary)" }}>
             View all projects →

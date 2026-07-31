@@ -17,7 +17,7 @@ export const siteConfig = {
   location: "Kolkata, West Bengal, India",
   currentRole: "SDE at Iquester Solutions LLP",
   summary:
-    "I think about software the way I approached mathematics — looking for the structure underneath. Systems design, event architecture, entity modeling, the invisible decisions that make products hold up past the first sprint. Based in Kolkata, building production software where the design matters as much as the delivery.",
+    "I think about software the way I approached mathematics - looking for the structure underneath. Systems design, event architecture, entity modeling, the invisible decisions that make products hold up past the first sprint. Based in Kolkata, building production software where the design matters as much as the delivery.",
   heroDescription:
     "Systems design, event architecture, framework internals, and integration work. 1.5+ years building software where the shape of the system matters as much as the feature that ships.",
   resumeUrl: resumePdf,
@@ -141,11 +141,11 @@ export const educationItems = [
 export const aboutContent = {
   title: "From Mathematics to Code That Works",
   story: [
-    "I came to software the same way I approached mathematics — looking for the structure underneath the surface. My B.Sc in Mathematics at Barasat College was not a detour; it was the foundation. Numbers taught me how to break down complexity, spot patterns, and reason toward clean answers. That habit carried straight into MCA at Techno India Hooghly, where I graduated in 2024 with an 8.71 CGPA and a clear direction.",
-    "In July 2024, I walked into Rxefy Tech as an intern. Within months, I was contributing to Wrappid — an in-house React-based application framework — while simultaneously building Laravel backends, publishing reusable packages, integrating Zoho Books for financial automation, and wiring WhatsApp and Messenger APIs into business operations. I also participated in architecture design: defining entity boundaries between Streamline and Business layers, building an event-driven worker system using Laravel Jobs to reduce spinup overhead, and creating a UI-driven database schema builder that let users define tables, queries, and relationships without writing raw SQL. By the time I transitioned to full-time, I had shipped production code across multi-tenant applications, Docker-monitored services, and cPanel-based deployments.",
-    "In March 2026, I joined Iquester Solutions LLP to work on more operational problems — Dolibarr ERP customization, multi-vendor marketplace platforms on WordPress, custom Laravel systems, and VPS/cPanel server management. This is software that has to run reliably on a Monday morning when someone's entire business depends on it.",
+    "I came to software the same way I approached mathematics - looking for the structure underneath the surface. My B.Sc in Mathematics at Barasat College was not a detour; it was the foundation. Numbers taught me how to break down complexity, spot patterns, and reason toward clean answers. That habit carried straight into MCA at Techno India Hooghly, where I graduated in 2024 with an 8.71 CGPA and a clear direction.",
+    "In July 2024, I walked into Rxefy Tech as an intern. Within months, I was contributing to Wrappid - an in-house React-based application framework - while simultaneously building Laravel backends, publishing reusable packages, integrating Zoho Books for financial automation, and wiring WhatsApp and Messenger APIs into business operations. I also participated in architecture design: defining entity boundaries between Streamline and Business layers, building an event-driven worker system using Laravel Jobs to reduce spinup overhead, and creating a UI-driven database schema builder that let users define tables, queries, and relationships without writing raw SQL. By the time I transitioned to full-time, I had shipped production code across multi-tenant applications, Docker-monitored services, and cPanel-based deployments.",
+    "In March 2026, I joined Iquester Solutions LLP to work on more operational problems - Dolibarr ERP customization, multi-vendor marketplace platforms on WordPress, custom Laravel systems, and VPS/cPanel server management. This is software that has to run reliably on a Monday morning when someone's entire business depends on it.",
     "1.5+ years in, I build systems that are readable, maintainable, and useful beyond the first sprint. I care less about clever code and more about software that survives real usage.",
-    "Outside engineering, cooking is a genuine passion — not just a hobby. I'm curious about food, recipes, and the culture around what people eat and how it's made. I co-author Nomad Journey with a friend; we write about food and culture when there's something worth sharing. The instinct carries over — constraints, patience, and making something that actually works.",
+    "Outside engineering, cooking is a genuine passion - not just a hobby. I'm curious about food, recipes, and the culture around what people eat and how it's made. I co-author Nomad Journey with a friend; we write about food and culture when there's something worth sharing. The instinct carries over - constraints, patience, and making something that actually works.",
   ],
   focusAreas: [
     "Enterprise Laravel applications and reusable backend modules",
@@ -160,12 +160,12 @@ export const personalHighlights = [
   {
     title: "Cooking",
     description:
-      "Cooking is a genuine passion — not just a screen break. I enjoy it deeply: the structure, the experimentation, the patience it takes to turn raw ingredients into something that actually works. The mindset is surprisingly close to engineering.",
+      "Cooking is a genuine passion - not just a screen break. I enjoy it deeply: the structure, the experimentation, the patience it takes to turn raw ingredients into something that actually works. The mindset is surprisingly close to engineering.",
   },
   {
     title: "Food & Culture",
     description:
-      "I'm curious about food culture — regional ingredients, how dishes travel, what eating habits say about people. I co-author Nomad Journey with a friend where we write about food and culture when there's something worth sharing, not on a schedule.",
+      "I'm curious about food culture - regional ingredients, how dishes travel, what eating habits say about people. I co-author Nomad Journey with a friend where we write about food and culture when there's something worth sharing, not on a schedule.",
     link: {
       label: "Nomad Journey",
       href: "https://nomadjourney.in",
@@ -204,7 +204,7 @@ export const experienceItems = [
     summary:
       "Contributed across framework work, Laravel systems, integrations, scalable backend architecture, and operational product delivery. Participated in architectural design decisions and built reusable patterns used across the product.",
     highlights: [
-      "Participated in application architecture design — defining entity boundaries between Streamline entities and Business entities to enforce clean separation of concerns.",
+      "Participated in application architecture design - defining entity boundaries between Streamline entities and Business entities to enforce clean separation of concerns.",
       "Designed an event-driven worker system using Laravel Jobs and Queues to minimize worker spinup overhead and improve async processing performance.",
       "Built a UI-driven database table builder inside the application, enabling users to define DB schemas, queries, and table relationships without writing raw SQL.",
       "Contributed to Wrappid, a React-based in-house framework, improving the application builder, core packages, and styling modules.",
@@ -235,7 +235,7 @@ export const architectureHighlights = [
     id: "arch-design",
     title: "Application Architecture",
     description:
-      "Participated in defining entity boundaries — Streamline vs Business entity separation — to enforce clean, maintainable application structure.",
+      "Participated in defining entity boundaries - Streamline vs Business entity separation - to enforce clean, maintainable application structure.",
     icon: "architecture",
   },
   {
@@ -256,7 +256,7 @@ export const architectureHighlights = [
     id: "api-arch",
     title: "API & Integration Design",
     description:
-      "Architected integrations with Zoho Books, WhatsApp, and Messenger APIs — mapping external services into structured internal workflows.",
+      "Architected integrations with Zoho Books, WhatsApp, and Messenger APIs - mapping external services into structured internal workflows.",
     icon: "integration",
   },
 ];
@@ -276,7 +276,7 @@ export const projectGroups = [
         isLive: false,
         stack: ["Python", "Automation", "Whatsapp API", "Telegram API"],
         summary:
-          "Contributed to Knorai — a live SaaS product that lets WooCommerce store owners automate customer support queries through WhatsApp and Telegram channels, reducing manual support effort.",
+          "Contributed to Knorai - a live SaaS product that lets WooCommerce store owners automate customer support queries through WhatsApp and Telegram channels, reducing manual support effort.",
         details: [
           "Built automation flows connecting WooCommerce order events to WhatsApp and Telegram message channels.",
           "Enabled store owners to handle customer queries with structured automation rules without manual intervention.",
@@ -484,6 +484,16 @@ export const certifications = [
   },
   {
     id: "cert-2",
+    title: "Introduction to Kubernetes",
+    issuer: "Simplilearn SkillUp",
+    date: "July 2026",
+    credentialId: "10460054",
+    link: "https://simpli-web.app.link/e/8mTXneH7b5b",
+    category: "Cloud & DevOps",
+    skills: ["Kubernetes", "Container orchestration"],
+  },
+  {
+    id: "cert-3",
     title: "Digital Marketing",
     issuer: "SWAYAM",
     date: "May 2024",
@@ -493,7 +503,7 @@ export const certifications = [
     skills: ["Digital Marketing"],
   },
   {
-    id: "cert-3",
+    id: "cert-4",
     title: "Crash Course on Python",
     issuer: "Coursera",
     date: "December 2022",
@@ -508,17 +518,17 @@ export const blogPosts = [
   {
     slug: "entity-meta-pattern-laravel",
     title: "Your Laravel App Keeps Growing Columns. WordPress Solved This 15 Years Ago.",
-    subtitle: "How I rebuilt the Entity-Meta pattern into a Laravel package — and what it taught me about vertical scaling, pivot tables, and building for small business.",
+    subtitle: "How I rebuilt the Entity-Meta pattern into a Laravel package - and what it taught me about vertical scaling, pivot tables, and building for small business.",
     status: "Published",
     date: "June 2026",
     readTime: "8 min read",
     tags: ["Laravel", "Architecture", "Database Design", "Packages", "Scaling"],
     summary:
-      "How I implemented the WordPress-style entity-meta database pattern in a Laravel package — covering pivot tables for many-to-many relationships, reusable traits, and why this architecture lets small business applications scale vertically before ever needing distributed complexity.",
+      "How I implemented the WordPress-style entity-meta database pattern in a Laravel package - covering pivot tables for many-to-many relationships, reusable traits, and why this architecture lets small business applications scale vertically before ever needing distributed complexity.",
     content: [
       {
         type: "p",
-        text: "You're building a Laravel application for a small business. It starts simple — users, products, orders. Then the client asks: can we add a GST number to each customer? Can products have a warranty period field? Can orders track a preferred delivery time slot?",
+        text: "You're building a Laravel application for a small business. It starts simple - users, products, orders. Then the client asks: can we add a GST number to each customer? Can products have a warranty period field? Can orders track a preferred delivery time slot?",
       },
       {
         type: "p",
@@ -530,11 +540,16 @@ export const blogPosts = [
       },
       {
         type: "p",
-        text: "WordPress has four core tables — posts, users, terms, comments. For each, there's a corresponding meta table: wp_posts + wp_postmeta, wp_users + wp_usermeta. The meta table is always the same shape: (meta_id, object_id, meta_key, meta_value).",
+        text: "WordPress has four core tables - posts, users, terms, comments. For each, there's a corresponding meta table: wp_posts + wp_postmeta, wp_users + wp_usermeta. The meta table is always the same shape: (meta_id, object_id, meta_key, meta_value).",
       },
       {
         type: "p",
-        text: "Every plugin, theme, and page builder stores flexible attributes there without touching the schema. A new plugin doesn't create new columns — it adds new meta keys. This is why you can install WooCommerce and suddenly products have prices, weights, and dimensions, with zero schema collision. WordPress runs 43% of the internet. The meta pattern is a large part of why.",
+        text: "Every plugin, theme, and page builder stores flexible attributes there without touching the schema. A new plugin doesn't create new columns - it adds new meta keys. This is why you can install WooCommerce and suddenly products have prices, weights, and dimensions without schema collision between plugins. The [WordPress Codex database description](https://codex.wordpress.org/Database_Description) and the official [get_post_meta() reference](https://developer.wordpress.org/reference/functions/get_post_meta/) both reflect how central metadata is to the system. As of July 26, 2026, [W3Techs reported](https://w3techs.com/technologies/details/cm-wordpress) WordPress on 41.2% of all websites and 59.1% of websites whose CMS it could identify. That scale does not prove the meta pattern alone caused WordPress adoption, but it does show the model has held up in a very large ecosystem.",
+      },
+      {
+        type: "quote",
+        text: "WordPress is used by 41.2% of all the websites.",
+        attribution: "W3Techs, WordPress market report, July 26, 2026",
       },
       {
         type: "h2",
@@ -573,7 +588,7 @@ CREATE TABLE entity_meta (
       },
       {
         type: "p",
-        text: "Two tables. That's the foundation. The type column on entities is your namespace — user, product, order, whatever your application needs. The composite index on (entity_id, meta_key) is what keeps lookups fast at scale.",
+        text: "Two tables. That's the foundation. The type column on entities is your namespace - user, product, order, whatever your application needs. The composite index on (entity_id, meta_key) is what keeps lookups fast at scale.",
       },
       {
         type: "h3",
@@ -617,7 +632,7 @@ CREATE TABLE entity_meta (
     use HasEntity;
 }
 
-// Usage — no migrations, no new columns
+// Usage - no migrations, no new columns
 $user->setMeta('gst_number', 'GST123456789');
 $user->setMeta('preferred_delivery', 'morning');
 
@@ -633,7 +648,7 @@ $gst = $user->getMeta('gst_number'); // "GST123456789"`,
       },
       {
         type: "p",
-        text: "For simple parent-child relationships, standard Eloquent foreign keys still apply. A User has many Orders — that's a user_id on the orders table. The entity-meta pattern doesn't replace this. It handles flexible attributes, not structured relational data.",
+        text: "For simple parent-child relationships, standard Eloquent foreign keys still apply. A User has many Orders - that's a user_id on the orders table. The entity-meta pattern doesn't replace this. It handles flexible attributes, not structured relational data.",
       },
       {
         type: "h3",
@@ -641,7 +656,7 @@ $gst = $user->getMeta('gst_number'); // "GST123456789"`,
       },
       {
         type: "p",
-        text: "For many-to-many relationships, the package follows the same pattern that Spatie's Permission package popularized — model_has_roles, model_has_permissions. For every many-to-many entity relationship, a pivot table is created with a polymorphic structure:",
+        text: "For many-to-many relationships, the package follows the same pattern that [Spatie's laravel-permission package](https://spatie.be/docs/laravel-permission/v8/prerequisites) popularized - model_has_roles, model_has_permissions. For every many-to-many entity relationship, a pivot table is created with a polymorphic structure:",
       },
       {
         type: "code",
@@ -656,7 +671,12 @@ $gst = $user->getMeta('gst_number'); // "GST123456789"`,
       },
       {
         type: "p",
-        text: "The model_type + model_id columns make this polymorphic — the same pivot table works for User-has-tags, Product-has-tags, and Order-has-tags. No separate tables per model pair. One table, every model that needs it.",
+        text: "The model_type + model_id columns make this polymorphic - the same pivot table works for User-has-tags, Product-has-tags, and Order-has-tags. No separate tables per model pair. One table, every model that needs it.",
+      },
+      {
+        type: "quote",
+        text: "The HasRoles trait must be added to the User model.",
+        attribution: "Spatie laravel-permission docs",
       },
       {
         type: "code",
@@ -674,15 +694,15 @@ User::withTag('vip')->get();`,
       },
       {
         type: "p",
-        text: "A small business application has two requirements that pull in opposite directions: defined structure (things must be stored reliably and queryable) and flexible attributes (every business tracks different things). Column-per-attribute satisfies the first but breaks the second. JSON columns satisfy the second but make the first harder — you cannot index inside a JSON column efficiently without generated columns.",
+        text: "A small business application has two requirements that pull in opposite directions: defined structure (things must be stored reliably and queryable) and flexible attributes (every business tracks different things). Column-per-attribute satisfies the first but breaks the second. JSON columns satisfy the second but make the first harder - you cannot index inside a JSON column efficiently without generated columns.",
       },
       {
         type: "p",
-        text: "The entity-meta pattern satisfies both. Fixed, indexed columns for things that are always queried (type, status, name). Meta table for variable attributes — meta_key + entity_id indexed, so lookups are fast. Pivot tables for relationships — clean, queryable, no array serialization.",
+        text: "The entity-meta pattern satisfies both. Fixed, indexed columns for things that are always queried (type, status, name). Meta table for variable attributes - meta_key + entity_id indexed, so lookups are fast. Pivot tables for relationships - clean, queryable, no array serialization.",
       },
       {
         type: "p",
-        text: "For a small retail business: products get base attributes (name, price, stock) and use meta for anything custom (warranty period, country of origin, clearance flag) — without a developer involved for every new field type. This is exactly what WordPress gave non-technical users. This package gives it to Laravel applications.",
+        text: "For a small retail business: products get base attributes (name, price, stock) and use meta for anything custom (warranty period, country of origin, clearance flag) - without a developer involved for every new field type. This is exactly what WordPress gave non-technical users. This package gives it to Laravel applications.",
       },
       {
         type: "h2",
@@ -698,7 +718,7 @@ User::withTag('vip')->get();`,
       },
       {
         type: "p",
-        text: "Vertical scaling means making your single server bigger — more CPU, more RAM, faster storage. It's the right default for most small-to-medium applications. The entity-meta pattern is well-suited to vertical scaling because queries hit a single database server with proper indexing, the composite index on (entity_id, meta_key) keeps lookups O(log n), and a properly indexed entity_meta table handles 10M+ rows cleanly on a $20/month VPS. No distributed coordination complexity. WordPress proves this at scale — most high-traffic WordPress sites run on a single database server.",
+        text: "Vertical scaling means making your single server bigger - more CPU, more RAM, faster storage. I still think that is the right default for most small-to-medium applications. The entity-meta pattern is generally well-suited to that approach because queries stay inside one database boundary and the hot lookup path is usually entity plus key. But the exact ceiling depends on indexing, query shape, caching, row width, and workload. The earlier version of this article stated specific row counts and VPS pricing as if they were universal benchmarks; they are better treated as design intuition than as measured guarantees.",
       },
       {
         type: "h3",
@@ -706,7 +726,7 @@ User::withTag('vip')->get();`,
       },
       {
         type: "p",
-        text: "Horizontal scaling means distributing across multiple servers — read replicas, sharding, distributed caches. This is where the entity-meta pattern needs attention. EAV queries are harder to shard because querying WHERE meta_key = 'gst_number' AND meta_value = 'GST123' doesn't split cleanly across shards by entity_id alone. Read replicas help — reporting queries that scan meta rows can go to a replica. Redis caching bridges the gap for hot meta values that are frequently read and rarely changed.",
+        text: "Horizontal scaling means distributing across multiple servers - read replicas, sharding, distributed caches. This is where the entity-meta pattern needs attention. EAV queries are harder to shard because querying WHERE meta_key = 'gst_number' AND meta_value = 'GST123' doesn't split cleanly across shards by entity_id alone. Read replicas help - reporting queries that scan meta rows can go to a replica. Redis caching bridges the gap for hot meta values that are frequently read and rarely changed.",
       },
       {
         type: "table",
@@ -722,7 +742,7 @@ User::withTag('vip')->get();`,
       },
       {
         type: "p",
-        text: "The practical implication: this pattern lets you stay vertical longer. Most small business applications hit the vertical ceiling much later than developers expect. When you genuinely need horizontal scale, you add a Redis layer first, then read replicas — the entity-meta pattern works through both those phases before requiring schema redesign.",
+        text: "The practical implication, in my experience, is that this pattern can let a small application stay vertical longer than many teams expect. When you genuinely need horizontal scale, caching and read replicas are usually the first pressure-relief valves to try before redesigning the schema. That is an engineering judgment, not a universal law, but it is the tradeoff I would start with for this kind of system.",
       },
       {
         type: "p",
@@ -738,7 +758,7 @@ User::withTag('vip')->get();`,
       },
       {
         type: "p",
-        text: "Second, meta keys need discipline. The flexibility of key-value storage is also its risk. If different parts of your codebase store gst_number sometimes and gst-number other times, you'll have silent inconsistencies. Define meta key constants in a dedicated class and reference those — never use raw strings scattered across the codebase.",
+        text: "Second, meta keys need discipline. The flexibility of key-value storage is also its risk. If different parts of your codebase store gst_number sometimes and gst-number other times, you'll have silent inconsistencies. Define meta key constants in a dedicated class and reference those - never use raw strings scattered across the codebase.",
       },
       {
         type: "h2",
@@ -746,7 +766,163 @@ User::withTag('vip')->get();`,
       },
       {
         type: "p",
-        text: "The entity-meta pattern is not new — WordPress proved it at internet scale. What this Laravel package does is bring that architecture into a composer-installable, trait-driven module that any Laravel application can use. For small business applications it means flexible attributes without schema migrations, polymorphic many-to-many relationships via pivot tables, and a foundation that scales vertically before requiring distributed complexity. It's the kind of architecture decision that looks obvious in hindsight but saves weeks of rework on real projects.",
+        text: "The entity-meta pattern is not new - WordPress proved it at internet scale. What this Laravel package does is bring that architecture into a composer-installable, trait-driven module that any Laravel application can use. For small business applications it means flexible attributes without schema migrations, polymorphic many-to-many relationships via pivot tables, and a foundation that scales vertically before requiring distributed complexity. It's the kind of architecture decision that looks obvious in hindsight but saves weeks of rework on real projects.",
+      },
+    ],
+  },
+  {
+    slug: "custom-dolibarr-business-software",
+    title: "What Custom Dolibarr Work Teaches About Business Software",
+    subtitle: "Lessons from ERP templates, modules, deployment work, and client-specific customization.",
+    status: "Published",
+    date: "July 2026",
+    readTime: "8 min read",
+    tags: ["Dolibarr", "ERP", "Business Software", "Customization", "Deployments"],
+    summary:
+      "What repeated Dolibarr customization work taught me about how business software actually succeeds: not through abstract elegance alone, but through templates, modules, deployment discipline, and careful adaptation to how a company already operates.",
+    content: [
+      {
+        type: "p",
+        text: "Custom Dolibarr work changed how I think about business software. When people talk about software engineering, they often focus on new products, greenfield systems, and elegant architecture. ERP customization is different. It puts you in direct contact with the messy middle of real businesses: invoices that must match an existing paper format, approvals that follow unwritten habits, hosting environments with practical constraints, and teams that care less about technology choices than whether Monday morning operations keep moving.",
+      },
+      {
+        type: "p",
+        text: "I've done this work on both sides - as freelance engagements for individual clients, and as ongoing work at Iquester Solutions LLP. The task list looks the same either way: fix a bug that's blocking an approval, rebuild a PDF template, rewrite an email flow, move a client's hosting to a new server, patch an external module through a version upgrade without breaking it. None of it is glamorous, and that repetition across different clients is exactly what turned it into a pattern instead of a one-off war story.",
+      },
+      {
+        type: "p",
+        text: "That is exactly why it is valuable. Dolibarr sits close to accounting, inventory, orders, proposals, PDFs, emails, and operational records. When you customize it for actual clients, you stop thinking of software as a pure product exercise and start seeing it as negotiated infrastructure. The lessons are useful far beyond Dolibarr itself.",
+      },
+      {
+        type: "h2",
+        text: "Business Software Lives or Dies on Fit",
+      },
+      {
+        type: "p",
+        text: "The first lesson is simple: business software is rarely judged by originality. It is judged by fit. A company already has invoice expectations, sales stages, approval flows, vendor habits, and reporting rituals. Even when those processes are imperfect, the software has to meet them where they are before it can improve them.",
+      },
+      {
+        type: "p",
+        text: "In custom Dolibarr work, that usually shows up in requests that sound small but are strategically important: move these fields on the PDF, include this tax breakdown, add this approval status, change this email wording, hide this action for some roles, fix the bug that silently breaks an approval on Fridays, or create a module that reflects how this one company tracks a business event. None of that sounds glamorous. All of it determines whether the software is adopted or bypassed.",
+      },
+      {
+        type: "h2",
+        text: "Templates Are Not Cosmetic",
+      },
+      {
+        type: "p",
+        text: "PDF templates, document layouts, and printed outputs taught me that presentation is operational logic. In ERP systems, a template is not just a visual concern. It is the interface between the system and the outside world: customers, vendors, warehouse staff, accountants, and managers.",
+      },
+      {
+        type: "quote",
+        text: "Building a PDF template requires some PHP knowledge.",
+        attribution: "Dolibarr wiki, Create a PDF document template",
+      },
+      {
+        type: "p",
+        text: "If a quotation template misses the fields sales teams rely on, the team exports data manually. If an invoice format does not align with how accounts review information, someone edits the result outside the system. If a delivery note is hard to scan during fulfillment, warehouse friction increases immediately. A template problem often becomes a workflow problem.",
+      },
+      {
+        type: "p",
+        text: "That changes the engineering mindset. You do not treat template work as an afterthought. You treat it as a critical business surface where layout, data selection, formatting rules, and conditional rendering directly affect operational trust in the system.",
+      },
+      {
+        type: "h2",
+        text: "Modules Teach You Where the Real Abstractions Are",
+      },
+      {
+        type: "quote",
+        text: "Add your own menu entries. Add a new document template.",
+        attribution: "Dolibarr wiki, Module development",
+      },
+      {
+        type: "p",
+        text: "Client-specific module work is where you discover whether you actually understand the business problem. A request may begin as, can you add one more field, or can we automate this action. But once you trace the request through the lifecycle of a record, you usually find a deeper pattern: a missing state model, a business rule that belongs in one place, or a recurring process that deserves its own module boundary - which is when it graduates from a patch into an external module built specifically for how that client operates.",
+      },
+      {
+        type: "p",
+        text: "Good customization is not endless patching. It is recognizing when repeated exceptions are really the shape of a new feature. The lesson here is architectural: business abstractions do not always appear first in database design or class diagrams. Sometimes they reveal themselves only after several rounds of real client requests. ERP work trains you to watch for that moment.",
+      },
+      {
+        type: "h2",
+        text: "Deployment Work Is Part of the Product",
+      },
+      {
+        type: "quote",
+        text: "The module need to be externally activated each 5 minutes.",
+        attribution: "Dolibarr wiki, Module Scheduled Jobs",
+      },
+      {
+        type: "p",
+        text: "Another lesson from Dolibarr work is that deployment is not separate from software quality. In business systems, hosting changes, file permissions, upgrade paths, cron behavior, email configuration, and environment differences can break just as much value as a code bug can. Dolibarr's own [Scheduled Jobs module documentation](https://wiki.dolibarr.org/index.php?title=Module_Scheduled_jobs) and [email setup guide](https://wiki.dolibarr.org/index.php?title=Setup_EMails) show how much operational behavior depends on correct environment configuration. Moving a client's Dolibarr instance to a new host is not a copy-paste job - cron-driven tasks like recurring invoices and scheduled emails have to survive the move untouched, or the business finds out at the worst possible moment.",
+      },
+      {
+        type: "p",
+        text: "A feature is not truly delivered when the code is written. It is delivered when the client environment runs it safely, existing records remain intact, PDFs still generate, scheduled jobs still execute, and users can continue work without confusion. That makes deployment discipline a core engineering skill, not an operational afterthought.",
+      },
+      {
+        type: "table",
+        headers: ["Concern", "Looks minor at first", "What it actually affects"],
+        rows: [
+          ["Template override", "Just a PDF change", "Billing accuracy, customer-facing documents, team trust"],
+          ["Permission setup", "One role tweak", "Who can approve, edit, export, or bypass process"],
+          ["Module install", "Add one feature", "Upgrade safety, hooks, data flow, future maintenance"],
+          ["Server migration", "Move hosting", "Availability, file access, mail delivery, scheduled tasks"],
+          ["Version upgrade", "Routine maintenance", "Compatibility, regressions, custom overrides"],
+        ],
+      },
+      {
+        type: "h2",
+        text: "Customization Has to Respect Upgrade Reality",
+      },
+      {
+        type: "quote",
+        text: "Be sure your external modules are compatible with the new version before updating.",
+        attribution: "Dolibarr wiki, Installation - Upgrade",
+      },
+      {
+        type: "p",
+        text: "One of the fastest ways to create long-term pain in ERP work is to customize without thinking about future upgrades. A change that solves today's problem but fights tomorrow's version is not cheap. It creates maintenance debt that compounds every time the client wants security updates, new features, or environment changes.",
+      },
+      {
+        type: "p",
+        text: "That is why disciplined customization matters. The official [module development guide](https://wiki.dolibarr.org/index.php?title=Module_development) and [installation-upgrade documentation](https://wiki.dolibarr.org/index.php/Installation_-_Upgrade) both push you toward extension-minded changes instead of careless core edits. You prefer extension points over core hacks where possible. You keep the change surface understandable. You separate local business rules from framework behavior. You document what was changed and why. Business software has a long life, and the code should behave like it knows that.",
+      },
+      {
+        type: "h2",
+        text: "Users Rarely Ask for What They Literally Need",
+      },
+      {
+        type: "p",
+        text: "ERP clients often describe solutions instead of problems. They ask for a button, a checkbox, another column, or a duplicate screen because that is the most concrete thing they can point to. But underneath the request is usually a coordination issue, visibility gap, or policy exception that the software currently does not represent well.",
+      },
+      {
+        type: "p",
+        text: "Custom Dolibarr work taught me to translate requests carefully. When someone asks for one more field, the real need may be auditability. When they ask for a custom status, the real need may be handoff clarity between departments. When they ask for a new PDF block, the real need may be compliance or customer communication. Good business software work starts by interpreting operational intent, not just implementing literal wording.",
+      },
+      {
+        type: "h2",
+        text: "Reliability Beats Cleverness",
+      },
+      {
+        type: "p",
+        text: "There is a humbling quality to ERP customization. Nobody thanks a system for being theoretically elegant if it produces the wrong invoice, breaks after an upgrade, or confuses staff during order processing. Reliability wins. Predictable behavior wins. Clear document outputs win. Maintainable extension patterns win.",
+      },
+      {
+        type: "p",
+        text: "This does not mean architecture stops mattering. It means architecture should serve operational steadiness. The most valuable code in business software is often the code that reduces rework, lowers ambiguity, and keeps teams from leaving the system to finish tasks manually.",
+      },
+      {
+        type: "h2",
+        text: "What Dolibarr Work Changed for Me",
+      },
+      {
+        type: "p",
+        text: "Working on Dolibarr made me more respectful of existing business behavior, more careful about upgrade-safe customization, and more aware that templates and deployments are product work, not side chores. It reinforced a broader principle I now carry into other systems as well: software succeeds when it fits the operating reality of the people using it.",
+      },
+      {
+        type: "p",
+        text: "That is the deeper lesson. Business software is not only about building features. It is about encoding process without breaking the business that depends on it. ERP customization makes that impossible to ignore, and that is exactly why it teaches so much.",
       },
     ],
   },
@@ -758,12 +934,6 @@ export const blogIdeas = [
     status: "Planned",
     summary:
       "How operational requirements shape real backend architecture and admin experiences.",
-  },
-  {
-    title: "What custom Dolibarr work teaches about business software",
-    status: "Planned",
-    summary:
-      "Lessons from ERP templates, modules, deployment work, and client-specific customization.",
   },
   {
     title: "Messaging automation inside ecommerce support systems",

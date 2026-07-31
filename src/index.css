@@ -1,5 +1,5 @@
 /* ══════════════════════════════════════════
-   FONTS — Google Sans family (Material Design 3)
+   FONTS - Google Sans family (Material Design 3)
    Fallback: DM Sans (close geometric sans)
 ══════════════════════════════════════════ */
 @import url("https://fonts.googleapis.com/css2?family=Google+Sans:ital,wght@0,400;0,500;0,700;1,400&family=Google+Sans+Display:wght@400;500;700&family=Google+Sans+Text:ital,wght@0,400;0,500;0,700;1,400&display=swap");
@@ -14,31 +14,31 @@
    https://m3.material.io/styles/color/the-color-system
 ══════════════════════════════════════════ */
 :root {
-  /* — Primary (violet) — */
+  /* - Primary (violet) - */
   --md-sys-color-primary:               #7c3aed;
   --md-sys-color-on-primary:            #ffffff;
   --md-sys-color-primary-container:     #e9ddff;
   --md-sys-color-on-primary-container:  #21005d;
 
-  /* — Secondary (pink) — */
+  /* - Secondary (pink) - */
   --md-sys-color-secondary:             #c55ea2;
   --md-sys-color-on-secondary:          #ffffff;
   --md-sys-color-secondary-container:   #ffd8ed;
   --md-sys-color-on-secondary-container:#3d0a22;
 
-  /* — Tertiary (indigo-blue) — */
+  /* - Tertiary (indigo-blue) - */
   --md-sys-color-tertiary:              #6366f1;
   --md-sys-color-on-tertiary:           #ffffff;
   --md-sys-color-tertiary-container:    #e0e7ff;
   --md-sys-color-on-tertiary-container: #1e1b4b;
 
-  /* — Error — */
+  /* - Error - */
   --md-sys-color-error:                 #b3261e;
   --md-sys-color-on-error:              #ffffff;
   --md-sys-color-error-container:       #f9dedc;
   --md-sys-color-on-error-container:    #410e0b;
 
-  /* — Surface hierarchy — */
+  /* - Surface hierarchy - */
   --md-sys-color-background:            #fffbfe;
   --md-sys-color-on-background:         #1c1b1f;
   --md-sys-color-surface:               #fffbfe;
@@ -54,11 +54,11 @@
   --md-sys-color-inverse-on-surface:    #f4eff4;
   --md-sys-color-inverse-primary:       #d0bcff;
 
-  /* — Outline — */
+  /* - Outline - */
   --md-sys-color-outline:               #79747e;
   --md-sys-color-outline-variant:       #cac4d0;
 
-  /* — Shadow / Scrim — */
+  /* - Shadow / Scrim - */
   --md-sys-color-shadow:                #000000;
   --md-sys-color-scrim:                 #000000;
 
@@ -150,27 +150,27 @@ a, button { -webkit-tap-highlight-color: transparent; }
    https://m3.material.io/styles/typography/type-scale-tokens
 ══════════════════════════════════════════ */
 
-/* Display — Google Sans Display */
+/* Display - Google Sans Display */
 .m3-display-lg  { font-family:"Google Sans Display","DM Sans",sans-serif; font-size:3.5625rem; line-height:4rem;    letter-spacing:-0.016rem; font-weight:400; }
 .m3-display-md  { font-family:"Google Sans Display","DM Sans",sans-serif; font-size:2.8125rem; line-height:3.25rem; letter-spacing:0;          font-weight:400; }
 .m3-display-sm  { font-family:"Google Sans Display","DM Sans",sans-serif; font-size:2.25rem;   line-height:2.75rem; letter-spacing:0;          font-weight:400; }
 
-/* Headline — Google Sans */
+/* Headline - Google Sans */
 .m3-headline-lg { font-family:"Google Sans","DM Sans",sans-serif; font-size:2rem;    line-height:2.5rem;  font-weight:400; }
 .m3-headline-md { font-family:"Google Sans","DM Sans",sans-serif; font-size:1.75rem; line-height:2.25rem; font-weight:400; }
 .m3-headline-sm { font-family:"Google Sans","DM Sans",sans-serif; font-size:1.5rem;  line-height:2rem;    font-weight:400; }
 
-/* Title — Google Sans */
+/* Title - Google Sans */
 .m3-title-lg    { font-family:"Google Sans","DM Sans",sans-serif; font-size:1.375rem; line-height:1.75rem; font-weight:500; letter-spacing:0; }
 .m3-title-md    { font-family:"Google Sans","DM Sans",sans-serif; font-size:1rem;     line-height:1.5rem;  font-weight:500; letter-spacing:0.009375rem; }
 .m3-title-sm    { font-family:"Google Sans","DM Sans",sans-serif; font-size:0.875rem; line-height:1.25rem; font-weight:500; letter-spacing:0.00625rem; }
 
-/* Body — Google Sans Text (line-heights generous for readable paragraphs) */
+/* Body - Google Sans Text (line-heights generous for readable paragraphs) */
 .m3-body-lg     { font-family:"Google Sans Text","DM Sans",sans-serif; font-size:1rem;     line-height:1.75rem; font-weight:400; letter-spacing:0.03125rem; }
 .m3-body-md     { font-family:"Google Sans Text","DM Sans",sans-serif; font-size:0.9375rem;line-height:1.625rem;font-weight:400; letter-spacing:0.015625rem; }
 .m3-body-sm     { font-family:"Google Sans Text","DM Sans",sans-serif; font-size:0.875rem; line-height:1.5rem;  font-weight:400; letter-spacing:0.015625rem; }
 
-/* Label — Google Sans Text */
+/* Label - Google Sans Text */
 .m3-label-lg    { font-family:"Google Sans Text","DM Sans",sans-serif; font-size:0.875rem; line-height:1.375rem; font-weight:500; letter-spacing:0.00625rem; }
 .m3-label-md    { font-family:"Google Sans Text","DM Sans",sans-serif; font-size:0.8125rem;line-height:1.25rem;  font-weight:500; letter-spacing:0.03125rem; }
 .m3-label-sm    { font-family:"Google Sans Text","DM Sans",sans-serif; font-size:0.75rem;  line-height:1.125rem; font-weight:500; letter-spacing:0.03125rem; }
@@ -182,7 +182,7 @@ a, button { -webkit-tap-highlight-color: transparent; }
    M3 CARDS
 ══════════════════════════════════════════ */
 
-/* Elevated — the standard card (surface-container-low + L1 shadow) */
+/* Elevated - the standard card (surface-container-low + L1 shadow) */
 .m3-card-elevated {
   background: var(--md-sys-color-surface-container-lowest);
   border-radius: var(--md-sys-shape-medium);
@@ -195,13 +195,13 @@ a, button { -webkit-tap-highlight-color: transparent; }
 }
 .m3-card-elevated:hover { box-shadow: var(--md-sys-elevation-2); transform: translateY(-2px); }
 
-/* Filled — surface-container-highest, no shadow */
+/* Filled - surface-container-highest, no shadow */
 .m3-card-filled {
   background: var(--md-sys-color-surface-container-high);
   border-radius: var(--md-sys-shape-medium);
 }
 
-/* Outlined — surface + border */
+/* Outlined - surface + border */
 .m3-card-outlined {
   background: var(--md-sys-color-surface-container-lowest);
   border-radius: var(--md-sys-shape-medium);
@@ -216,7 +216,7 @@ a, button { -webkit-tap-highlight-color: transparent; }
 ══════════════════════════════════════════ */
 .m3-feature-card {
   background: var(--md-sys-color-surface-container-lowest);
-  border-radius: var(--md-sys-shape-large);   /* 16dp — larger for feature cards */
+  border-radius: var(--md-sys-shape-large);   /* 16dp - larger for feature cards */
   box-shadow: var(--md-sys-elevation-1);
   overflow: hidden;
   position: relative;
@@ -226,7 +226,7 @@ a, button { -webkit-tap-highlight-color: transparent; }
 }
 .m3-feature-card:hover { box-shadow: var(--md-sys-elevation-3); transform: translateY(-3px); }
 
-/* Tonal header areas — use M3 container color pairs */
+/* Tonal header areas - use M3 container color pairs */
 .m3-card-cap-primary {
   background: linear-gradient(135deg, var(--md-ref-palette-primary90) 0%, var(--md-ref-palette-primary80) 100%);
   padding: 2rem;

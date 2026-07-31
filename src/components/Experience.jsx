@@ -35,7 +35,7 @@ const Experience = () => {
             }}
           >
             1.5+ years across enterprise backend work, framework contribution, API integrations,
-            and operational software — built for real teams and real production loads.
+            and operational software - built for real teams and real production loads.
           </p>
         </div>
         <a

@@ -12,7 +12,7 @@ const CAP_SETS = [
 const ProjectCard = ({ project, capSet }) => (
   <article className="m3-feature-card flex flex-col" style={{ height: "100%" }}>
 
-    {/* ── Image cap — gradient frame + inner box that image fills ── */}
+    {/* ── Image cap - gradient frame + inner box that image fills ── */}
     <div style={{ background: capSet.cap, padding: "1rem 1rem 0" }}>
       {/* Inner box: image fills with object-cover, rounded corners */}
       <div className="relative overflow-hidden rounded-xl" style={{ height: "11.5rem" }}>
@@ -38,7 +38,7 @@ const ProjectCard = ({ project, capSet }) => (
           )}
         </div>
       </div>
-      {/* Gradient strip below inner box — small breathing room */}
+      {/* Gradient strip below inner box - small breathing room */}
       <div style={{ height: "0.75rem" }} />
     </div>
 
@@ -90,7 +90,7 @@ const ProjectCard = ({ project, capSet }) => (
         ))}
       </ul>
 
-      {/* Stack chips — flex-1 spacer above so chips + links sit at card bottom */}
+      {/* Stack chips - flex-1 spacer above so chips + links sit at card bottom */}
       <div className="mt-auto pt-5 flex flex-wrap gap-2">
         {project.stack.map((item) => (
           <span key={item} className="m3-chip">{item}</span>
@@ -156,7 +156,7 @@ const Projects = ({ limit = null, showIntro = true }) => {
             }}
           >
             Work across enterprise backends, commerce platforms, ERP systems, and open-source contributions.
-            Each project reflects a real delivery — shipped, maintained, and used in production.
+            Each project reflects a real delivery - shipped, maintained, and used in production.
           </p>
         </div>
       )}

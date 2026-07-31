@@ -1,13 +1,13 @@
 import { socialLinks, siteConfig } from "../data/portfolioData";
 
 const navLinks = [
-  { label: "Home", href: "#/" },
-  { label: "About", href: "#/about" },
-  { label: "Projects", href: "#/projects" },
-  { label: "Experience", href: "#/resume" },
-  { label: "Certifications", href: "#/certifications" },
-  { label: "Blog", href: "#/blog" },
-  { label: "Contact", href: "#/contact" },
+  { label: "Home", href: "/" },
+  { label: "About", href: "/about" },
+  { label: "Projects", href: "/projects" },
+  { label: "Experience", href: "/resume" },
+  { label: "Certifications", href: "/certifications" },
+  { label: "Blog", href: "/blog" },
+  { label: "Contact", href: "/contact" },
 ];
 
 const Footer = () => {
@@ -175,7 +175,7 @@ const Footer = () => {
                 {siteConfig.email}
               </a>
               <a
-                href="#/contact"
+                href="/contact"
                 className="m3-btn m3-btn-tonal self-start"
                 style={{ height: "2rem", padding: "0 1rem", fontSize: "0.8125rem" }}
               >

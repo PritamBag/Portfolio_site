@@ -33,7 +33,7 @@ const Blog = () => {
             color: "var(--md-sys-color-on-surface-variant)",
           }}
         >
-          I write when something from production is worth documenting — architecture patterns,
+          I write when something from production is worth documenting - architecture patterns,
           implementation decisions, and what building real software actually looks like.
         </p>
       </div>
@@ -60,7 +60,7 @@ const Blog = () => {
               return (
                 <article key={post.slug} className="m3-feature-card group flex flex-col">
 
-                  {/* Tonal editorial cap — post title lives here */}
+                  {/* Tonal editorial cap - post title lives here */}
                   <div
                     className="flex flex-col justify-between gap-4 px-6 py-7"
                     style={{ background: pal.cap, minHeight: "10rem" }}
@@ -135,7 +135,7 @@ const Blog = () => {
                       ))}
                     </div>
                     <a
-                      href={`#/blog/${post.slug}`}
+                      href={`/blog/${post.slug}`}
                       className="m3-btn m3-btn-text mt-5 self-start px-0"
                       style={{ color: "var(--md-sys-color-primary)", gap: "0.375rem" }}
                     >

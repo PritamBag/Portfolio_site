@@ -18,7 +18,7 @@ const glanceFacts = [
         <path strokeLinecap="round" strokeLinejoin="round" d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z" />
       </svg>
     ),
-    text: "MCA — Techno India Hooghly, 2024 (8.71 CGPA)",
+    text: "MCA - Techno India Hooghly, 2024 (8.71 CGPA)",
   },
   {
     icon: (
@@ -26,7 +26,7 @@ const glanceFacts = [
         <path strokeLinecap="round" strokeLinejoin="round" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
       </svg>
     ),
-    text: "B.Sc Mathematics — Barasat College, 2021",
+    text: "B.Sc Mathematics - Barasat College, 2021",
   },
   {
     icon: (
@@ -79,7 +79,7 @@ const About = () => {
         {/* Left column */}
         <div className="flex flex-col gap-5">
 
-          {/* Photo — large, clean, no card behind */}
+          {/* Photo - large, clean, no card behind */}
           <div
             className="overflow-hidden"
             style={{
@@ -153,7 +153,7 @@ const About = () => {
             {aboutContent.title}
           </h1>
 
-          {/* Lede — first paragraph, slightly featured */}
+          {/* Lede - first paragraph, slightly featured */}
           <p
             className="mt-6 leading-8"
             style={{
@@ -187,7 +187,7 @@ const About = () => {
             ))}
           </div>
 
-          {/* Remaining story — left border accent */}
+          {/* Remaining story - left border accent */}
           <div
             className="mt-6 space-y-4 border-l-[3px] pl-5"
             style={{ borderColor: "var(--md-sys-color-primary-container)" }}

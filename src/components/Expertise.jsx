@@ -110,7 +110,7 @@ const Expertise = ({ onOpenHireModal }) => {
                     color: "var(--md-sys-color-on-surface-variant)",
                   }}
                 >
-                  Stack tuned around delivery — backend systems, integrations,
+                  Stack tuned around delivery - backend systems, integrations,
                   commerce customization, and operational software.
                 </p>
               </div>

@@ -1,6 +1,42 @@
 import PropTypes from "prop-types";
 import { blogPosts } from "../data/portfolioData";
 
+const renderInlineLinks = (text) => {
+  const parts = [];
+  const pattern = /\[([^\]]+)\]\((https?:\/\/[^\s)]+)\)/g;
+  let lastIndex = 0;
+  let match;
+
+  while ((match = pattern.exec(text)) !== null) {
+    const [fullMatch, label, href] = match;
+    const startIndex = match.index;
+
+    if (startIndex > lastIndex) {
+      parts.push(text.slice(lastIndex, startIndex));
+    }
+
+    parts.push(
+      <a
+        key={`${href}-${startIndex}`}
+        href={href}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="text-violet-700 underline decoration-violet-300 underline-offset-2 hover:text-violet-800"
+      >
+        {label}
+      </a>,
+    );
+
+    lastIndex = startIndex + fullMatch.length;
+  }
+
+  if (lastIndex < text.length) {
+    parts.push(text.slice(lastIndex));
+  }
+
+  return parts.length > 0 ? parts : text;
+};
+
 const renderBlock = (block, idx) => {
   switch (block.type) {
     case "h2":
@@ -18,7 +54,7 @@ const renderBlock = (block, idx) => {
     case "p":
       return (
         <p key={idx} className="mt-4 text-base leading-7 text-slate-600">
-          {block.text}
+          {renderInlineLinks(block.text)}
         </p>
       );
     case "code":
@@ -63,6 +99,20 @@ const renderBlock = (block, idx) => {
           </table>
         </div>
       );
+    case "quote":
+      return (
+        <blockquote
+          key={idx}
+          className="mt-6 rounded-2xl border-l-4 border-violet-300 bg-violet-50/60 px-5 py-4"
+        >
+          <p className="text-base leading-7 text-slate-700">{renderInlineLinks(block.text)}</p>
+          {block.attribution && (
+            <footer className="mt-3 text-sm font-medium text-violet-700">
+              {block.attribution}
+            </footer>
+          )}
+        </blockquote>
+      );
     default:
       return null;
   }
@@ -75,7 +125,7 @@ const BlogPost = ({ slug }) => {
     return (
       <div className="mx-auto w-full max-w-3xl px-4 py-24 text-center">
         <p className="text-slate-500">Post not found.</p>
-        <a href="#/blog" className="mt-4 inline-block text-violet-600 hover:underline">
+        <a href="/blog" className="mt-4 inline-block text-violet-600 hover:underline">
           Back to Blog
         </a>
       </div>
@@ -86,7 +136,7 @@ const BlogPost = ({ slug }) => {
     <article className="mx-auto w-full max-w-3xl px-4 py-16 md:px-6 md:py-24">
       {/* Back */}
       <a
-        href="#/blog"
+        href="/blog"
         className="inline-flex items-center gap-1.5 text-xs font-semibold uppercase tracking-widest text-slate-400 hover:text-violet-600 transition"
       >
         <svg xmlns="http://www.w3.org/2000/svg" className="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
@@ -133,7 +183,7 @@ const BlogPost = ({ slug }) => {
       {/* Footer */}
       <div className="mt-16 border-t border-slate-200 pt-8">
         <a
-          href="#/blog"
+          href="/blog"
           className="inline-flex items-center gap-1.5 text-sm font-semibold text-violet-600 hover:underline"
         >
           <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>

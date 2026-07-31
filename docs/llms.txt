@@ -1,4 +1,4 @@
-# Pritam Bag — Portfolio
+# Pritam Bag - Portfolio
 
 > Software Development Engineer based in Kolkata, West Bengal, India.
 > Specialist in Laravel, PHP, React, and backend systems architecture.
@@ -33,7 +33,18 @@ Currently working at Iquester Solutions LLP on ERP systems, multi-vendor platfor
 
 ## Blog
 
-- "Your Laravel App Keeps Growing Columns. WordPress Solved This 15 Years Ago." — architecture post on the Entity-Meta database pattern, pivot tables, and vertical scaling
+- "Your Laravel App Keeps Growing Columns. WordPress Solved This 15 Years Ago." - architecture post on the Entity-Meta database pattern, pivot tables, and vertical scaling: https://pritambag.in/blog/entity-meta-pattern-laravel
+- "What Custom Dolibarr Work Teaches About Business Software" - lessons from ERP templates, modules, deployment work, and client-specific customization: https://pritambag.in/blog/custom-dolibarr-business-software
+
+## Pages
+
+- Home: https://pritambag.in/
+- About: https://pritambag.in/about
+- Projects: https://pritambag.in/projects
+- Resume: https://pritambag.in/resume
+- Certifications: https://pritambag.in/certifications
+- Blog: https://pritambag.in/blog
+- Contact: https://pritambag.in/contact
 
 ## Contact
 

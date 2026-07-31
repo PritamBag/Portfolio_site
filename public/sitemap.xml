@@ -36,6 +36,11 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://pritambag.in/blog/custom-dolibarr-business-software</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://pritambag.in/contact</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
