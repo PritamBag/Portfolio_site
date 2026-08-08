@@ -30,14 +30,6 @@ jobs:
       - name: Build site
         run: npm run build
 
-      - name: Generate sitemap
-        uses: cicirello/generate-sitemap@v1
-        with:
-          path-to-root: "docs"
-          base-url-path: "https://pritambag.in/"
-          include-html: true
-          sitemap-format: "xml"
-
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
