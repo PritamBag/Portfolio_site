@@ -543,6 +543,156 @@ export const projectGroups = [
   },
 ];
 
+export const servicesContent = {
+  title: "Freelance Dolibarr, WordPress, Website & Backend Development",
+  intro:
+    "I help businesses and product teams build, test, and fix the software they run on: ERP systems that match how they actually operate, WordPress and WooCommerce stores, websites and apps, and backends, data pipelines, and releases that hold up in production. I'm based in Kolkata, India, and work remotely.",
+  services: [
+    {
+      id: "dolibarr",
+      icon: "erp",
+      title: "Dolibarr ERP Customization",
+      problem:
+        "Dolibarr does most of what you need, but not quite the way your business works - and every upgrade risks breaking what was customized.",
+      deliverables: [
+        "Custom Dolibarr modules and dashboards",
+        "PDF and email templates that match your documents",
+        "Version upgrades, bug fixes, and hosting migration",
+      ],
+      proof: {
+        text: "Built a sales-order dashboard module linking POs and raw materials.",
+        link: { label: "Read: what custom Dolibarr work teaches", href: "/blog/custom-dolibarr-business-software/" },
+        projects: ["dolibarr-custom-work"],
+      },
+      stack: ["Dolibarr", "PHP", "MySQL"],
+    },
+    {
+      id: "wordpress-woocommerce",
+      icon: "wordpress",
+      title: "WordPress & WooCommerce Development",
+      problem:
+        "Your store or site runs on WordPress, but off-the-shelf plugins don't fit how you sell, and every workaround makes the site slower and harder to maintain.",
+      deliverables: [
+        "Custom WordPress plugins and WooCommerce features",
+        "Multi-vendor marketplaces with Dokan and WooCommerce",
+        "WooCommerce order sync with Dolibarr and other systems",
+      ],
+      proof: {
+        text: "Published IQ Jobs Manager on WordPress.org and built custom features for a multi-vendor marketplace.",
+        projects: ["iq-jobs-manager", "multivendor-platform"],
+      },
+      stack: ["WordPress", "WooCommerce", "Dokan", "PHP"],
+    },
+    {
+      id: "websites-apps",
+      icon: "web",
+      title: "Website & Mobile App Development",
+      problem:
+        "You need a website or an app that people can actually use - fast, easy to manage, and shipped to production, not left as a demo.",
+      deliverables: [
+        "Business websites and web apps with React and Next.js",
+        "React Native (Expo) Android apps, released on Google Play",
+        "Login, search, wishlists, and admin screens",
+      ],
+      proof: {
+        text: "Built WIIMO's Next.js website and its Expo / React Native Android app - and this portfolio.",
+        projects: ["wiimo", "queriverse"],
+      },
+      stack: ["Next.js", "React", "React Native", "Tailwind CSS"],
+    },
+    {
+      id: "backend",
+      icon: "backend",
+      title: "Backend & API Development",
+      problem:
+        "Your product needs a backend that is secure, maintainable, and ready for real traffic - not a prototype that has to be rewritten in six months.",
+      deliverables: [
+        "REST APIs in FastAPI or Laravel",
+        "Multi-tenant architecture, job queues, and async processing",
+        "Integrations with Zoho Books, WhatsApp, and Telegram",
+      ],
+      proof: {
+        text: "Built WIIMO's FastAPI + PostgreSQL backend and 5+ reusable Laravel packages.",
+        projects: ["wiimo", "laravel-packages", "automobile-dealer-backend"],
+      },
+      stack: ["FastAPI", "Laravel", "PostgreSQL", "MySQL"],
+    },
+    {
+      id: "data-pipelines-cicd",
+      icon: "deploy",
+      title: "Data Pipelines & CI/CD",
+      problem:
+        "Data arrives messy and unchecked, and releases are manual and risky - nobody is sure what's actually running in production.",
+      deliverables: [
+        "Data ingestion pipelines with validation and quality scoring",
+        "Review steps so only checked data goes live",
+        "GitHub Actions and Docker Compose for builds, releases, and deploys",
+      ],
+      proof: {
+        text: "Built WIIMO's ingestion and review pipeline, and its CI/CD with signed APK releases and git-SHA version checks.",
+        link: { label: "Read: designing WIIMO's contribution pipeline", href: "/blog/scraper-blocked-by-cloudflare-contribution-pipeline/" },
+        projects: ["wiimo", "d2c-brand-pipeline"],
+      },
+      stack: ["Python", "PostgreSQL", "GitHub Actions", "Docker"],
+    },
+    {
+      id: "consultation",
+      icon: "review",
+      title: "Consultation & Code Review",
+      problem:
+        "You're about to make a technical decision - or you've inherited a codebase - and want an experienced second opinion before it gets expensive.",
+      deliverables: [
+        "Architecture and tech-stack advice, with the trade-offs spelled out",
+        "Code review of an existing project, with prioritised fixes",
+        "Build-vs-buy and approach reviews before you commit",
+      ],
+      proof: {
+        text: "Weighed build-vs-buy options and designed WIIMO's data pipeline around the trade-offs.",
+        link: { label: "Read the case study", href: "/blog/scraper-blocked-by-cloudflare-contribution-pipeline/" },
+        projects: ["wiimo"],
+      },
+      stack: ["Architecture", "Code Review", "Laravel", "FastAPI"],
+    },
+    {
+      id: "testing",
+      icon: "testing",
+      title: "Software Testing (Manual & Automated)",
+      problem:
+        "Bugs keep reaching your users, and every release means clicking through the same screens by hand, hoping nothing broke.",
+      deliverables: [
+        "Manual testing of websites and apps, with clear, reproducible bug reports",
+        "Automated end-to-end browser tests with Playwright",
+        "Scripted API tests to check endpoints before each release",
+      ],
+      proof: {
+        text: "Use Playwright for browser automation on WIIMO, and tested the REST API endpoints behind the Queriverse Android app.",
+        projects: ["wiimo", "queriverse"],
+      },
+      stack: ["Playwright", "Python", "API Testing", "Manual QA"],
+    },
+  ],
+  process: [
+    { title: "Discuss", text: "You share the problem, the current setup, and what success looks like." },
+    { title: "Scope & quote", text: "I propose an approach, the trade-offs, and a clear scope before any work starts." },
+    { title: "Build in milestones", text: "Work is delivered in small, reviewable steps so you see progress early." },
+    { title: "Deploy & hand over", text: "Shipped to production with the notes your team needs to run it." },
+  ],
+  faqs: [
+    {
+      q: "Can you work on an existing codebase or Dolibarr installation?",
+      a: "Yes. Much of my Dolibarr and WordPress work has been extending, fixing, or upgrading systems that were already running in production.",
+    },
+    {
+      q: "What do you need from me to give a quote?",
+      a: "A short description of the problem, access to or screenshots of the current setup if there is one, and any deadline you're working towards.",
+    },
+    {
+      q: "Where are you based, and do you work remotely?",
+      a: "I'm based in Kolkata, India (IST) and work remotely. You can reach me through the contact form or hire me on Upwork.",
+    },
+  ],
+};
+
 export const wiimoSpotlight = {
   name: "WIIMO",
   logo: wiimoLogo,

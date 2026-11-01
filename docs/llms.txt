@@ -44,6 +44,7 @@ Currently at Iquester Solutions LLP (since March 2026) as primary developer on W
 - Home: https://pritambag.in/
 - About: https://pritambag.in/about
 - Projects: https://pritambag.in/projects
+- Services (freelance: Dolibarr customization, WordPress and WooCommerce development, website and mobile app development, FastAPI/Laravel backends, data pipelines and CI/CD, consultation and code review, manual and automated testing): https://pritambag.in/services
 - Resume: https://pritambag.in/resume
 - Certifications: https://pritambag.in/certifications
 - Blog: https://pritambag.in/blog

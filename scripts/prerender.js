@@ -111,6 +111,7 @@ function buildSitemap(routes) {
     "/": "1.0",
     "/about": "0.9",
     "/projects": "0.8",
+    "/services": "0.9",
     "/resume": "0.8",
     "/blog": "0.8",
     "/certifications": "0.6",

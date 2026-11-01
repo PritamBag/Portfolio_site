@@ -10,7 +10,7 @@ const CAP_SETS = [
 ];
 
 const ProjectCard = ({ project, capSet }) => (
-  <article className="m3-feature-card flex flex-col" style={{ height: "100%" }}>
+  <article id={project.slug} className="m3-feature-card flex flex-col" style={{ height: "100%" }}>
 
     {/* ── Image cap - gradient frame + inner box that image fills ── */}
     <div style={{ background: capSet.cap, padding: "1rem 1rem 0" }}>

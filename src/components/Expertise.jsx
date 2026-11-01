@@ -39,7 +39,7 @@ const GROUP_META = {
       </svg>
     ),
   },
-  "Tools & Platforms": {
+  "DevOps / Tools": {
     cap: "linear-gradient(135deg,#ffedd5 0%,#fed7aa 100%)",
     on: "#7c2d12",
     icon: (

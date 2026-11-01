@@ -12,6 +12,7 @@ import Footer from "./components/Footer";
 import Blog from "./components/Blog";
 import BlogPost from "./components/BlogPost";
 import Contact from "./components/Contact";
+import Services from "./components/Services";
 import HomeSnapshot from "./components/HomeSnapshot";
 import Certifications from "./components/Certifications";
 import GrafxBackground from "./components/GrafxBackground";
@@ -27,6 +28,18 @@ const normalizeRoute = (pathname) => {
   return pathname;
 };
 
+// Scroll so the anchor sits just below the sticky header (scroll-margin alone gets
+// overridden by the browser's own fragment jump + the global smooth-scroll CSS).
+// Default "instant" (not "auto"), because html has scroll-behavior: smooth - a long smooth scroll on
+// page load gets cut short when ScrollTrigger refreshes and restores the scroll position.
+const scrollToAnchor = (id, behavior = "instant") => {
+  const el = document.getElementById(id);
+  if (!el) return;
+  const headerHeight = document.querySelector("header")?.offsetHeight ?? 64;
+  const top = el.getBoundingClientRect().top + window.scrollY - headerHeight - 24;
+  window.scrollTo({ top, behavior });
+};
+
 function App() {
   const [route, setRoute] = useState(normalizeRoute(window.location.pathname));
   const [isHireModalOpen, setIsHireModalOpen] = useState(false);
@@ -40,6 +53,23 @@ function App() {
     return () => window.removeEventListener("popstate", handlePopState);
   }, []);
 
+  // Direct visit to an anchor (e.g. /projects/#wiimo): the client re-renders the page,
+  // so jump to the target again once it exists
+  useEffect(() => {
+    // Hash-only changes on the same page (no reload) skip the mount path below
+    const onHashChange = () => scrollToAnchor(window.location.hash.slice(1), "smooth");
+    window.addEventListener("hashchange", onHashChange);
+
+    const hash = window.location.hash.slice(1);
+    // Fonts and images still shift the layout a little after mount - re-align once settled
+    const timer = hash ? setTimeout(() => scrollToAnchor(hash), 500) : null;
+    if (hash) scrollToAnchor(hash);
+    return () => {
+      window.removeEventListener("hashchange", onHashChange);
+      clearTimeout(timer);
+    };
+  }, []);
+
   // Intercept clicks on internal links so navigation stays client-side (no full reload)
   useEffect(() => {
     const handleClick = (e) => {
@@ -51,10 +81,15 @@ function App() {
       const href = anchor.getAttribute("href");
       if (!href || !href.startsWith("/") || href.startsWith("//")) return;
       e.preventDefault();
-      const nextRoute = normalizeRoute(href);
+      const [path, hash] = href.split("#");
       window.history.pushState(null, "", href);
-      setRoute(nextRoute);
-      window.scrollTo({ top: 0, behavior: "smooth" });
+      setRoute(normalizeRoute(path));
+      if (hash) {
+        // Wait for the new route to render, then jump to the anchor (e.g. /projects/#wiimo)
+        setTimeout(() => scrollToAnchor(hash, "smooth"), 60);
+      } else {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      }
     };
     document.addEventListener("click", handleClick);
     return () => document.removeEventListener("click", handleClick);
@@ -64,18 +99,14 @@ function App() {
   useEffect(() => {
     const ctx = gsap.context(() => {
       gsap.utils.toArray(".anim-fade-up").forEach((el, i) => {
-        gsap.to(el, {
-          opacity: 1,
-          y: 0,
-          duration: 0.32,
-          ease: "power3.out",
-          delay: i * 0.025,
-          scrollTrigger: {
-            trigger: el,
-            start: "top 94%",
-            once: true,
-          },
-        });
+        const tween = { opacity: 1, y: 0, duration: 0.32, ease: "power3.out", delay: i * 0.025 };
+        // Already on screen or scrolled past (e.g. landing on /projects/#slug or going back):
+        // a scroll trigger would never fire, so reveal it right away
+        if (el.getBoundingClientRect().top < window.innerHeight * 0.94) {
+          gsap.to(el, tween);
+          return;
+        }
+        gsap.to(el, { ...tween, scrollTrigger: { trigger: el, start: "top 94%", once: true } });
       });
     });
     return () => {
@@ -93,6 +124,7 @@ function App() {
       "/": `${siteConfig.name} – Backend & Product Engineer | FastAPI, Laravel`,
       "/about": `About | ${siteConfig.name}`,
       "/projects": `Projects | ${siteConfig.name}`,
+      "/services": "Hire a Freelance Dolibarr, Laravel & FastAPI Developer | Pritam Bag",
       "/resume": `Resume | ${siteConfig.name}`,
       "/certifications": `Certifications | ${siteConfig.name}`,
       "/blog": `Blog | ${siteConfig.name}`,
@@ -151,6 +183,28 @@ function App() {
               showAmbientFill={false}
             />
             <Projects />
+          </div>
+        );
+      case "/services":
+        return (
+          <div className="relative overflow-hidden">
+            <DecorGrafx
+              id="services-flow"
+              ringPos="tl"
+              dotPos="br"
+              orbitPos="mr"
+              c1="#7c3aed"
+              c2="#6366f1"
+              c3="#c55ea2"
+              showCube
+              cubePos="tr"
+              cubeSize={88}
+              showBrackets
+              showPolygons
+              polyPos="bl"
+              showAmbientFill={false}
+            />
+            <Services onOpenHireModal={() => setIsHireModalOpen(true)} />
           </div>
         );
       case "/resume":

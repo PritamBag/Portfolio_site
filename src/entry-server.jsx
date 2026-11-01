@@ -7,11 +7,12 @@ import Expertise from "./components/Expertise";
 import Blog from "./components/Blog";
 import BlogPost from "./components/BlogPost";
 import Contact from "./components/Contact";
+import Services from "./components/Services";
 import HomeSnapshot from "./components/HomeSnapshot";
 import Certifications from "./components/Certifications";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
-import { siteConfig, blogPosts } from "./data/portfolioData";
+import { siteConfig, blogPosts, servicesContent } from "./data/portfolioData";
 
 const SITE_URL = "https://pritambag.in";
 const noop = () => {};
@@ -49,6 +50,12 @@ const staticRoutes = {
     description:
       "Engineering projects by Pritam Bag - the WIIMO food-data platform, data pipelines, Laravel packages, ERP modules, and a WordPress.org plugin.",
     render: () => <Projects />,
+  },
+  "/services": {
+    title: "Hire a Freelance Dolibarr, Laravel & FastAPI Developer | Pritam Bag",
+    description:
+      "Freelance developer from Kolkata for Dolibarr customization, WordPress and WooCommerce, websites and apps, FastAPI or Laravel backends, CI/CD, testing, and code review.",
+    render: () => <Services onOpenHireModal={noop} />,
   },
   "/resume": {
     title: `Resume | ${siteConfig.name}`,
@@ -132,6 +139,36 @@ export function getMetaForRoute(route) {
     description: entry.description,
     canonical: canonicalUrl(route),
   };
+  if (route === "/services") {
+    meta.jsonLd = [
+      {
+        "@context": "https://schema.org",
+        "@type": "ProfessionalService",
+        name: `${siteConfig.name} - Freelance Software Development`,
+        url: meta.canonical,
+        description: entry.description,
+        address: { "@type": "PostalAddress", addressLocality: "Kolkata", addressRegion: "West Bengal", addressCountry: "IN" },
+        founder: { "@type": "Person", name: siteConfig.name, url: `${SITE_URL}/` },
+        hasOfferCatalog: {
+          "@type": "OfferCatalog",
+          name: "Freelance services",
+          itemListElement: servicesContent.services.map((s) => ({
+            "@type": "Offer",
+            itemOffered: { "@type": "Service", name: s.title, description: s.problem },
+          })),
+        },
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        mainEntity: servicesContent.faqs.map((f) => ({
+          "@type": "Question",
+          name: f.q,
+          acceptedAnswer: { "@type": "Answer", text: f.a },
+        })),
+      },
+    ];
+  }
   if (route === "/blog") {
     meta.jsonLd = {
       "@context": "https://schema.org",
