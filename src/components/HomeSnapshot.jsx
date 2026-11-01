@@ -101,7 +101,7 @@ const HomeSnapshot = () => {
           </h2>
           <p className="hidden max-w-xs text-right m3-body-sm md:block"
              style={{ color: "var(--md-sys-color-on-surface-variant)" }}>
-            As an SDE I participate in architecture decisions and build patterns that scale.
+            As a product engineer, I make architecture decisions and build patterns that scale.
           </p>
         </div>
 

@@ -24,7 +24,7 @@ export const siteConfig = {
   name: "Pritam Bag",
   title: "Python · Laravel · React",
   location: "Kolkata, West Bengal, India",
-  currentRole: "SDE at Iquester Solutions LLP",
+  currentRole: "Software Development Engineer at Iquester Solutions LLP",
   summary:
     "I think about software the way I approached mathematics - looking for the structure underneath. Systems design, event architecture, entity modeling, the invisible decisions that make products hold up past the first sprint. Based in Kolkata, building production software where the design matters as much as the delivery.",
   heroDescription:

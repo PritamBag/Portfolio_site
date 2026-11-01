@@ -1,6 +1,6 @@
 # Pritam Bag - Portfolio
 
-> Software Development Engineer based in Kolkata, West Bengal, India.
+> Backend & Product Engineer based in Kolkata, West Bengal, India.
 > Builds backend systems, data pipelines, and web and mobile apps on top of them.
 > 2+ years building production software at Rxefy Tech and Iquester Solutions LLP.
 

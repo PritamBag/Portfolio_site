@@ -65,7 +65,7 @@ const staticRoutes = {
   },
   "/certifications": {
     title: `Certifications | ${siteConfig.name}`,
-    description: "Certifications and credentials earned by Pritam Bag, Software Development Engineer.",
+    description: "Certifications and credentials earned by Pritam Bag, Backend & Product Engineer.",
     render: () => <Certifications />,
   },
   "/blog": {
