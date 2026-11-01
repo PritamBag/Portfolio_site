@@ -90,7 +90,7 @@ function App() {
       return;
     }
     const pageTitles = {
-      "/": `${siteConfig.name} | Software Development Engineer`,
+      "/": `${siteConfig.name} – Backend & Product Engineer | FastAPI, Laravel`,
       "/about": `About | ${siteConfig.name}`,
       "/projects": `Projects | ${siteConfig.name}`,
       "/resume": `Resume | ${siteConfig.name}`,

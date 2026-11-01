@@ -9,6 +9,8 @@ import BlogPost from "./components/BlogPost";
 import Contact from "./components/Contact";
 import HomeSnapshot from "./components/HomeSnapshot";
 import Certifications from "./components/Certifications";
+import Header from "./components/Header";
+import Footer from "./components/Footer";
 import { siteConfig, blogPosts } from "./data/portfolioData";
 
 const SITE_URL = "https://pritambag.in";
@@ -21,7 +23,7 @@ const canonicalUrl = (route) => (route === "/" ? `${SITE_URL}/` : `${SITE_URL}${
 
 const staticRoutes = {
   "/": {
-    title: `${siteConfig.name} | Software Development Engineer`,
+    title: `${siteConfig.name} – Backend & Product Engineer | FastAPI, Laravel`,
     description: siteConfig.heroDescription,
     render: () => (
       <>
@@ -147,12 +149,24 @@ export function getMetaForRoute(route) {
   return meta;
 }
 
+// Header + footer go into the static HTML too, so crawlers see real <a> links to
+// every page (not just the sitemap). The client mounts with createRoot().render(),
+// which replaces this markup, so there is no hydration to mismatch.
+const withChrome = (route, page) =>
+  renderToStaticMarkup(
+    <>
+      <Header currentRoute={route} onOpenHireModal={noop} />
+      <main>{page}</main>
+      <Footer />
+    </>
+  );
+
 export function renderRoute(route) {
   if (route.startsWith("/blog/")) {
     const slug = route.replace("/blog/", "");
-    return renderToStaticMarkup(<BlogPost slug={slug} />);
+    return withChrome(route, <BlogPost slug={slug} />);
   }
   const entry = staticRoutes[route];
   if (!entry) return null;
-  return renderToStaticMarkup(entry.render());
+  return withChrome(route, entry.render());
 }
