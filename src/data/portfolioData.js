@@ -10,22 +10,27 @@ import multivendorImage from "../assets/projects/multivendor-platform.png";
 import wrappidContributionImage from "../assets/projects/wrappid-contributions.png";
 import laravelPackagesImage from "../assets/projects/laravel-packages.png";
 import dolibarrImage from "../assets/projects/dolibarr.png";
+import wiimoImage from "../assets/projects/wiimo.webp";
+import wiimoAppImage from "../assets/projects/wiimo-app.webp";
+import wiimoLogo from "../assets/projects/wiimo-logo-white.webp";
+import d2cPipelineImage from "../assets/projects/d2c-pipeline.webp";
+import iqJobsManagerImage from "../assets/projects/iq-jobs-manager.webp";
 // Blog cover images — add the files, then uncomment:
 import entityMetaCover from "../assets/blog/entity-meta-pattern-laravel.webp";
 import dolibarrBlogCover from "../assets/blog/custom-dolibarr-business-software.webp";
 
 export const siteConfig = {
   name: "Pritam Bag",
-  title: "Laravel · PHP · React",
+  title: "Python · Laravel · React",
   location: "Kolkata, West Bengal, India",
   currentRole: "SDE at Iquester Solutions LLP",
   summary:
     "I think about software the way I approached mathematics - looking for the structure underneath. Systems design, event architecture, entity modeling, the invisible decisions that make products hold up past the first sprint. Based in Kolkata, building production software where the design matters as much as the delivery.",
   heroDescription:
-    "Systems design, event architecture, framework internals, and integration work. 1.5+ years building software where the shape of the system matters as much as the feature that ships.",
+    "Backend systems, data pipelines, and the web and mobile apps built on top of them. 2+ years building software where the shape of the system matters as much as the feature that ships.",
   resumeUrl: resumePdf,
   availability:
-    "Open to software engineering roles, backend-heavy freelance work, Laravel product builds, and business workflow automation projects.",
+    "Open to software engineering roles, backend-heavy freelance work, data pipeline and scraping projects, and Laravel or FastAPI product builds.",
   email: "pritam02b@gmail.com",
   phone: "+91-9749594771",
 };
@@ -46,6 +51,14 @@ export const socialLinks = [
     href: "https://www.upwork.com/freelancers/~0125a00c2fbabe8208",
     icon: "fa-upwork",
   },
+  {
+    label: "Gravatar",
+    href: "https://gravatar.com/pritam02b",
+    icon: "fa-gravatar",
+    // Font Awesome has no Gravatar logo; official mark via Simple Icons
+    svgPath:
+      "M12 0c-1.326 0-2.4 1.074-2.4 2.4v8.4c0 1.324 1.074 2.398 2.4 2.398s2.4-1.074 2.4-2.398V5.21c2.795.99 4.799 3.654 4.799 6.789 0 3.975-3.225 7.199-7.199 7.199S4.801 15.975 4.801 12c0-1.989.805-3.789 2.108-5.091.938-.938.938-2.458 0-3.396s-2.458-.938-3.396 0C1.344 5.686 0 8.686 0 12c0 6.627 5.373 12 12 12s12-5.373 12-12S18.627 0 12 0",
+  },
 ];
 
 export const quickLinks = [
@@ -60,61 +73,51 @@ export const quickLinks = [
 ];
 
 export const heroRoles = [
-  "Backend Systems Architect",
-  "Laravel & PHP Engineer",
-  "Systems Design Enthusiast",
-  "Framework Contributor",
+  "Backend Engineer",
+  "Data Pipeline Builder",
+  "FastAPI & Laravel Dev",
+  "Web & Mobile Builder",
 ];
 
 export const skills = [
-  "Laravel",
+  "Python",
+  "FastAPI",
   "PHP",
-  "Java",
-  "React",
-  "TypeScript",
+  "Laravel",
   "JavaScript",
+  "React",
+  "Next.js",
+  "React Native",
+  "PostgreSQL",
   "MySQL",
-  "WordPress",
-  "Dokan",
-  "WooCommerce",
-  "Zoho API",
-  "Dolibarr",
+  "Playwright",
   "Docker",
-  "Git",
-  "cPanel",
-  "VPS",
+  "GitHub Actions",
+  "Caddy",
+  "Dolibarr",
+  "WooCommerce",
 ];
 
 export const skillGroups = [
   {
     title: "Languages",
-    items: ["Java", "JavaScript", "TypeScript", "PHP"],
-  },
-  {
-    title: "Front-End",
-    items: [
-      "HTML",
-      "CSS",
-      "SCSS",
-      "Bootstrap",
-      "Tailwind CSS",
-      "JavaScript",
-      "TypeScript",
-      "React JS",
-      "MUI",
-    ],
+    items: ["Python", "PHP", "JavaScript"],
   },
   {
     title: "Back-End",
-    items: ["Laravel (PHP)", "REST APIs", "Jobs & Queues",],
+    items: ["FastAPI", "Laravel", "REST APIs", "Async processing", "Job queues", "Multi-tenant design"],
+  },
+  {
+    title: "Front-End",
+    items: ["React JS", "Next.js", "React Native", "Bootstrap", "Tailwind CSS"],
   },
   {
     title: "Database",
-    items: ["MySQL", "Maria DB"],
+    items: ["PostgreSQL", "MySQL", "MariaDB", "SQLAlchemy", "Alembic"],
   },
   {
-    title: "Tools & Platforms",
-    items: ["Git", "WordPress", "cPanel", "Docker", "VPS"],
+    title: "DevOps / Tools",
+    items: ["Docker", "Docker Compose", "GitHub Actions", "Caddy", "Git", "DigitalOcean (Droplets)", "Playwright"],
   },
 ];
 
@@ -145,17 +148,17 @@ export const aboutContent = {
   title: "From Mathematics to Code That Works",
   story: [
     "I came to software the same way I approached mathematics - looking for the structure underneath the surface. My B.Sc in Mathematics at Barasat College was not a detour; it was the foundation. Numbers taught me how to break down complexity, spot patterns, and reason toward clean answers. That habit carried straight into MCA at Techno India Hooghly, where I graduated in 2024 with an 8.71 CGPA and a clear direction.",
-    "In July 2024, I walked into Rxefy Tech as an intern. Within months, I was contributing to Wrappid - an in-house React-based application framework - while simultaneously building Laravel backends, publishing reusable packages, integrating Zoho Books for financial automation, and wiring WhatsApp and Messenger APIs into business operations. I also participated in architecture design: defining entity boundaries between Streamline and Business layers, building an event-driven worker system using Laravel Jobs to reduce spinup overhead, and creating a UI-driven database schema builder that let users define tables, queries, and relationships without writing raw SQL. By the time I transitioned to full-time, I had shipped production code across multi-tenant applications, Docker-monitored services, and cPanel-based deployments.",
-    "In March 2026, I joined Iquester Solutions LLP to work on more operational problems - Dolibarr ERP customization, multi-vendor marketplace platforms on WordPress, custom Laravel systems, and VPS/cPanel server management. This is software that has to run reliably on a Monday morning when someone's entire business depends on it.",
-    "1.5+ years in, I build systems that are readable, maintainable, and useful beyond the first sprint. I care less about clever code and more about software that survives real usage.",
+    "In July 2024, I walked into Rxefy Tech as an intern and later moved to full-time. I built Laravel backends and 5+ reusable packages - foundation, user management, organisation, integrations, and messaging channels - that removed duplicated code across client projects. I designed a multi-tenant backend architecture, integrated Zoho Books, WhatsApp, and Telegram APIs, and built an event-driven, DB-backed queue where listeners trigger self-terminating workers that run once and exit when idle - no persistent daemons, and far less CPU load on low-config hosting. Along the way I contributed UI components to Wrappid, an in-house React framework.",
+    "In March 2026, I joined Iquester Solutions LLP, where I am the primary developer on WIIMO - a product-data platform for Indian packaged foods. I own it from scraping to deployment: Playwright scrapers feeding PostgreSQL (8,300+ products and 31,000+ images), OCR tagging for ingredients and nutrition, a FastAPI ingestion and review pipeline, a Next.js web app, an Expo / React Native Android app, and CI/CD with GitHub Actions and Docker Compose behind Caddy. Alongside it I built an async D2C brand-qualification pipeline with Gemini, Dolibarr ERP modules, and a WordPress.org plugin.",
+    "2+ years in, I build systems that are readable, maintainable, and useful beyond the first sprint. I care less about clever code and more about software that survives real usage.",
     "Outside engineering, cooking is a genuine passion - not just a hobby. I'm curious about food, recipes, and the culture around what people eat and how it's made. I co-author Nomad Journey with a friend; we write about food and culture when there's something worth sharing. The instinct carries over - constraints, patience, and making something that actually works.",
   ],
   focusAreas: [
-    "Enterprise Laravel applications and reusable backend modules",
-    "WordPress, WooCommerce, and Dokan customization",
-    "Dolibarr templates, PDF flows, upgrades, and external modules",
-    "Business workflow integrations with Zoho, WhatsApp, and Messenger",
-    "Deployment and server support through cPanel, VPS, and Docker-led setups",
+    "Backend systems in FastAPI and Laravel, with reusable modules and async job processing",
+    "Data pipelines: Playwright scraping, OCR tagging, and LLM-based classification",
+    "Web and mobile apps on Next.js and React Native, built on top of those backends",
+    "Dolibarr modules and WooCommerce / WordPress integrations",
+    "CI/CD and deployment with GitHub Actions, Docker Compose, Caddy, and DigitalOcean",
   ],
 };
 
@@ -189,12 +192,16 @@ export const experienceItems = [
     location: "Kolkata, West Bengal, India - Remote",
     logo: iquesterLogo,
     summary:
-      "Working across ERP fixes, backend systems, custom platforms, and deployment-sensitive business software.",
+      "Primary developer on WIIMO, a product-data platform for Indian packaged foods (Python, FastAPI, PostgreSQL, Next.js, React Native, Docker), plus data pipeline, ERP, and WordPress work.",
     highlights: [
-      "Fixed bugs, created templates, and performed version upgrades in Dolibarr ERP.",
-      "Developed custom features and code for a multi-vendor platform using WordPress.",
-      "Managed deployments and server configurations through cPanel and VPS environments.",
-      "Built and maintained backend systems in Laravel, including reusable custom packages.",
+      "Built a platform that scrapes quick-commerce listings with Playwright into PostgreSQL: 8,300+ products and 31,000+ images, with OCR image tagging for ingredients and nutrition.",
+      "Built a token-authenticated data ingestion and review pipeline with 2FA-protected approvals and automated completeness scoring.",
+      "Traced 33,800+ orphaned images to their root cause from logs and queries and recovered them with an idempotent script.",
+      "Built the Next.js web app and an Expo / React Native Android app (OTP login, wishlists, voting, infinite-scroll search, admin review).",
+      "Set up CI/CD with GitHub Actions (signed APK, release, SSH deploy) and Docker Compose behind Caddy, with git-SHA version checks.",
+      "Built an async Python scraper with Gemini-based classification that qualifies D2C brands at about 0.25 INR per site.",
+      "Built Dolibarr modules: a sales-order dashboard linking POs and raw materials, and a two-way WooCommerce order sync.",
+      "Published IQ Jobs Manager, a WordPress.org plugin with an application pipeline, CSV export, and analytics.",
     ],
     link: "https://iquesters.com",
   },
@@ -205,15 +212,12 @@ export const experienceItems = [
     location: "Kolkata - Intern to Full-Time",
     logo: rxefyLogo,
     summary:
-      "Contributed across framework work, Laravel systems, integrations, scalable backend architecture, and operational product delivery. Participated in architectural design decisions and built reusable patterns used across the product.",
+      "Built Laravel backends, reusable packages, and multi-tenant architecture, growing from intern to full-time engineer.",
     highlights: [
-      "Participated in application architecture design - defining entity boundaries between Streamline entities and Business entities to enforce clean separation of concerns.",
-      "Designed an event-driven worker system using Laravel Jobs and Queues to minimize worker spinup overhead and improve async processing performance.",
-      "Built a UI-driven database table builder inside the application, enabling users to define DB schemas, queries, and table relationships without writing raw SQL.",
-      "Contributed to Wrappid, a React-based in-house framework, improving the application builder, core packages, and styling modules.",
-      "Built full-stack features in Laravel, created 5+ reusable Laravel packages for authentication, event handling, and worker spin-up patterns.",
-      "Integrated Zoho Books, WhatsApp, and Messenger APIs for financial automation and messaging workflows.",
-      "Worked on multi-tenant applications, Docker-monitored services, and cPanel-based deployments.",
+      "Built an event-driven, DB-backed Laravel queue where listeners trigger self-terminating workers (run once, exit when idle), eliminating persistent daemons and reducing CPU load on low-config hosting.",
+      "Built 5+ reusable Laravel packages: foundation, user management, organisation, integrations, and messaging channels. They removed duplicated code across client projects.",
+      "Designed a multi-tenant backend architecture and integrated Zoho Books, WhatsApp, and Telegram APIs.",
+      "Contributed UI components to Wrappid, an in-house React framework.",
     ],
     link: "https://in.linkedin.com/company/rxefy",
   },
@@ -235,31 +239,31 @@ export const experienceItems = [
 
 export const architectureHighlights = [
   {
-    id: "arch-design",
-    title: "Application Architecture",
+    id: "data-pipelines",
+    title: "Scraping & Data Pipelines",
     description:
-      "Participated in defining entity boundaries - Streamline vs Business entity separation - to enforce clean, maintainable application structure.",
+      "Playwright scrapers feeding PostgreSQL - 8,300+ products and 31,000+ images - with OCR tagging and Gemini-based classification.",
+    icon: "database",
+  },
+  {
+    id: "review-pipeline",
+    title: "Ingestion & Review Pipeline",
+    description:
+      "Token-authenticated ingestion with 2FA-protected approvals and automated completeness scoring before data goes live.",
     icon: "architecture",
   },
   {
     id: "event-jobs",
-    title: "Event-driven Job System",
+    title: "Self-terminating Workers",
     description:
-      "Designed an event-based worker system using Laravel Jobs and Queues to minimize worker spinup overhead and handle async processing at scale.",
+      "An event-driven, DB-backed Laravel queue where listeners start workers that run once and exit when idle - no persistent daemons.",
     icon: "events",
   },
   {
-    id: "schema-builder",
-    title: "Dynamic Schema Builder",
+    id: "ci-cd",
+    title: "CI/CD & Deployment",
     description:
-      "Built a UI-driven database table builder that lets users define tables, queries, and relationships directly from the application without writing raw SQL.",
-    icon: "database",
-  },
-  {
-    id: "api-arch",
-    title: "API & Integration Design",
-    description:
-      "Architected integrations with Zoho Books, WhatsApp, and Messenger APIs - mapping external services into structured internal workflows.",
+      "GitHub Actions for signed APKs, releases, and SSH deploys; Docker Compose behind Caddy with git-SHA version checks.",
     icon: "integration",
   },
 ];
@@ -270,6 +274,33 @@ export const projectGroups = [
     title: "Featured Projects",
     description: "The strongest work to lead with on the portfolio.",
     projects: [
+      {
+        slug: "wiimo",
+        title: "WIIMO",
+        subtitle: "Packaged-food transparency platform",
+        image: wiimoImage,
+        imageHint: "Add screenshot to src/assets/projects/wiimo.webp and import it in portfolioData.js",
+        isLive: true,
+        stack: ["Python", "FastAPI", "PostgreSQL", "Playwright", "Next.js", "React Native", "Docker"],
+        summary:
+          "Lead engineer on WIIMO - a product-data platform for Indian packaged foods. People scan a barcode or search a product to see its ingredients, additives, nutrition, and an A-E health grade.",
+        details: [
+          "Playwright scrapers feed PostgreSQL with 8,300+ products and 31,000+ images, tagged by OCR for ingredients and nutrition.",
+          "Token-authenticated ingestion and review pipeline with 2FA-protected approvals and automated completeness scoring.",
+          "Next.js web app and Expo / React Native Android app with OTP login, wishlists, voting, and infinite-scroll search.",
+          "CI/CD with GitHub Actions (signed APK, release, SSH deploy) and Docker Compose behind Caddy, with git-SHA version checks.",
+        ],
+        links: [
+          {
+            label: "wiimo.in",
+            href: "https://wiimo.in/",
+          },
+          {
+            label: "Google Play",
+            href: "https://play.google.com/store/apps/details?id=in.wiimo.app",
+          },
+        ],
+      },
       {
         slug: "knorai",
         title: "Knorai",
@@ -345,6 +376,23 @@ export const projectGroups = [
     description: "Company and client work that reflects product and business problem-solving.",
     projects: [
       {
+        slug: "d2c-brand-pipeline",
+        title: "D2C Brand Data Pipeline",
+        subtitle: "Brand qualification at scale",
+        image: d2cPipelineImage,
+        imageHint: "Add screenshot to src/assets/projects/d2c-pipeline.webp and import it in portfolioData.js",
+        isLive: false,
+        stack: ["Python", "Async", "Gemini API", "Scraping"],
+        summary:
+          "Built an async Python scraper with Gemini-based classification that qualifies D2C brands at about 0.25 INR per site.",
+        details: [
+          "Crawls brand websites concurrently with async Python.",
+          "Uses Gemini to classify and qualify each brand from its site content.",
+          "Kept the cost per qualified site to about 0.25 INR.",
+        ],
+        links: [],
+      },
+      {
         slug: "multivendor-platform",
         title: "Multi-vendor Commerce Platform",
         subtitle: "Marketplace workflow customization",
@@ -402,11 +450,11 @@ export const projectGroups = [
         imageHint: "Add screenshot to src/assets/projects/dolibarr-custom-work.jpg and import it in portfolioData.js",
         stack: ["Dolibarr", "PHP", "PDF Templates", "Email Templates", "Hosting"],
         summary:
-          "Handled Dolibarr custom templates, PDFs, email flows, hosting movement, external modules, bug fixes, and upgrades.",
+          "Built Dolibarr modules and handled custom templates, PDFs, email flows, hosting moves, bug fixes, and upgrades.",
         details: [
-          "Customized PDF and template outputs for client-facing business usage.",
-          "Performed hosting migration and deployment-sensitive maintenance work.",
-          "Built external modules to fit client-specific ERP workflows.",
+          "Built a sales-order dashboard module linking purchase orders and raw materials.",
+          "Built a two-way order sync between Dolibarr and WooCommerce.",
+          "Customized PDF and template outputs and handled deployment-sensitive maintenance.",
         ],
         links: [
           {
@@ -423,6 +471,33 @@ export const projectGroups = [
     description: "Reusable engineering work that improves scale, consistency, and delivery speed.",
     projects: [
       {
+        slug: "iq-jobs-manager",
+        title: "IQ Jobs Manager",
+        subtitle: "WordPress.org plugin",
+        image: iqJobsManagerImage,
+        imageHint: "Add screenshot to src/assets/projects/iq-jobs-manager.webp and import it in portfolioData.js",
+        isLive: true,
+        stack: ["WordPress", "PHP", "Gutenberg Blocks", "Plugin"],
+        summary:
+          "Published IQ Jobs Manager on WordPress.org - a careers plugin that lets HR post job openings and run a secure application pipeline without page-builder or code knowledge.",
+        details: [
+          "Job Opening post type with a single admin form, plus a Careers page set up from Settings - no shortcodes needed.",
+          "Secure applications: resumes are never stored at a public URL, only emailed or downloaded through a login-gated link.",
+          "Configurable form fields, status tracking (New to Hired / Rejected), CSV export, and analytics.",
+          "Ships block-editor blocks and classic shortcodes for page builders and older themes.",
+        ],
+        links: [
+          {
+            label: "WordPress.org",
+            href: "https://wordpress.org/plugins/iq-jobs-manager/",
+          },
+          {
+            label: "Live on Iquester Careers",
+            href: "https://iquesters.com/careers/",
+          },
+        ],
+      },
+      {
         slug: "laravel-packages",
         title: "Laravel Package Set",
         subtitle: "Reusable backend support modules",
@@ -430,7 +505,7 @@ export const projectGroups = [
         imageHint: "Add screenshot to src/assets/projects/laravel-packages.jpg and import it in portfolioData.js",
         stack: ["Laravel", "Auth", "Jobs", "Workers", "Events"],
         summary:
-          "Created 5+ Laravel packages to support authentication, jobs, and event-based worker spin-up patterns across multiple applications.",
+          "Built 5+ reusable Laravel packages - foundation, user management, organisation, integrations, and messaging channels - shared across client projects.",
         details: [
           "Reduced duplication across project codebases.",
           "Improved consistency in common backend features.",
@@ -467,11 +542,38 @@ export const projectGroups = [
   },
 ];
 
+export const wiimoSpotlight = {
+  name: "WIIMO",
+  logo: wiimoLogo,
+  screenshot: wiimoAppImage,
+  eyebrow: "Product I lead",
+  tagline: "Know \"What is it made of?\"",
+  description:
+    "WIIMO helps people understand packaged food. Scan a barcode or search a product to see its ingredients, flagged additives, nutrition facts, and an A-E health grade - on the web and on Android.",
+  role: "Lead Engineer · Iquester Solutions LLP",
+  features: [
+    { title: "Scan or search", text: "Barcode scanning and product search across a growing catalogue." },
+    { title: "Health grade A-E", text: "Nutrition and additives summarised into one clear grade." },
+    { title: "Additive insights", text: "INS codes explained, with flagged additives called out." },
+    { title: "Community accuracy", text: "Users vote on whether the data is right, keeping it honest." },
+  ],
+  platforms: [
+    { label: "Backend", value: "FastAPI · PostgreSQL" },
+    { label: "Web", value: "Next.js 15 · Tailwind" },
+    { label: "Mobile", value: "Expo · React Native" },
+    { label: "Infra", value: "Docker · Caddy" },
+  ],
+  links: [
+    { label: "Visit wiimo.in", href: "https://wiimo.in/", primary: true },
+    { label: "Get it on Google Play", href: "https://play.google.com/store/apps/details?id=in.wiimo.app" },
+  ],
+};
+
 export const homeStats = [
-  { value: "1.5+", label: "Years in Industry" },
-  { value: "2", label: "Professional Roles" },
+  { value: "2+", label: "Years in Industry" },
+  { value: "8,300+", label: "Food Products Scraped" },
+  { value: "31,000+", label: "Product Images Collected" },
   { value: "5+", label: "Laravel Packages" },
-  { value: "10+", label: "Projects Delivered" },
 ];
 
 export const certifications = [

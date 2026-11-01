@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { socialLinks, siteConfig } from "../data/portfolioData";
 import { loadRecaptchaScript, submitContactForm } from "../utils/contactForm";
+import SocialIcon from "./SocialIcon";
 
 const Contact = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -120,8 +121,9 @@ const Contact = () => {
                   }}
                 >
                   <span className="flex items-center gap-3">
-                    <i
-                      className={`fa-brands ${link.icon} w-4 text-center`}
+                    <SocialIcon
+                      link={link}
+                      className="w-4 text-center"
                       style={{ color: "var(--md-sys-color-primary)" }}
                     />
                     <span

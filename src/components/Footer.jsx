@@ -1,4 +1,5 @@
 import { socialLinks, siteConfig } from "../data/portfolioData";
+import SocialIcon from "./SocialIcon";
 
 const navLinks = [
   { label: "Home", href: "/" },
@@ -98,7 +99,7 @@ const Footer = () => {
                   }}
                   aria-label={link.label}
                 >
-                  <i className={`fa-brands ${link.icon} text-xs`}></i>
+                  <SocialIcon link={link} className="text-xs" />
                 </a>
               ))}
             </div>

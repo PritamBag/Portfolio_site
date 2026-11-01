@@ -34,8 +34,8 @@ const Experience = () => {
               color: "var(--md-sys-color-on-surface-variant)",
             }}
           >
-            1.5+ years across enterprise backend work, framework contribution, API integrations,
-            and operational software - built for real teams and real production loads.
+            2+ years across backend systems, data pipelines, web and mobile apps, and integrations -
+            built for real teams and real production loads.
           </p>
         </div>
         <a

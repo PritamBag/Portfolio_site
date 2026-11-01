@@ -1,7 +1,10 @@
 import { architectureHighlights, homeStats, projectGroups } from "../data/portfolioData";
 import ImagePlaceholder from "./ImagePlaceholder";
+import WiimoSpotlight from "./WiimoSpotlight";
 
-const featuredProjects = projectGroups.find((g) => g.id === "featured")?.projects ?? [];
+/* WIIMO has its own spotlight above, so keep it out of the home grid */
+const featuredProjects = (projectGroups.find((g) => g.id === "featured")?.projects ?? [])
+  .filter((p) => p.slug !== "wiimo");
 
 /* M3 tonal palette - container + on-container pairs for each card cap */
 const CAP_COLORS = [
@@ -138,6 +141,11 @@ const HomeSnapshot = () => {
             );
           })}
         </div>
+      </div>
+
+      {/* ── WIIMO spotlight ── */}
+      <div className="mt-24">
+        <WiimoSpotlight />
       </div>
 
       {/* ── Featured Projects ── */}

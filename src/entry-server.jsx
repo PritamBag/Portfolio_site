@@ -34,7 +34,7 @@ const staticRoutes = {
   "/about": {
     title: `About | ${siteConfig.name}`,
     description:
-      "About Pritam Bag - a software development engineer from Kolkata working across Laravel, WordPress, Dolibarr ERP, and backend systems architecture.",
+      "About Pritam Bag - a software engineer from Kolkata building backend systems, data pipelines, and web and mobile apps with Python, FastAPI, Laravel, and React.",
     render: () => (
       <>
         <About />
@@ -45,13 +45,13 @@ const staticRoutes = {
   "/projects": {
     title: `Projects | ${siteConfig.name}`,
     description:
-      "Engineering projects by Pritam Bag - SaaS automation, marketplace platforms, ERP customization, and Laravel backend systems.",
+      "Engineering projects by Pritam Bag - the WIIMO food-data platform, data pipelines, Laravel packages, ERP modules, and a WordPress.org plugin.",
     render: () => <Projects />,
   },
   "/resume": {
     title: `Resume | ${siteConfig.name}`,
     description:
-      "Professional experience of Pritam Bag, Software Development Engineer - Laravel, Dolibarr ERP, WordPress, and backend architecture work.",
+      "Professional experience of Pritam Bag - FastAPI and PostgreSQL platforms, data pipelines, Next.js and React Native apps, and Laravel backend architecture.",
     render: () => <Experience />,
   },
   "/certifications": {
@@ -62,13 +62,13 @@ const staticRoutes = {
   "/blog": {
     title: `Blog | ${siteConfig.name}`,
     description:
-      "Engineering notes from Pritam Bag on Laravel architecture, ERP customization, and backend systems design.",
+      "Engineering notes from Pritam Bag on backend architecture, data pipelines, ERP customization, and systems design.",
     render: () => <Blog />,
   },
   "/contact": {
     title: `Contact | ${siteConfig.name}`,
     description:
-      "Get in touch with Pritam Bag for software engineering roles, Laravel product work, or backend consulting.",
+      "Get in touch with Pritam Bag for software engineering roles, backend and data pipeline work, or Laravel and FastAPI product builds.",
     render: () => <Contact />,
   },
 };

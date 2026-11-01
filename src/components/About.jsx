@@ -34,7 +34,7 @@ const glanceFacts = [
         <path strokeLinecap="round" strokeLinejoin="round" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
       </svg>
     ),
-    text: "1.5+ years in the industry",
+    text: "2+ years in the industry",
   },
   {
     icon: (
@@ -169,7 +169,7 @@ const About = () => {
           <div className="mt-6 grid grid-cols-3 gap-3">
             {[
               { value: "8.71", label: "MCA CGPA" },
-              { value: "1.5+", label: "Years exp." },
+              { value: "2+", label: "Years exp." },
               { value: "9.10", label: "B.Sc CGPA" },
             ].map((s) => (
               <div

@@ -2,6 +2,7 @@ import { useEffect, useRef } from "react";
 import Typed from "typed.js";
 import bannerImage from "../assets/Photo.png";
 import { heroRoles, siteConfig, socialLinks } from "../data/portfolioData";
+import SocialIcon from "./SocialIcon";
 
 const Banner = () => {
   const typedTarget = useRef(null);
@@ -9,6 +10,8 @@ const Banner = () => {
   useEffect(() => {
     const typed = new Typed(typedTarget.current, {
       strings: heroRoles,
+      // Plain text: in "html" mode typed.js treats "&" as an entity start and dumps the rest at once
+      contentType: null,
       startDelay: 150,
       typeSpeed: 50,
       backSpeed: 28,
@@ -198,7 +201,12 @@ const Banner = () => {
           >
             Building as a{" "}
             <br className="sm:hidden" />
-            <span ref={typedTarget} className="font-semibold text-gradient-brand" />
+            {/* Fixed gradient width + no wrapping, so colours and layout stay put while typing */}
+            <span
+              ref={typedTarget}
+              className="font-semibold text-gradient-brand whitespace-nowrap"
+              style={{ backgroundSize: "16em 100%", backgroundRepeat: "no-repeat" }}
+            />
           </h2>
 
           {/* Summary - Body Large */}
@@ -237,7 +245,7 @@ const Banner = () => {
                 fontFamily: '"Google Sans Text","DM Sans",sans-serif',
               }}
             >
-              1.5+ years experience
+              2+ years experience
             </span>
             <span
               className="flex items-center gap-1.5 rounded-full px-3 py-1.5"
@@ -285,7 +293,7 @@ const Banner = () => {
                 }}
                 aria-label={link.label}
               >
-                <i className={`fa-brands ${link.icon} text-sm`}></i>
+                <SocialIcon link={link} className="text-sm" />
               </a>
             ))}
           </div>

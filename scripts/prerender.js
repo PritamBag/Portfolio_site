@@ -12,7 +12,7 @@ const OUT_DIR = join(ROOT, "docs");
 const SSR_DIR = join(ROOT, "dist-ssr");
 const SITE_URL = "https://pritambag.in";
 const DEFAULT_KEYWORDS =
-  "Pritam Bag, software development engineer, Laravel developer, WordPress developer, portfolio, backend engineer, API integration, Kolkata";
+  "Pritam Bag, software engineer, backend engineer, Python developer, FastAPI developer, Laravel developer, data pipelines, web scraping, Next.js, React Native, portfolio, Kolkata";
 
 const escapeHtml = (str) =>
   String(str).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");

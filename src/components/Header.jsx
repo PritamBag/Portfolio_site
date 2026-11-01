@@ -2,6 +2,7 @@ import { useEffect, useMemo, useState } from "react";
 import PropTypes from "prop-types";
 import { socialLinks, siteConfig } from "../data/portfolioData";
 import { toHref } from "../utils/routes";
+import SocialIcon from "./SocialIcon";
 
 const navItems = [
   { title: "Home", path: "/" },
@@ -150,7 +151,7 @@ const Header = ({ currentRoute, onOpenHireModal }) => {
                   }}
                   aria-label={link.label}
                 >
-                  <i className={`fa-brands ${link.icon} text-sm`}></i>
+                  <SocialIcon link={link} className="text-sm" />
                 </a>
               ))}
             </div>
