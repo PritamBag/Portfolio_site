@@ -18,6 +18,7 @@ import iqJobsManagerImage from "../assets/projects/iq-jobs-manager.webp";
 // Blog cover images — add the files, then uncomment:
 import entityMetaCover from "../assets/blog/entity-meta-pattern-laravel.webp";
 import dolibarrBlogCover from "../assets/blog/custom-dolibarr-business-software.webp";
+import contributionSystemCover from "../assets/blog/scraper-blocked-by-cloudflare-contribution-pipeline.webp";
 
 export const siteConfig = {
   name: "Pritam Bag",
@@ -620,6 +621,211 @@ export const certifications = [
 ];
 
 export const blogPosts = [
+  {
+    slug: "scraper-blocked-by-cloudflare-contribution-pipeline",
+    title: "Scraper Blocked by Cloudflare? We Built a Contribution Pipeline",
+    subtitle: "Our web scraper worked locally but got Cloudflare 404 errors on the production server. Instead of fighting the block or buying a scraping service, I redesigned how WIIMO collects data - and the data got better.",
+    status: "Published",
+    date: "October 2026",
+    isoDate: "2026-10-01",
+    readTime: "8 min read",
+    coverImage: contributionSystemCover,
+    tags: ["Web Scraping", "Cloudflare", "Data Pipeline", "System Design", "Data Quality", "WIIMO"],
+    summary:
+      "Our web scraper got Cloudflare 404 errors in production. Here's how WIIMO replaced it with a contribution pipeline built on local collection and human review.",
+    content: [
+      {
+        type: "p",
+        text: "Our web scraper worked perfectly on our laptops. Then we deployed it to the production server, and Cloudflare blocked every request with a 404 error. This post is about the decision that came after: why I didn't try to bypass the block, why we didn't buy a paid scraping service, and how I redesigned data collection into a contribution pipeline - one where teammates collect data, the system checks it, and nothing goes live until a human approves it.",
+      },
+      {
+        type: "p",
+        text: "The product is [WIIMO](https://wiimo.in/), a food transparency platform that answers one question about packaged food: what is it made of? You scan a barcode or search for a product and see its ingredients, flagged additives, nutrition facts, and an A-E health grade. As the lead engineer, I own WIIMO from data collection to deployment. And for a product like this, the data is the product - every grade a user sees is only as good as the ingredient list and nutrition table behind it.",
+      },
+      {
+        type: "h2",
+        text: "The Original Plan: One Scraper on the Production Server",
+      },
+      {
+        type: "p",
+        text: "Retailers already publish product listings online, so we started with automation. We built our own web scraper rather than relying on anyone else's, because we wanted full control over what was collected and how clean it was. It opened product pages the way a browser does, gathered the details and images, and saved them. On our own machines it did exactly that. The plan was to run it on the production server on a schedule, with nobody needing to watch it.",
+      },
+      {
+        type: "h2",
+        text: "Why Our Scraper Was Blocked by Cloudflare in Production",
+      },
+      {
+        type: "p",
+        text: "In production, the scraper collected nothing. Every request came back as a Cloudflare 404. The same code, asking for the same pages, was turned away. The difference most likely wasn't the code - it was where the requests came from. On our laptops, requests came from ordinary home and office connections. In production, they came from a cloud server in a data centre, which is exactly the kind of traffic bot protection is designed to stop.",
+      },
+      {
+        type: "quote",
+        text: "Local success tells you the code works. It tells you nothing about whether the production environment will let it work.",
+        attribution: "The lesson we learned the hard way",
+      },
+      {
+        type: "h2",
+        text: "The Options I Weighed",
+      },
+      {
+        type: "p",
+        text: "A blocked scraper looks like a technical problem, so the tempting answer is a technical workaround. But the real question was a product one: what is the most reliable way to keep a growing catalogue of trustworthy food data? I compared three options:",
+      },
+      {
+        type: "table",
+        headers: ["Option", "Reliability", "Cost & dependency", "Control over data quality"],
+        rows: [
+          ["Make server traffic look like normal visitors", "Fragile - can break any day", "Ongoing maintenance; works against the site's own choice", "Same as before - nothing checks the data"],
+          ["Pay for a third-party scraping service", "Good, while we keep paying", "Recurring cost; our core data depends on another company", "Low - we get their output, not our rules"],
+          ["Collect locally, review centrally (chosen)", "High - collection runs where it already works", "No vendor; uses our own scrapers", "High - every item is checked before it goes live"],
+        ],
+      },
+      {
+        type: "p",
+        text: "The first option was an arms race we didn't want to be in. The second was tempting because it's fast to start, but it would have made the heart of WIIMO - its data - depend on a vendor's pricing, limits, and idea of what clean data looks like. For a product whose whole promise is trustworthy information, I didn't want to hand that over. So I proposed the third option.",
+      },
+      {
+        type: "h2",
+        text: "The Key Insight: Separate Collecting Data From Trusting It",
+      },
+      {
+        type: "p",
+        text: "The question had been: how do we get the server to collect data? The better question was: does the server need to collect it at all? Collection already worked from our own machines. What the server was good at was storing data, checking it, and serving it to the website and the app.",
+      },
+      {
+        type: "p",
+        text: "So I split the job into two responsibilities. Collection moved to teammates' machines. Production became the gatekeeper: it receives contributions, checks them, and only publishes what a reviewer approves. That one change in where responsibility lives fixed the blocking problem - and, as it turned out, several problems we hadn't noticed yet.",
+      },
+      {
+        type: "h2",
+        text: "What Is a Contribution Pipeline?",
+      },
+      {
+        type: "p",
+        text: "A contribution pipeline is a data pipeline where new data arrives as a suggestion, not as a change. Contributions wait in a queue, the system checks them automatically, and a person decides what goes live. It's the same idea as a pull request for code, applied to data. At a high level, every piece of WIIMO data now takes the same path:",
+      },
+      {
+        type: "table",
+        headers: ["Step", "What happens", "Why it matters"],
+        rows: [
+          ["1. Collect", "Teammates run our scrapers on their own machines", "Works where the server was blocked"],
+          ["2. Submit", "Data is sent to WIIMO as a contribution, signed with that person's own access key", "We always know who sent what"],
+          ["3. Queue", "It lands in a pending queue - never directly in the live catalogue", "Nothing unchecked reaches users"],
+          ["4. Check", "The system scores how complete it is and tags the images", "Reviewers see what's missing at a glance"],
+          ["5. Review", "A reviewer, signed in with two-factor authentication, approves or rejects it", "A human decides what goes live"],
+          ["6. Publish", "Approved data becomes a product page on the website and the app", "Users only see reviewed data"],
+        ],
+      },
+      {
+        type: "h2",
+        text: "The Design Principles Behind It",
+      },
+      {
+        type: "p",
+        text: "Suggestions, not changes. Incoming data never edits the live catalogue directly. A bad batch costs a few clicks to reject instead of a cleanup job on production data.",
+      },
+      {
+        type: "p",
+        text: "Separate who proposes from who approves. Contributors and reviewers are different roles. Each contributor has their own revocable access key, every submission is recorded against it, and reviewers sign in with two-factor authentication - because approving data effectively decides what users read about their food.",
+      },
+      {
+        type: "p",
+        text: "Let machines do the boring checks. A human-in-the-loop pipeline only works if review is fast. The system scores each contribution for completeness - is there an ingredient list, a nutrition table, a front-of-pack photo? - and tags its images, so a reviewer opens a contribution already knowing whether it's ready.",
+      },
+      {
+        type: "p",
+        text: "Build for contributors you don't have yet. The pipeline doesn't care whether a contribution comes from a teammate or, one day, from a user. That was deliberate.",
+      },
+      {
+        type: "h2",
+        text: "What Changed After the Switch",
+      },
+      {
+        type: "p",
+        text: "Collection scaled horizontally. In production, we could only ever have run one scraper on one server. Now every teammate's machine can run scrapers at the same time, all feeding the same queue. Adding capacity means adding a contributor, not upgrading a server.",
+      },
+      {
+        type: "p",
+        text: "Data quality went up. Review turned out to be fast, and it catches things no scraper would. Reviewers reject items that aren't food at all - retail listings mix in plenty of those - along with blurry photos, half-loaded pages, and incomplete records. An unattended scraper would have published all of it.",
+      },
+      {
+        type: "p",
+        text: "We stopped fighting bot protection. Collection runs from ordinary connections where it already worked, so there's no workaround to maintain and no vendor bill.",
+      },
+      {
+        type: "p",
+        text: "And it still grows. WIIMO's catalogue has passed 8,300 products and 31,000 images, with new data reaching the live site only after review.",
+      },
+      {
+        type: "h2",
+        text: "The Trade-offs I Accepted",
+      },
+      {
+        type: "p",
+        text: "No design is free, and this one has real costs. Collection now depends on people choosing to run it, rather than a server running on its own. And every item passes through a reviewer, which means review capacity is the natural bottleneck as volume grows. I accepted both because the alternative - fully automatic data with nobody checking it - is a worse failure for a product people use to decide what they eat. The completeness scores and image tags exist precisely to keep that bottleneck small.",
+      },
+      {
+        type: "h2",
+        text: "What's Next: Contributions From Users",
+      },
+      {
+        type: "p",
+        text: "Today, teammates are the contributors. The next step is letting users suggest products too - someone who can't find a product on WIIMO should be able to add it. Because the pipeline already treats every contribution as a suggestion that needs approval, opening it to users is an extension of the same design rather than a rebuild. The questions shift from \"can we collect this?\" to \"how do we keep trust high as more people contribute?\" - which is exactly the kind of question this architecture was built to answer.",
+      },
+      {
+        type: "h2",
+        text: "Lessons for Anyone Building a Data Product",
+      },
+      {
+        type: "p",
+        text: "Test where you'll run, not just what you'll run. Our scraper was correct; our assumption about the production environment wasn't.",
+      },
+      {
+        type: "p",
+        text: "Don't outsource the part of your product that makes it valuable. A paid service would have solved collection, but it would also have taken control of our data quality. For WIIMO, that control is the product.",
+      },
+      {
+        type: "p",
+        text: "When automation fails, rethink who does the work before reaching for more tools. Moving collection to where it already worked was simpler, cheaper, and more scalable than any workaround.",
+      },
+      {
+        type: "p",
+        text: "Treat incoming data like incoming code. Suggestions go into a queue, someone accountable approves them, and there's a record of who did what.",
+      },
+      {
+        type: "h2",
+        text: "Frequently Asked Questions",
+      },
+      {
+        type: "h3",
+        text: "Why does a web scraper work locally but get blocked in production?",
+      },
+      {
+        type: "p",
+        text: "Bot protection like Cloudflare looks at where traffic comes from. Requests from a home or office connection look like a normal visitor; requests from a cloud server look automated, so they're far more likely to be blocked or answered with an error page - in our case, a 404.",
+      },
+      {
+        type: "h3",
+        text: "Is a paid scraping service better than building your own scraper?",
+      },
+      {
+        type: "p",
+        text: "It's faster to start, but you trade control and independence for convenience. If data quality is central to your product, owning collection - and checking everything before it goes live - is worth the extra effort.",
+      },
+      {
+        type: "h3",
+        text: "Doesn't human review slow a data pipeline down?",
+      },
+      {
+        type: "p",
+        text: "Only if reviewers do the machine's job. With automatic completeness scores and image tags, good contributions are approved quickly and attention goes only to the ones that need it.",
+      },
+      {
+        type: "p",
+        text: "Having our scraper blocked by Cloudflare felt like a setback at the time. In hindsight, it pushed WIIMO toward the architecture it needed all along: collection that scales with people, and trust that comes from review. You can see more of the work behind WIIMO on my [projects page](https://pritambag.in/projects/).",
+      },
+    ],
+  },
   {
     slug: "entity-meta-pattern-laravel",
     title: "Your Laravel App Keeps Growing Columns. WordPress Solved This 15 Years Ago.",

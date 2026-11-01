@@ -35,6 +35,7 @@ Currently at Iquester Solutions LLP (since March 2026) as primary developer on W
 
 ## Blog
 
+- "Scraper Blocked by Cloudflare? We Built a Contribution Pipeline" - why a web scraper that worked locally was blocked by Cloudflare in production, and how WIIMO replaced it with a human-reviewed contribution pipeline: https://pritambag.in/blog/scraper-blocked-by-cloudflare-contribution-pipeline
 - "Your Laravel App Keeps Growing Columns. WordPress Solved This 15 Years Ago." - architecture post on the Entity-Meta database pattern, pivot tables, and vertical scaling: https://pritambag.in/blog/entity-meta-pattern-laravel
 - "What Custom Dolibarr Work Teaches About Business Software" - lessons from ERP templates, modules, deployment work, and client-specific customization: https://pritambag.in/blog/custom-dolibarr-business-software
 
